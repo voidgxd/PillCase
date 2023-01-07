@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB539E8E296A11EE0028C660 /* CaseModel.swift */; };
+		AB539E91296A175F0028C660 /* PillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB539E90296A175F0028C660 /* PillModel.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
 		AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29D2968BC0600910504 /* RoundPill.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
 		AB6ED2A32968BC0700910504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */; };
-		AB6ED2AA2968C39E00910504 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* Case.swift */; };
+		AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* CaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB539E8E296A11EE0028C660 /* CaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseModel.swift; sourceTree = "<group>"; };
+		AB539E90296A175F0028C660 /* PillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillModel.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
 		AB6ED29D2968BC0600910504 /* RoundPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPill.swift; sourceTree = "<group>"; };
 		AB6ED29F2968BC0700910504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB6ED2A92968C39E00910504 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		AB6ED2A92968C39E00910504 /* CaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB539E8B296A11850028C660 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB539E8E296A11EE0028C660 /* CaseModel.swift */,
+				AB539E90296A175F0028C660 /* PillModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AB6ED28F2968BC0600910504 = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +66,10 @@
 		AB6ED29A2968BC0600910504 /* PillCase */ = {
 			isa = PBXGroup;
 			children = (
+				AB539E8B296A11850028C660 /* Models */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
 				AB6ED29D2968BC0600910504 /* RoundPill.swift */,
-				AB6ED2A92968C39E00910504 /* Case.swift */,
+				AB6ED2A92968C39E00910504 /* CaseView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				AB6ED2A12968BC0700910504 /* Preview Content */,
 			);
@@ -141,8 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */,
-				AB6ED2AA2968C39E00910504 /* Case.swift in Sources */,
+				AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
+				AB539E91296A175F0028C660 /* PillModel.swift in Sources */,
+				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import SwiftUI
 struct PillCaseApp: App {
     var body: some Scene {
         WindowGroup {
-            Case()
+            CaseView()
         }
     }
 }

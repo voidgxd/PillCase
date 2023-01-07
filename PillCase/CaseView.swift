@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Case: View {
+struct CaseView: View {
     var body: some View {
         VStack {
             
@@ -52,6 +52,6 @@ struct Case: View {
 
 struct Case_Previews: PreviewProvider {
     static var previews: some View {
-        Case()
+        CaseView()
     }
 }
