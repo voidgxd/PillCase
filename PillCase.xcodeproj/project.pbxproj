@@ -14,6 +14,11 @@
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
 		AB6ED2A32968BC0700910504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */; };
 		AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* CaseView.swift */; };
+		AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1D297583320016A54E /* CourseDayView.swift */; };
+		AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */; };
+		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
+		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
+		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		AB6ED29F2968BC0700910504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB6ED2A92968C39E00910504 /* CaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseView.swift; sourceTree = "<group>"; };
+		AB93BB1D297583320016A54E /* CourseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayView.swift; sourceTree = "<group>"; };
+		AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCurseView.swift; sourceTree = "<group>"; };
+		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
+		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +80,12 @@
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
 				AB6ED29D2968BC0600910504 /* RoundPill.swift */,
 				AB6ED2A92968C39E00910504 /* CaseView.swift */,
+				ABBCCC13296C96C20054127B /* SegmentView.swift */,
+				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
+				AB93BB1D297583320016A54E /* CourseDayView.swift */,
+				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
+				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
 				AB6ED2A12968BC0700910504 /* Preview Content */,
 			);
 			path = PillCase;
@@ -154,10 +169,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */,
+				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
+				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
 				AB539E91296A175F0028C660 /* PillModel.swift in Sources */,
+				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
+				AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */,
 				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
