@@ -11,9 +11,11 @@ struct CourseDayView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
-                .shadow(radius: 2)
+                
                 .frame(width: 46, height: 46)
                 .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.2), radius: 2, x:3, y: 3)
+                .shadow(color: .white.opacity(0.2),  radius: 8, x: -66, y: -16)
             VStack {
                 VStack (spacing: 2){
                     HStack (spacing: 2) {
@@ -47,6 +49,7 @@ struct CourseDayView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .frame(width: 50, height: 50)
+            
             
         }
         
