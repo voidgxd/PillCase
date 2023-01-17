@@ -19,6 +19,7 @@
 		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
 		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
 		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
+		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* CourseDayView.swift */,
 				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
+				ABFB106A2977373D00538F57 /* LetterView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
 				AB6ED2A12968BC0700910504 /* Preview Content */,
@@ -178,6 +181,7 @@
 				AB539E91296A175F0028C660 /* PillModel.swift in Sources */,
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
 				AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */,
+				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

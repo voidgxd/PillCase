@@ -35,8 +35,12 @@ struct SegmentView: View {
                 .frame(width: 150, height: 150)
                 .cornerRadius(40, corners: .topLeft)
                 .foregroundColor(color)
+                .overlay {
+//                    LetterView(color: color, shadowColor: shadowColor, letter: letter, degrees: degrees)
+                        
+                }
                 .rotationEffect(.degrees(degrees))
-            
+                
             
             if isEmpty {
                 EmptyContainerView(secondColor: secondColor, shadowColor: shadowColor)
@@ -44,7 +48,7 @@ struct SegmentView: View {
                 FilledContainerView(color: color,secondColor: secondColor, shadowColor: shadowColor)
             }
             
-                
+            
         }
         
     }
@@ -87,7 +91,16 @@ struct EmptyContainerView: View {
             .frame(width: 139, height: 139)
             .foregroundColor(secondColor)
             .shadow(color: shadowColor.opacity(0.5), radius: 4, x:4, y: 4)
-            .shadow(color: .white.opacity(0.38),  radius: 16, x: -16, y: -16)
+            .shadow(color: .white.opacity(0.2),  radius: 16, x: -16, y: -16)
+            .overlay {
+                RoundedRectangle(cornerRadius: 33, style: .continuous)
+                    .fill (
+                                                .shadow(.inner(color: .white.opacity(0.15), radius: 20, x: 18, y: 8))
+                    )
+                    .foregroundColor(secondColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 35))
+            }
+            
     }
 }
 
@@ -114,12 +127,32 @@ extension View {
     }
 }
 
+// Extension для внутренних теней текста
+
+extension Text {
+    func innerShadow<V: View>(_ background: V, radius: CGFloat = 5, offsetX: CGFloat = 5, offsetY: CGFloat = 5, opacity: Double = 0.7) -> some View {
+        self
+            .foregroundColor(.clear)
+            .overlay (background.mask(self))
+            .overlay(
+                ZStack {
+                    self.foregroundColor(Color (white: 1 - opacity))
+                    self.foregroundColor(.white).blur(radius: radius).offset(x: offsetX, y: offsetY)
+                }
+                    .mask(self)
+                    .blendMode (.multiply)
+            )
+    }
+}
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.night, degrees: 0, letter: "M", isEmpty: true)
+        SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.night, degrees: 0, letter: "M", isEmpty: false)
+        
     }
 }
+
+
 
 
 
