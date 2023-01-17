@@ -22,6 +22,7 @@ struct CaseView: View {
                                 LetterView(color: CustomColor.morning, shadowColor: CustomColor.morningShadow, letter: "M", degrees: 0, positionX: 142.5, positionY: 142)
                             }
                         
+                        
                         SegmentView(color: CustomColor.day, secondColor: CustomColor.daySecond, shadowColor: CustomColor.dayShadow, degrees: 90, letter: "D", isEmpty: true)
                             .overlay {
                                 LetterView(color: CustomColor.day, shadowColor: CustomColor.dayShadow, letter: "D", degrees: 0, positionX: 7.5, positionY: 142)
@@ -45,8 +46,9 @@ struct CaseView: View {
             .fixedSize(horizontal: false, vertical: false)
             Spacer()
         }
+        
     }
-
+        
 }
 
 struct Case_Previews: PreviewProvider {

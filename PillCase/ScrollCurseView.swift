@@ -10,7 +10,7 @@ import SwiftUI
 struct ScrollCurseView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack{
+            HStack(spacing: 20){
                 Spacer()
                 ExtractedView()
                 ExtractedView()
@@ -22,7 +22,8 @@ struct ScrollCurseView: View {
         
             }
         }
-        .frame(height: 120)
+        .frame(height: 160)
+        .background(CustomColor.backGroundColor)
         }
 
         
@@ -41,18 +42,17 @@ struct ExtractedView: View {
             Spacer()
             ZStack {
                 
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 16)
                     .frame(width: 120, height: 140)
-                    .foregroundColor(.gray)
                     .shadow(color: .black.opacity(0.3), radius: 4, x:4, y: 4)
-                    .shadow(color: .white.opacity(0.2),  radius: 8, x: -16, y: -16)
+                    .shadow(color: .white.opacity(0.99),  radius: 2, x: -5, y: -4)
                     .overlay {
                         RoundedRectangle(cornerRadius: 13, style: .continuous)
                             .fill (
-                                .shadow(.inner(color: .white.opacity(0.15), radius: 20, x: 18, y: 8))
+                                .shadow(.inner(color: .white.opacity(0.10), radius: 20, x: 18, y: 8))
                             )
-                            .foregroundColor(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .foregroundColor(CustomColor.backGroundColor)
+                            
                     }
                 VStack{
                     HStack{
@@ -68,6 +68,10 @@ struct ExtractedView: View {
                         VStack{
                             CourseDayView()
                             Spacer()
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            
                         }
                         
                     }

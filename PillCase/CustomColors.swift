@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CustomColor {
+    static let backGroundColor = Color("backgroundColor")
+    
+    
     static let morning = Color("morning")
     static let morningSecond = Color("morningSecond")
     static let morningShadow = Color("morningShadow")
