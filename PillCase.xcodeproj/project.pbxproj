@@ -13,7 +13,9 @@
 		AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29D2968BC0600910504 /* RoundPill.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
 		AB6ED2A32968BC0700910504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */; };
-		AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* CaseView.swift */; };
+		AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* TodayView.swift */; };
+		AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC0297893180049AC4B /* MedicationTimeView.swift */; };
+		AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC229789F230049AC4B /* MainTabView.swift */; };
 		AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1D297583320016A54E /* CourseDayView.swift */; };
 		AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */; };
 		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
@@ -30,7 +32,9 @@
 		AB6ED29D2968BC0600910504 /* RoundPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPill.swift; sourceTree = "<group>"; };
 		AB6ED29F2968BC0700910504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB6ED2A92968C39E00910504 /* CaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseView.swift; sourceTree = "<group>"; };
+		AB6ED2A92968C39E00910504 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		AB89FBC0297893180049AC4B /* MedicationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTimeView.swift; sourceTree = "<group>"; };
+		AB89FBC229789F230049AC4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB93BB1D297583320016A54E /* CourseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayView.swift; sourceTree = "<group>"; };
 		AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCurseView.swift; sourceTree = "<group>"; };
 		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
@@ -81,11 +85,13 @@
 				AB539E8B296A11850028C660 /* Models */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
 				AB6ED29D2968BC0600910504 /* RoundPill.swift */,
-				AB6ED2A92968C39E00910504 /* CaseView.swift */,
+				AB6ED2A92968C39E00910504 /* TodayView.swift */,
+				AB89FBC229789F230049AC4B /* MainTabView.swift */,
 				ABBCCC13296C96C20054127B /* SegmentView.swift */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* CourseDayView.swift */,
 				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
+				AB89FBC0297893180049AC4B /* MedicationTimeView.swift */,
 				ABFB106A2977373D00538F57 /* LetterView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
@@ -174,7 +180,8 @@
 			files = (
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */,
-				AB6ED2AA2968C39E00910504 /* CaseView.swift in Sources */,
+				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
+				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
@@ -182,6 +189,7 @@
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
 				AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
+				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,
 				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +327,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,6 +357,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

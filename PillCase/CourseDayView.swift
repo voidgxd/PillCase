@@ -15,7 +15,7 @@ struct CourseDayView: View {
                 .frame(width: 46, height: 46)
                 .foregroundColor(CustomColor.backGroundColor)
                 .shadow(color: .black.opacity(0.2), radius: 2, x:3, y: 3)
-                .shadow(color: .white.opacity(0.8),  radius: 2, x: -6, y: -6)
+                .shadow(color: .white.opacity(0.8),  radius: 2, x: -3, y: -3)
             VStack {
                 VStack (spacing: 2){
                     HStack (spacing: 2) {

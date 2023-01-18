@@ -44,8 +44,8 @@ struct ExtractedView: View {
                 
                 RoundedRectangle(cornerRadius: 16)
                     .frame(width: 120, height: 140)
-                    .shadow(color: .black.opacity(0.3), radius: 4, x:4, y: 4)
-                    .shadow(color: .white.opacity(0.99),  radius: 2, x: -5, y: -4)
+                    .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4)
+                    .shadow(color: .white.opacity(0.99),  radius: 3, x: -4, y: -4)
                     .overlay {
                         RoundedRectangle(cornerRadius: 13, style: .continuous)
                             .fill (
