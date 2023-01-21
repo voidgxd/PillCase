@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct CourseDayView: View {
+    var morningNumberOfPills: Int = 0
+    var dayNumberofPills: Int = 0
+    var eveningNumberOfPills: Int = 0
+    var nightNumberOfPills: Int = 0
+    
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
@@ -20,12 +26,14 @@ struct CourseDayView: View {
                 VStack (spacing: 2){
                     HStack (spacing: 2) {
                         HStack{
-                            CourseDaySegmentView(numberOfPillsInSection: 1)
+                            // morning
+                            CourseDaySegmentView(numberOfPillsInSection: morningNumberOfPills)
                                 .foregroundColor(CustomColor.morning)
                             
                         }
                         HStack{
-                            CourseDaySegmentView(numberOfPillsInSection: 2)
+                            // day
+                            CourseDaySegmentView(numberOfPillsInSection: dayNumberofPills)
                                 .foregroundColor(CustomColor.day)
                                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 360, z: 0))
                                 
@@ -34,12 +42,14 @@ struct CourseDayView: View {
                     }
                     HStack(spacing: 2) {
                         HStack{
-                            CourseDaySegmentView(numberOfPillsInSection: 1)
+                            // night
+                            CourseDaySegmentView(numberOfPillsInSection: nightNumberOfPills)
                                 .foregroundColor(CustomColor.night)
                                 .rotation3DEffect(.degrees(180), axis: (x: 360, y:0 , z: 0))
                         }
                         HStack{
-                            CourseDaySegmentView(numberOfPillsInSection: 3)
+                            // evening
+                            CourseDaySegmentView(numberOfPillsInSection: eveningNumberOfPills)
                                 .foregroundColor(CustomColor.evening)
                                 .rotationEffect(.degrees(180))
                         }

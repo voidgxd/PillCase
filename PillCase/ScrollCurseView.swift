@@ -12,12 +12,12 @@ struct ScrollCurseView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20){
                 Spacer()
-                ExtractedView()
-                ExtractedView()
-                ExtractedView()
-                ExtractedView()
-                ExtractedView()
-                ExtractedView()
+                CurseCardView()
+                CurseCardView()
+                CurseCardView()
+                CurseCardView()
+                CurseCardView()
+                CurseCardView()
                 Spacer()
         
             }
@@ -36,7 +36,7 @@ struct ScrollCurseView_Previews: PreviewProvider {
     }
 }
 
-struct ExtractedView: View {
+struct CurseCardView: View {
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
