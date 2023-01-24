@@ -21,14 +21,21 @@ struct DetailDayView: View {
            
                 
                 
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     DetalTimeOfTheDayView(timeOfTheDay: "Утро", color: CustomColor.morning)
+                    Divider()
                     DetalTimeOfTheDayView(timeOfTheDay: "День", color: CustomColor.day)
+                    Divider()
                     DetalTimeOfTheDayView(timeOfTheDay: "Вечер", color: CustomColor.evening)
+                    Divider()
                     DetalTimeOfTheDayView(timeOfTheDay: "Ночь", color: CustomColor.night)
+                    
                 }
                 
+
             }
+            Divider()
+
             Spacer()
         }
         .background(CustomColor.backGroundColor)
@@ -53,7 +60,7 @@ struct DetalTimeOfTheDayView: View {
                 
                     .frame(width: 320, height: 165)
                     .foregroundColor(CustomColor.backGroundColor)
-                    .shadow(color: .black.opacity(0.5), radius: 5, x:4, y: 4)
+                    .shadow(color: .black.opacity(0.3), radius: 2, x:3, y: 3)
                     .shadow(color: .white.opacity(0.5),  radius: 3, x: -6, y: -6)
                 Rectangle()
                     .frame(width: 320, height: 30)
@@ -84,11 +91,12 @@ struct DetalTimeOfTheDayView: View {
                         }
                     }
                     .padding(.top, 5.0)
-                    .padding([.trailing, .leading],  16)
+                    .padding([.trailing, .leading],  8)
                 }
                 
             }
-            .padding(16)
+            .frame(width: 320, height: 165)
+            .padding(15)
             
         }
     }
