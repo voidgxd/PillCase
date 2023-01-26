@@ -18,17 +18,15 @@ struct MainTabView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            DetailDayView()
+            CoursesView()
                 .tabItem {
                     Image(systemName: "pills.fill")
-                    Text("Course")
-                    
+                    Text("Courses")
                 }
-            ScrollCurseView()
+            DetailDayView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")
-                    
                 }
         }
         .tint(CustomColor.nightShadow)

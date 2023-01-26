@@ -102,16 +102,26 @@ struct TodayCardView: View {
                     }
                     Spacer()
                     Divider()
-                    ScrollView {
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Пенталгин 1шт - 2 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
+                    VStack {
+                        HStack(spacing: 2){
+                            Image(systemName: "pill")
+                            Text("Витамин Д 150мг - 3 р.")
+                        }
+                        HStack(spacing: 2){
+                            Image(systemName: "pill.fill")
+                            Text("Витамин Д 150мг - 3 р.")
+                        }
+                        HStack(spacing: 2){
+                            Image(systemName: "pill")
+                            Text("Витамин Д 150мг - 3 р.")
+                        }
+                        HStack(spacing: 2){
+                            Image(systemName: "pill.fill")
+                            Text("Витамин Д 150мг - 3 р.")
+                        }
+                        Spacer()
                     }
+                    .font(.system(size: 8, weight: .light, design: .default))
                     
                 }
                 

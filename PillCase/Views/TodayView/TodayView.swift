@@ -13,8 +13,8 @@ struct TodayView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Spacer()
                 Divider()
+                    .padding(.top, 20)
                 ScrollTodayView(dateDay: 21, dateMonth: "Ноябрь", morningNumberOfPills: 2, dayNumberOfPills: 4, eveningNumberOfPills: 1, nightNumberOfPills: 3)
                 Divider()
                 Spacer()

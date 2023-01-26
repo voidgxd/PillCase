@@ -13,7 +13,7 @@ struct MedicationTimeView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 
-                .frame(height: 120)
+                .frame(width: 360 ,height: 120)
                 .foregroundColor(CustomColor.backGroundColor)
 //                .shadow(color: .black.opacity(0.30), radius: 5, x: 9, y: 9)
 //                .shadow(color: .white.opacity(1),  radius: 4, x: -9, y: -9)
@@ -38,6 +38,7 @@ struct MedicationTimeView: View {
                     }
                 }
         }
+        
     }
 }
 

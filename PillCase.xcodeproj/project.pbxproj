@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42ECBB2983007D007B6A47 /* CoursesView.swift */; };
 		AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD2E297C38780019D7AF /* ScrollTodayView.swift */; };
 		AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD30297C4DBF0019D7AF /* PillView.swift */; };
 		AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD32297C51320019D7AF /* DetailDayView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB42ECBB2983007D007B6A47 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
 		AB4BAD2E297C38780019D7AF /* ScrollTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTodayView.swift; sourceTree = "<group>"; };
 		AB4BAD30297C4DBF0019D7AF /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		AB4BAD32297C51320019D7AF /* DetailDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayView.swift; sourceTree = "<group>"; };
@@ -96,7 +98,9 @@
 		AB68CBB7297FE3D5007AF62C /* CoursesView */ = {
 			isa = PBXGroup;
 			children = (
+				AB89FBC0297893180049AC4B /* MedicationTimeView.swift */,
 				AB68CBB8297FE3FA007AF62C /* ScrollCoursesView.swift */,
+				AB42ECBB2983007D007B6A47 /* CoursesView.swift */,
 			);
 			path = CoursesView;
 			sourceTree = "<group>";
@@ -130,7 +134,6 @@
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* CourseDayView.swift */,
 				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
-				AB89FBC0297893180049AC4B /* MedicationTimeView.swift */,
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
@@ -232,6 +235,7 @@
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
 				AB93BB1E297583320016A54E /* CourseDayView.swift in Sources */,
+				AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,
 				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
