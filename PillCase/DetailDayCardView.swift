@@ -50,7 +50,7 @@ struct DetailDayCardView: View {
                             
                             VStack{
                                 Spacer()
-                                CourseDayView()
+                                PillsDayView()
                                 Spacer()
                             }
                             .padding(5)

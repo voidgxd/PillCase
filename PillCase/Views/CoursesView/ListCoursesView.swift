@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ScrollCoursesView: View {
+struct ListCoursesView: View {
     // поменять на модель
     var courses:[String] = ["1", "2", "3"]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            CourseCardView(color: .blue, name: "Витамин Д", duration: 30, daysLeft: 23, pillType: (Image(systemName: "pill")), sumNumberOfPills: 4, intervalOfMedication: "через день")
-            CourseCardView(color: .green, name: "Витамин Д", duration: 7, daysLeft: 2, pillType: (Image(systemName: "pill")), sumNumberOfPills: 4, intervalOfMedication: "через день")
-            CourseCardView(color: .red, name: "Витамин Д", duration: 21, daysLeft: 18, pillType: (Image(systemName: "pill")), sumNumberOfPills: 4, intervalOfMedication: "через день")
+            CourseCardView(color: .blue, name: "Витамин Д", duration: 30, daysLeft: 23, pillType: (Image("Pill1")), dose: 10000, unitOfMeasurement: "МЕ", sumNumberOfPills: 2, intervalOfMedication: "каждый день", morning: true, evening: true)
+            CourseCardView(color: .green, name: "Актовегин", duration: 7, daysLeft: 2, pillType: (Image("Pill3")), dose: 200, unitOfMeasurement: "мг", sumNumberOfPills: 3, intervalOfMedication: "каждый день", morning: true, day: true, evening: true)
+            CourseCardView(color: .red, name: "Омега 3", duration: 21, daysLeft: 18, pillType: (Image("RoundPill4")), dose: 300, unitOfMeasurement: "мг", sumNumberOfPills: 2, intervalOfMedication: "каждый день", morning: true, night: true)
            
             if courses.count < 4 {
                 AddNewCourseSubView()
@@ -28,7 +28,7 @@ struct ScrollCoursesView: View {
 
 struct ScrollCoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollCoursesView()
+        ListCoursesView()
     }
 }
 
@@ -39,12 +39,14 @@ struct CourseCardView: View {
     var duration: Int
     var daysLeft: Int
     var pillType: Image
+    var dose: Int
+    var unitOfMeasurement: String
     var sumNumberOfPills: Int
     var intervalOfMedication: String
-    var morningNumberOfPills: Int = 0
-    var dayNumberOfPills: Int = 0
-    var eveningNumberOfPills: Int = 0
-    var nightNumberOfPIlls: Int = 0
+    var morning: Bool = false
+    var day: Bool = false
+    var evening: Bool = false
+    var night: Bool = false
     
     var body: some View {
         ZStack {
@@ -58,7 +60,7 @@ struct CourseCardView: View {
                 
                 Spacer()
                 HStack(spacing: 0) {
-                    HStack {
+                    HStack(spacing: 0) {
                     
                     ZStack{
                         
@@ -87,12 +89,15 @@ struct CourseCardView: View {
                                     .foregroundColor(color)
                                 
                                 pillType
+                                    .resizable()
+                                        .frame(width: 32.0, height: 32.0)
                                     .foregroundColor(.white)
+                                    
                             }
                         Circle()
                             .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration))                                          .stroke(
                                 color,
-                                lineWidth: 12)
+                                lineWidth: 13)
                             .frame(width: 59)
                             .rotationEffect(.degrees(-90))
                     }
@@ -101,37 +106,47 @@ struct CourseCardView: View {
                     VStack{
                         Text("Дней осталось: ")
                             .font(.system(size: 10, weight: .semibold, design: .default))
+                            .fixedSize(horizontal: false, vertical: false)
                             .foregroundColor(.gray)
                         Text(String(daysLeft))
                             .font(.system(size: 46, weight: .bold, design: .default))
                     }
                 }
-                    .padding(.leading)
+                    .padding(.leading, 0)
                     .frame(width: 178)
                     Divider()
+                        
+                    
+                        
                     HStack {
-                        HStack{
-                            VStack{
+                        
+                        HStack(spacing: 1){
+                            VStack(spacing: 3){
+                                
                                 Image(systemName: "cross.vial.fill")
-                                Image(systemName: "number.circle.fill")
+                                Image(systemName: "hockey.puck.fill")
                                 Image(systemName: "timer.circle.fill")
                             }
+                            .padding(.leading, 4)
                             .font(.system(size: 12))
                             .foregroundColor(color)
-                            VStack(alignment: .leading) {
-                                Text("250 мг.")
-                                Text("1 раз в день")
+                            
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text("\(dose) \(unitOfMeasurement)")
+                                Text("\(sumNumberOfPills) р.")
                                 Text(intervalOfMedication)
                             }
                             .font(.system(size: 12))
                             
                         }
-                        .padding(.leading, 0)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         
                         .font(.system(size: 10, weight: .light, design: .default))
                         .foregroundColor(.gray)
-                        CourseDayView(morningNumberOfPills: 1, dayNumberofPills: 0, eveningNumberOfPills: 2, nightNumberOfPills: 1)
-                            .padding(.leading)
+                        
+                    
+                        CourseDayView(morning: morning, day: day, evening: evening, night: night)
+                            .padding(.trailing, 10)
                     }
                     .frame(width: 178)
                 }

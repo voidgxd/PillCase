@@ -13,13 +13,13 @@ struct CoursesView: View {
             VStack() {
                 Divider()
                     .padding(.top, 20)
-                ScrollTodayView(dateDay: 21, dateMonth: "Ноябрь", morningNumberOfPills: 2, dayNumberOfPills: 4, eveningNumberOfPills: 1, nightNumberOfPills: 3)
+                ScrollCurseView()
                 Spacer()
                 Divider()
                 
                 VStack(spacing: 0) {
                     VStack{
-                        ScrollCoursesView()
+                        ListCoursesView()
                     }
                     
                     Divider()

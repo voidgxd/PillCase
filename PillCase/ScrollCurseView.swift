@@ -12,12 +12,11 @@ struct ScrollCurseView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20){
                 Spacer()
-                CurseCardView()
-                CurseCardView()
-                CurseCardView()
-                CurseCardView()
-                CurseCardView()
-                CurseCardView()
+                CurseCardView(month: "Декабрь", day: "01", morningNumberOfPills: 3, dayNumberofPills: 1, eveningNumberOfPills: 2, nightNumberOfPills: 1, image1: Image("Pill1"), image2: Image("Pill3"), image3: Image("RoundPill4"), course1: "Витамин Д", course2: "Актовегин", course3: "Омега 3")
+                CurseCardView(month: "Декабрь", day: "02", morningNumberOfPills: 3, dayNumberofPills: 1, eveningNumberOfPills: 2, nightNumberOfPills: 1, image1: Image("Pill1"), image2: Image("Pill3"), image3: Image("RoundPill4"), course1: "Витамин Д", course2: "Актовегин", course3: "Омега 3")
+                CurseCardView(month: "Декабрь", day: "03", morningNumberOfPills: 3, dayNumberofPills: 1, eveningNumberOfPills: 2, nightNumberOfPills: 1, image1: Image("Pill1"), image2: Image("Pill3"), image3: Image("RoundPill4"), course1: "Витамин Д", course2: "Актовегин", course3: "Омега 3")
+                CurseCardView(month: "Декабрь", day: "04", morningNumberOfPills: 3, dayNumberofPills: 1, eveningNumberOfPills: 2, nightNumberOfPills: 1, image1: Image("Pill1"), image2: Image("Pill3"), image3: Image("RoundPill4"), course1: "Витамин Д", course2: "Актовегин", course3: "Омега 3")
+           
                 Spacer()
         
             }
@@ -37,6 +36,22 @@ struct ScrollCurseView_Previews: PreviewProvider {
 }
 
 struct CurseCardView: View {
+    
+    var month: String
+    var day: String
+    var morningNumberOfPills: Int = 0
+    var dayNumberofPills: Int = 0
+    var eveningNumberOfPills: Int = 0
+    var nightNumberOfPills: Int = 0
+    var image1: Image
+    var image2: Image
+    var image3: Image
+    var course1: String
+    var course2: String
+    var course3: String
+    
+    
+    
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
@@ -57,16 +72,16 @@ struct CurseCardView: View {
                 VStack{
                     HStack{
                         VStack {
-                            Text("Декабрь")
+                            Text(month)
                                 .font(.system(size: 12, weight: .semibold, design: .default))
                                 .foregroundColor(.gray)
-                            Text("01")
+                            Text(day)
                                 .font(.system(size: 48, weight: .medium, design: .default))
                             Spacer()
                             
                         }
                         VStack{
-                            CourseDayView()
+                            PillsDayView(morningNumberOfPills: morningNumberOfPills, dayNumberofPills: dayNumberofPills, eveningNumberOfPills: eveningNumberOfPills, nightNumberOfPills: nightNumberOfPills)
                             Spacer()
                             Spacer()
                             Spacer()
@@ -76,16 +91,57 @@ struct CurseCardView: View {
                         
                     }
                     Divider()
-                    ScrollView {
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Пенталгин 1шт - 2 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
-                        Text("Витамин Д 150мг - 3 р.")
-                            .font(.system(size: 8, weight: .light, design: .default))
+                    HStack(spacing: 4) {
+                        VStack(spacing: 1) {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(.blue)
+                                
+                                image1
+                                    .resizable()
+                                    .frame(width: 10, height: 10)
+                                
+                            }
+                            
+                            
+                            ZStack {
+                                Circle()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(.green)
+                                
+                                image2
+                                    .resizable()
+                                .frame(width: 10, height: 10)}
+                            
+                        
+                            ZStack {
+                                Circle()
+                                    .frame(width: 12, height: 12)
+                                    .foregroundColor(.red)
+                                
+                                image3
+                                    .resizable()
+                                    .frame(width: 10, height: 10)
+                                
+                            }
+                        
                     }
+                        
+                        VStack(alignment: .leading, spacing: 4){
+                            Text(course1)
+                            Text(course2)
+                            Text(course3)
+                        }
+                        .padding(.leading, 0)
+                    }
+                    
+                    
+                    
+                        
+                    
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 8, weight: .light, design: .default))
                     
                 }
                 .padding(5)

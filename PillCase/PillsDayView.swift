@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseDayView: View {
+struct PillsDayView: View {
     var morningNumberOfPills: Int = 0
     var dayNumberofPills: Int = 0
     var eveningNumberOfPills: Int = 0
@@ -105,9 +105,9 @@ struct PillRectangle: View {
     }
 }
 
-struct CourseDayView_Previews: PreviewProvider {
+struct PillsDayView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDayView()
+        PillsDayView()
         
             
         
