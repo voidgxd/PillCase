@@ -16,14 +16,14 @@ struct MainTabView: View {
             TodayView()
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Home")
+                    Text("Today")
                 }
             CoursesView()
                 .tabItem {
                     Image(systemName: "pills.fill")
                     Text("Courses")
                 }
-            DetailDayView()
+            NewCourseView()
                 .tabItem {
                     Image(systemName: "calendar")
                     Text("Calendar")
