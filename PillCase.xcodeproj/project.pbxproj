@@ -14,19 +14,18 @@
 		AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD30297C4DBF0019D7AF /* PillView.swift */; };
 		AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD32297C51320019D7AF /* DetailDayView.swift */; };
 		AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */; };
-		AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB539E8E296A11EE0028C660 /* CaseModel.swift */; };
-		AB539E91296A175F0028C660 /* PillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB539E90296A175F0028C660 /* PillModel.swift */; };
 		AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
-		AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29D2968BC0600910504 /* RoundPill.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
 		AB6ED2A32968BC0700910504 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */; };
 		AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* TodayView.swift */; };
+		AB77BE412990049F005927A2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77BE402990049F005927A2 /* CalendarView.swift */; };
 		AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC0297893180049AC4B /* MedicationTimeView.swift */; };
 		AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC229789F230049AC4B /* MainTabView.swift */; };
 		AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1D297583320016A54E /* PillsDayView.swift */; };
 		AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */; };
 		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
+		AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */; };
 		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
 		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
 		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
@@ -40,20 +39,19 @@
 		AB4BAD30297C4DBF0019D7AF /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		AB4BAD32297C51320019D7AF /* DetailDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayView.swift; sourceTree = "<group>"; };
 		AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayCardView.swift; sourceTree = "<group>"; };
-		AB539E8E296A11EE0028C660 /* CaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseModel.swift; sourceTree = "<group>"; };
-		AB539E90296A175F0028C660 /* PillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillModel.swift; sourceTree = "<group>"; };
 		AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoursesView.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
-		AB6ED29D2968BC0600910504 /* RoundPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPill.swift; sourceTree = "<group>"; };
 		AB6ED29F2968BC0700910504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB6ED2A92968C39E00910504 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		AB77BE402990049F005927A2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		AB89FBC0297893180049AC4B /* MedicationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTimeView.swift; sourceTree = "<group>"; };
 		AB89FBC229789F230049AC4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AB93BB1D297583320016A54E /* PillsDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDayView.swift; sourceTree = "<group>"; };
 		AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCurseView.swift; sourceTree = "<group>"; };
 		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
+		AB9E4D9929941C60007906FD /* Pill.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill.xcdatamodel; sourceTree = "<group>"; };
 		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
@@ -95,8 +93,7 @@
 		AB539E8B296A11850028C660 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AB539E8E296A11EE0028C660 /* CaseModel.swift */,
-				AB539E90296A175F0028C660 /* PillModel.swift */,
+				AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +105,7 @@
 				AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */,
 				AB2EE546298845A900970390 /* CourseDayView.swift */,
 				AB42ECBB2983007D007B6A47 /* CoursesView.swift */,
+				AB2D0A35298C08DE00718E8A /* NewCourseView.swift */,
 			);
 			path = CoursesView;
 			sourceTree = "<group>";
@@ -133,10 +131,9 @@
 			children = (
 				AB539E8B296A11850028C660 /* Models */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
-				AB6ED29D2968BC0600910504 /* RoundPill.swift */,
 				AB4BAD34297C53E20019D7AF /* Views */,
 				AB89FBC229789F230049AC4B /* MainTabView.swift */,
-				AB2D0A35298C08DE00718E8A /* NewCourseView.swift */,
+				AB77BE42299009D5005927A2 /* Calendar */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
 				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
@@ -154,6 +151,14 @@
 				AB6ED2A22968BC0700910504 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AB77BE42299009D5005927A2 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				AB77BE402990049F005927A2 /* CalendarView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,17 +233,17 @@
 			files = (
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */,
-				AB6ED29E2968BC0600910504 /* RoundPill.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
+				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
+				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				AB2EE547298845A900970390 /* CourseDayView.swift in Sources */,
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
-				AB539E91296A175F0028C660 /* PillModel.swift in Sources */,
 				AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */,
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
@@ -246,7 +251,6 @@
 				AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,
-				AB539E8F296A11EE0028C660 /* CaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +457,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB9E4D9929941C60007906FD /* Pill.xcdatamodel */,
+			);
+			currentVersion = AB9E4D9929941C60007906FD /* Pill.xcdatamodel */;
+			path = PillModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB6ED2902968BC0600910504 /* Project object */;
 }

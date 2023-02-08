@@ -48,8 +48,8 @@ struct NewCourseView: View {
                             }
                         }
                         Divider()
-                        HStack{
-                            ColorPicker("", selection: $selectedColor)
+                        HStack(){
+                            
                             VStack(alignment: .trailing, spacing: 0){
                                     
                                 Picker("", selection: $selectedPillType) {
@@ -61,7 +61,7 @@ struct NewCourseView: View {
                                     }
                                     
                                 }
-                                .padding(-10)
+                                .frame(width: 80, height: 60)
                                 .pickerStyle(.wheel)
                                 .colorMultiply(selectedColor)
                                 
@@ -69,7 +69,7 @@ struct NewCourseView: View {
                                 
                             }
                             .frame(height: 35)
-                            
+                            ColorPicker("", selection: $selectedColor)
                         }
                         
                     }
