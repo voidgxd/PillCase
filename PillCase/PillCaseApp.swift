@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PillCaseApp: App {
+    
+    let coreDataManager = CoreDataManager.shared
+    
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainTabView().environment(\.managedObjectContext, coreDataManager.context)
         }
     }
 }

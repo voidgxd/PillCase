@@ -28,6 +28,9 @@
 		AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */; };
 		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
 		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
+		ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */; };
+		ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563B29954A9000D5D220 /* CoreDataManager.swift */; };
+		ABDB563E2995566200D5D220 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563D2995566200D5D220 /* TestView.swift */; };
 		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,9 @@
 		AB9E4D9929941C60007906FD /* Pill.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill.xcdatamodel; sourceTree = "<group>"; };
 		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseViewModel.swift; sourceTree = "<group>"; };
+		ABDB563B29954A9000D5D220 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		ABDB563D2995566200D5D220 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,7 @@
 				AB2EE546298845A900970390 /* CourseDayView.swift */,
 				AB42ECBB2983007D007B6A47 /* CoursesView.swift */,
 				AB2D0A35298C08DE00718E8A /* NewCourseView.swift */,
+				ABDB563D2995566200D5D220 /* TestView.swift */,
 			);
 			path = CoursesView;
 			sourceTree = "<group>";
@@ -129,10 +136,12 @@
 		AB6ED29A2968BC0600910504 /* PillCase */ = {
 			isa = PBXGroup;
 			children = (
-				AB539E8B296A11850028C660 /* Models */,
+				ABDB563B29954A9000D5D220 /* CoreDataManager.swift */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
-				AB4BAD34297C53E20019D7AF /* Views */,
 				AB89FBC229789F230049AC4B /* MainTabView.swift */,
+				AB539E8B296A11850028C660 /* Models */,
+				AB4BAD34297C53E20019D7AF /* Views */,
+				ABDB56382995437500D5D220 /* ViewModel */,
 				AB77BE42299009D5005927A2 /* Calendar */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
@@ -159,6 +168,14 @@
 				AB77BE402990049F005927A2 /* CalendarView.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		ABDB56382995437500D5D220 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,9 +254,11 @@
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
+				ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
+				ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */,
 				AB2EE547298845A900970390 /* CourseDayView.swift in Sources */,
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
@@ -248,6 +267,7 @@
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
 				AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */,
+				ABDB563E2995566200D5D220 /* TestView.swift in Sources */,
 				AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,

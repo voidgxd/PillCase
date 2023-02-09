@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewCourseView: View {
+    @ObservedObject var viewModel = NewCourseViewModel()
     @State var name: String = ""
     
     let colors: [Color] = [.blue, .green, .red, .yellow]
@@ -22,6 +23,8 @@ struct NewCourseView: View {
     @State var selectedUnit = "мг"
     
     @State var quantity = 1
+    
+    @State var id = UUID()
     
     @State var morning = false
     @State var day = false
@@ -145,7 +148,7 @@ struct NewCourseView: View {
                 HStack{
                     Spacer()
                     Button("Создать курс") {
-                        
+                        self.viewModel.createPill(courseName: self.name, date: .now, day: self.day, dose: self.dose, evening: self.evening, id: self.id, morning: self.morning, night: self.night, quantity: self.quantity, type: self.selectedPillType, unit: self.selectedUnit)
                     }
                     Spacer()
                 }

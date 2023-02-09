@@ -28,6 +28,11 @@ struct MainTabView: View {
                     Image(systemName: "calendar")
                     Text("Calendar")
                 }
+            TestView()
+                .tabItem {
+                    Image(systemName: "hockey.puck.fill")
+                    Text("Test")
+                }
         }
         .tint(CustomColor.nightShadow)
     }
