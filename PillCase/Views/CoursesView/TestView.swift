@@ -10,6 +10,14 @@ import SwiftUI
 struct TestView: View {
 //    @ObservedObject var viewModel: NewCourseViewModel
     
+    let date = Date()
+        let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy"
+            return formatter
+        }()
+
+    
 // MARK: Возможный вариант
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Pill.courseName, ascending: true)],
@@ -24,9 +32,11 @@ struct TestView: View {
                 ForEach(pills) { pill in
                     VStack{
                         HStack{
+                            Text(dateFormatter.string(from: pill.date ?? Date.now))
                             Text(pill.courseName ?? "")
                             Text(pill.dose ?? "")
                             Text(pill.unit ?? "")
+                            Text(pill.timeOfDay ?? "hz")
                         }
                     }
                 }

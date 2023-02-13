@@ -22,7 +22,6 @@ struct NewCourseView: View {
     let units = ["г","мг", "мл", "МЕ"]
     @State var selectedUnit = "мг"
     
-    @State var quantity = 1
     
     @State var id = UUID()
     
@@ -33,11 +32,13 @@ struct NewCourseView: View {
     
     @State var numberOfIntakes = 0
     
-    let courseDurations = ["1 день", "2 дня", "3 дня", "4 дня", "5 дней", "6 дней", "1 неделя", "10 дней", "2 недели", "3 недели", "1 месяц", "2 месяца", "3 месяца"]
-    @State var selectedCourseDuration: String = "1 неделя"
+   
+    @State var selectedCourseDuration: Int = 14
     
     let regimen = ["каждый день", "через день", "раз в 3 дня", "раз в неделю"]
     @State var selectedRegimen = "каждый день"
+    
+    @State var startDate: Date = .now
     
     var body: some View {
         NavigationStack {
@@ -54,7 +55,7 @@ struct NewCourseView: View {
                         HStack(){
                             
                             VStack(alignment: .trailing, spacing: 0){
-                                    
+                                
                                 Picker("", selection: $selectedPillType) {
                                     ForEach(pillsType, id: \.self) {
                                         Image($0)
@@ -93,13 +94,12 @@ struct NewCourseView: View {
                                 }
                             }
                             .frame(width: 90, height: 20)
-                            .pickerStyle(.automatic)
+                            .pickerStyle(.menu)
                             
                             
                             
                         }
-                        Divider()
-                        Stepper("\(quantity) шт", value: $quantity, in: 1...10)
+                        
                     }
                 }
                 Section(header: Text("Время приема")) {
@@ -129,13 +129,13 @@ struct NewCourseView: View {
                 
                 Section(header: Text("Длительность курса и режим приема")) {
                     HStack{
-                        Picker("", selection: $selectedCourseDuration) {
-                            ForEach(courseDurations, id: \.self) {
-                                Text($0)
-                                
+                        Picker("Дней:", selection: $selectedCourseDuration) {
+                            ForEach(1..<91) { number in
+                                Text("\(number)")
                             }
                             
                         }
+                       
                         
                         Picker("", selection: $selectedRegimen) {
                             ForEach(regimen, id: \.self) {
@@ -143,19 +143,31 @@ struct NewCourseView: View {
                                 
                             }
                         }
+                        
                     }
+                    .pickerStyle(.menu)
                 }
+                Section(header: Text("Дата начала курса")) {
+                    HStack{
+                        DatePicker("Первый день:", selection: $startDate, displayedComponents: [.date])
+                            .datePickerStyle(.automatic)
+                        
+                    }
+                    
+                }
+                
                 HStack{
                     Spacer()
                     Button("Создать курс") {
-                        self.viewModel.createPill(courseName: self.name, date: .now, day: self.day, dose: self.dose, evening: self.evening, id: self.id, morning: self.morning, night: self.night, quantity: self.quantity, type: self.selectedPillType, unit: self.selectedUnit)
+                        self.viewModel.createPillCourse(courseName: self.name, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                        
                     }
                     Spacer()
                 }
                 
-                       
-                        
-                    
+                
+                
+                
                 
                 
                 
@@ -164,7 +176,7 @@ struct NewCourseView: View {
             }
             .navigationBarTitle("Новый курс")
             .navigationBarTitleDisplayMode(.inline)
-            
+        
         }
         .tint(selectedColor)
         
@@ -173,6 +185,6 @@ struct NewCourseView: View {
 
 struct NewCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCourseView()
+        NewCourseView(startDate: .now)
     }
 }
