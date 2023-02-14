@@ -9,7 +9,9 @@ import SwiftUI
 
 struct TodayView: View {
     
+    @ObservedObject var viewModel = TodayViewModel()
     
+
     var body: some View {
         NavigationStack {
             VStack {

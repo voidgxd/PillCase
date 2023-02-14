@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D0A35298C08DE00718E8A /* NewCourseView.swift */; };
 		AB2EE547298845A900970390 /* CourseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE546298845A900970390 /* CourseDayView.swift */; };
+		AB3E5E61299BFB3C0043042C /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */; };
+		AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E62299C01480043042C /* PillsOfSegmentView.swift */; };
+		AB3E5E65299C060D0043042C /* TestArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E64299C060D0043042C /* TestArray.swift */; };
 		AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42ECBB2983007D007B6A47 /* CoursesView.swift */; };
 		AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD2E297C38780019D7AF /* ScrollTodayView.swift */; };
 		AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD30297C4DBF0019D7AF /* PillView.swift */; };
@@ -37,6 +40,9 @@
 /* Begin PBXFileReference section */
 		AB2D0A35298C08DE00718E8A /* NewCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseView.swift; sourceTree = "<group>"; };
 		AB2EE546298845A900970390 /* CourseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayView.swift; sourceTree = "<group>"; };
+		AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
+		AB3E5E62299C01480043042C /* PillsOfSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsOfSegmentView.swift; sourceTree = "<group>"; };
+		AB3E5E64299C060D0043042C /* TestArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArray.swift; sourceTree = "<group>"; };
 		AB42ECBB2983007D007B6A47 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
 		AB4BAD2E297C38780019D7AF /* ScrollTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTodayView.swift; sourceTree = "<group>"; };
 		AB4BAD30297C4DBF0019D7AF /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 			children = (
 				AB6ED2A92968C39E00910504 /* TodayView.swift */,
 				ABBCCC13296C96C20054127B /* SegmentView.swift */,
+				AB3E5E62299C01480043042C /* PillsOfSegmentView.swift */,
 				AB4BAD2E297C38780019D7AF /* ScrollTodayView.swift */,
 				ABFB106A2977373D00538F57 /* LetterView.swift */,
 				AB4BAD32297C51320019D7AF /* DetailDayView.swift */,
@@ -149,6 +156,7 @@
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
+				AB3E5E64299C060D0043042C /* TestArray.swift */,
 				AB6ED2A12968BC0700910504 /* Preview Content */,
 			);
 			path = PillCase;
@@ -174,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */,
+				AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,11 +260,13 @@
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
+				AB3E5E65299C060D0043042C /* TestArray.swift in Sources */,
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
 				ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
+				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */,
@@ -268,6 +279,7 @@
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
 				AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */,
 				ABDB563E2995566200D5D220 /* TestView.swift in Sources */,
+				AB3E5E61299BFB3C0043042C /* TodayViewModel.swift in Sources */,
 				AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,
