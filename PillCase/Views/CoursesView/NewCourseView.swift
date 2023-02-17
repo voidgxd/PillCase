@@ -160,7 +160,8 @@ struct NewCourseView: View {
                     Spacer()
                     Button("Создать курс") {
                         self.viewModel.createPillCourse(courseName: self.name, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
-                        
+                        print("кнопка")
+                        print(viewModel.pills)
                     }
                     Spacer()
                 }

@@ -38,7 +38,7 @@ class NewCourseViewModel: ObservableObject {
         for i in 0..<selectedCourseDuration {
             switch selectedRegimen {
             case "каждый день":
-                
+                createPill(courseName: courseName, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "через день":
                 if i % 2 == 0 {
@@ -59,11 +59,13 @@ class NewCourseViewModel: ObservableObject {
                 break
             }
         }
+        
     }
     
     
-#warning("зарефакторить функцию")
+//#warning("зарефакторить функцию")
     func createPill(courseName: String, date: Date, day: Bool, dose: String, evening: Bool, id: UUID, morning: Bool, night: Bool, type: String, unit: String, startDate: Date) {
+        
       if morning {
         let pill = Pill(context: context)
         pill.courseName = courseName
@@ -139,6 +141,7 @@ class NewCourseViewModel: ObservableObject {
           print("Failed to save pill: \(error)")
         }
       }
+        
     }
     
     func update() {

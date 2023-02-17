@@ -17,7 +17,7 @@ struct TodayView: View {
             VStack {
                 Divider()
                     .padding(.top, 20)
-                ScrollTodayView(dateDay: 21, dateMonth: "Ноябрь", morningNumberOfPills: 2, dayNumberOfPills: 4, eveningNumberOfPills: 1, nightNumberOfPills: 3)
+                ScrollTodayView(dateDay: viewModel.dateToInt(.now), dateMonth: "Ноябрь", morningNumberOfPills: viewModel.morning.count, dayNumberOfPills: viewModel.day.count, eveningNumberOfPills: viewModel.evening.count, nightNumberOfPills: viewModel.night.count)
                 Divider()
                 Spacer()
 
@@ -31,30 +31,40 @@ struct TodayView: View {
                     
                     VStack {
                         VStack (spacing: 0) {
+                            
                             HStack (spacing: 0) {
+                                ZStack {
+                                    SegmentView(color: CustomColor.morning, secondColor: CustomColor.morningSecond, shadowColor: CustomColor.morningShadow, degrees: 0, letter: "M", isEmpty: viewModel.morning.isEmpty)
+                                        .overlay {
+                                            LetterView(color: CustomColor.morning, shadowColor: CustomColor.morningShadow, letter: "M", degrees: 0, positionX: 142.5, positionY: 142)
+                                        }
+                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.morning)
+                                }
                                 
-                                SegmentView(color: CustomColor.morning, secondColor: CustomColor.morningSecond, shadowColor: CustomColor.morningShadow, degrees: 0, letter: "M", isEmpty: false)
-                                    .overlay {
-                                        LetterView(color: CustomColor.morning, shadowColor: CustomColor.morningShadow, letter: "M", degrees: 0, positionX: 142.5, positionY: 142)
-                                    }
-                                
-                                
-                                SegmentView(color: CustomColor.day, secondColor: CustomColor.daySecond, shadowColor: CustomColor.dayShadow, degrees: 90, letter: "D", isEmpty: true)
-                                    .overlay {
-                                        LetterView(color: CustomColor.day, shadowColor: CustomColor.dayShadow, letter: "D", degrees: 0, positionX: 7.5, positionY: 142)
-                                    }
-                                
+                                ZStack {
+                                    SegmentView(color: CustomColor.day, secondColor: CustomColor.daySecond, shadowColor: CustomColor.dayShadow, degrees: 90, letter: "D", isEmpty: viewModel.day.isEmpty)
+                                        .overlay {
+                                            LetterView(color: CustomColor.day, shadowColor: CustomColor.dayShadow, letter: "D", degrees: 0, positionX: 7.5, positionY: 142)
+                                        }
+                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.day)
+                                }
                                 
                             }
                             HStack (spacing: 0) {
-                                SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.nightShadow, degrees: -90, letter: "N", isEmpty: true)
-                                    .overlay {
-                                        LetterView(color: CustomColor.night, shadowColor: CustomColor.nightShadow, letter: "N", degrees: 0, positionX: 142.5, positionY: 8)
-                                    }
-                                SegmentView(color: CustomColor.evening, secondColor: CustomColor.eveningSecond, shadowColor: CustomColor.eveningShadow, degrees: 180, letter: "E", isEmpty: false)
-                                    .overlay {
-                                        LetterView(color: CustomColor.evening, shadowColor: CustomColor.eveningShadow, letter: "E", degrees: 0, positionX: 7.5, positionY: 8)
-                                    }
+                                ZStack{
+                                    SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.nightShadow, degrees: -90, letter: "N", isEmpty: viewModel.night.isEmpty)
+                                        .overlay {
+                                            LetterView(color: CustomColor.night, shadowColor: CustomColor.nightShadow, letter: "N", degrees: 0, positionX: 142.5, positionY: 8)
+                                        }
+                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.night)
+                                }
+                                ZStack {
+                                    SegmentView(color: CustomColor.evening, secondColor: CustomColor.eveningSecond, shadowColor: CustomColor.eveningShadow, degrees: 180, letter: "E", isEmpty: viewModel.evening.isEmpty)
+                                        .overlay {
+                                            LetterView(color: CustomColor.evening, shadowColor: CustomColor.eveningShadow, letter: "E", degrees: 0, positionX: 7.5, positionY: 8)
+                                        }
+                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.evening)
+                                }
                             }
                         }
                     }
@@ -80,6 +90,8 @@ struct TodayView: View {
                         )
                         .font(.system(size: 22, weight: .bold))
                     }
+                    
+                    
                 }
                 ToolbarItem(placement: .principal) {
                     HStack {
@@ -88,19 +100,32 @@ struct TodayView: View {
                             .foregroundColor(.white)
                     }
                 }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
+                    
                     Button {
                         
                     } label: {
-                        Image(systemName: "pills.circle").foregroundColor(.white
-                        )
-                        .font(.system(size: 22, weight: .bold))
-                    }
+                        
+                            Image(systemName: "pills.circle").foregroundColor(.white
+                            )
+                            .font(.system(size: 22, weight: .bold))
+                        }
+                    
+                    
                 }
                 
+                
+                
             }
+            .onAppear {
+                        viewModel.fetchTodayPills()
+                        viewModel.sortPillsByTimeOfDay()
+                    }
             .background(CustomColor.backGroundColor)
+            
         }
+        
         
     }
 }
