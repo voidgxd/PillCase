@@ -5,14 +5,19 @@
 //  Created by Максим Мосалёв on 02.02.2023.
 //
 
+import Combine
 import SwiftUI
 
 struct NewCourseView: View {
     @ObservedObject var viewModel = NewCourseViewModel()
     @State var name: String = ""
     
-    let colors: [Color] = [.blue, .green, .red, .yellow]
-    @State var selectedColor: Color = .blue
+    
+    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
+    @State var selectedColor: Color = CustomColor.firstCourse
+    
+   
+    
     let pillsType = ["Pill1", "Pill2", "Pill3", "Pill4", "RoundPill1", "RoundPill2", "RoundPill3", "RoundPill4", "RoundPillHalf1", "RoundPillHalf2", "Syringe", "Powder"]
     @State var selectedPillType = "Pill1"
     
@@ -43,7 +48,6 @@ struct NewCourseView: View {
     var body: some View {
         NavigationStack {
             Form {
-                
                 Section(header : Text("Название и вид")){
                     HStack (spacing:5){
                         HStack{
@@ -51,13 +55,17 @@ struct NewCourseView: View {
                                 Text("Витамин Д")
                             }
                         }
+                        
                         Divider()
-                        HStack(){
+                        
+                        
+                        HStack(spacing: -10){
                             
-                            VStack(alignment: .trailing, spacing: 0){
+                            VStack(alignment: .center, spacing: 0){
                                 
                                 Picker("", selection: $selectedPillType) {
                                     ForEach(pillsType, id: \.self) {
+                                        
                                         Image($0)
                                             .resizable()
                                             .frame(width: 30, height: 30)
@@ -65,16 +73,39 @@ struct NewCourseView: View {
                                     }
                                     
                                 }
-                                .frame(width: 80, height: 60)
+                                .frame(width: 60, height: 60)
                                 .pickerStyle(.wheel)
-                                .colorMultiply(selectedColor)
+                                .colorMultiply(.black)
                                 
-                                
+                      
                                 
                             }
                             .frame(height: 35)
-                            ColorPicker("", selection: $selectedColor)
+                            
+                         // add picker from 4 colors here with wheel style
+                            Picker("", selection: $selectedColor) {
+                                ForEach(colors, id: \.self) { color in
+                                    color
+                                        .frame(width: 25, height: 25)
+                                        .cornerRadius(20)
+                                }
+                            }
+                            .frame(width: 65, height: 60)
+                            .pickerStyle(.wheel)
                         }
+                
+                        Divider()
+                        Spacer()
+                        ZStack() {
+                            Circle()
+                                .frame(width: 42)
+                                .foregroundColor(selectedColor)
+                            Image(selectedPillType)
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                            
+                        }
+                        
                         
                     }
                 }
@@ -83,9 +114,15 @@ struct NewCourseView: View {
                 Section(header : Text("Дозировка")){
                     VStack{
                         HStack {
-                            TextField(text: $dose) {
-                                Text("250")
-                            }
+                            TextField("250", text: $dose)
+                                .onReceive(Just(dose)) { newValue in
+                                    let filtered = newValue.filter { "0123456789".contains($0) }
+                                    if filtered != newValue {
+                                        dose = filtered
+                                    }
+                                }
+                              
+                             
                             
                             Picker("", selection: $selectedUnit) {
                                 ForEach(units, id: \.self) {
@@ -103,22 +140,22 @@ struct NewCourseView: View {
                     }
                 }
                 Section(header: Text("Время приема")) {
-                    
+
                     Toggle(isOn: $morning) {
                         Text("Утро")
                     }
                     .tint(CustomColor.morning)
-                    
+
                     Toggle(isOn: $day) {
                         Text("День")
                     }
                     .tint(CustomColor.day)
-                    
+
                     Toggle(isOn: $evening) {
                         Text("Вечер")
                     }
                     .tint(CustomColor.evening)
-                    
+
                     Toggle(isOn: $night) {
                         Text("Ночь")
                     }
@@ -159,10 +196,9 @@ struct NewCourseView: View {
                 HStack{
                     Spacer()
                     Button("Создать курс") {
-                        self.viewModel.createPillCourse(courseName: self.name, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
-                        print("кнопка")
-                        print(viewModel.pills)
+                        self.viewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
                     }
+                    .foregroundColor(selectedColor)
                     Spacer()
                 }
                 
@@ -175,6 +211,7 @@ struct NewCourseView: View {
                 
                 
             }
+            .tint(selectedColor)
             .navigationBarTitle("Новый курс")
             .navigationBarTitleDisplayMode(.inline)
         

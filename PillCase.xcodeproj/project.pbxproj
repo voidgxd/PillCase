@@ -118,6 +118,7 @@
 				AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */,
 				AB2EE546298845A900970390 /* CourseDayView.swift */,
 				AB42ECBB2983007D007B6A47 /* CoursesView.swift */,
+				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
 				AB2D0A35298C08DE00718E8A /* NewCourseView.swift */,
 				ABDB563D2995566200D5D220 /* TestView.swift */,
 			);
@@ -152,7 +153,6 @@
 				AB77BE42299009D5005927A2 /* Calendar */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
-				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,

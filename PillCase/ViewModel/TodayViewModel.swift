@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class TodayViewModel: ObservableObject {
 
@@ -17,11 +18,20 @@ class TodayViewModel: ObservableObject {
     @Published var evening: [Pill] = []
     @Published var night: [Pill] = []
 
+    
+    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
+    
     private let calendar = Calendar.current
 
     func dateToInt(_ date: Date) -> Int {
         let components = calendar.dateComponents([.day], from: date)
         return components.day!
+    }
+    
+    func getMonthName(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: date)
     }
 
 

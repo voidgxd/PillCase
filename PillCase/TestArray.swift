@@ -7,13 +7,17 @@
 
 import Foundation
 
-var testArrayOfPills: [TestPill] = [TestPill(courseName: "Витамин", date: .now, timeOfDay: "morning", dose: 1, id: UUID(), type: "Pill3", unit: "мг"), TestPill(courseName: "Анальгин", date: .now, timeOfDay: "morning", dose: 2, id: UUID(), type: "RoundPill3", unit: "мг"), TestPill(courseName: "Омега 3", date: .now, timeOfDay: "morning", dose: 3, id: UUID(), type: "Syringe", unit: "мг"), TestPill(courseName: "Колдрекс", date: .now, timeOfDay: "morning", dose: 4, id: UUID(), type: "Powder", unit: "мг") ]
+var testArrayOfPills1: [TestPill] = [TestPill(courseName: "Витамин", courseColor: "firstCourse", date: .now, timeOfDay: "morning", dose: "250", id: UUID(), type: "Pill3", unit: "мг"), TestPill(courseName: "Анальгин", courseColor: "thirdCourse", date: .now, timeOfDay: "morning", dose: "1000", id: UUID(), type: "RoundPill3", unit: "мг"), TestPill(courseName: "Омега 3", courseColor: "secondCourse", date: .now, timeOfDay: "morning", dose: "300", id: UUID(), type: "Syringe", unit: "мг"), TestPill(courseName: "Колдрекс", courseColor: "firstCourse", date: .now, timeOfDay: "morning", dose: "44", id: UUID(), type: "Powder", unit: "мг") ]
+var testArrayOfPills2: [TestPill] = [TestPill(courseName: "Витамин", courseColor: "firstCourse", date: .now, timeOfDay: "morning", dose: "250", id: UUID(), type: "Pill3", unit: "мг"), TestPill(courseName: "Анальгин", courseColor: "thirdCourse", date: .now, timeOfDay: "morning", dose: "1000", id: UUID(), type: "RoundPill3", unit: "мг"), TestPill(courseName: "Омега 3", courseColor: "secondCourse", date: .now, timeOfDay: "morning", dose: "300", id: UUID(), type: "Syringe", unit: "мг")]
+var testArrayOfPills3: [TestPill] = [TestPill(courseName: "Витамин", courseColor: "firstCourse", date: .now, timeOfDay: "morning", dose: "250", id: UUID(), type: "Pill3", unit: "мг"), TestPill(courseName: "Анальгин", courseColor: "thirdCourse", date: .now, timeOfDay: "morning", dose: "1000", id: UUID(), type: "RoundPill3", unit: "мг")]
+var testArrayOfPills4: [TestPill] = [ TestPill(courseName: "Колдрекс", courseColor: "firstCourse", date: .now, timeOfDay: "morning", dose: "44", id: UUID(), type: "Powder", unit: "мг") ]
 
 struct TestPill {
-    var courseName:String
+    var courseName: String
+    var courseColor: String
     var date: Date
     var timeOfDay: String
-    var dose: Int
+    var dose: String
     var id: UUID
     var type: String
     var unit: String
