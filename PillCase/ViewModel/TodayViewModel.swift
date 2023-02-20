@@ -23,6 +23,12 @@ class TodayViewModel: ObservableObject {
         let components = calendar.dateComponents([.day], from: date)
         return components.day!
     }
+    
+    func getMonthName(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        return dateFormatter.string(from: date)
+    }
 
 
 //     CoreData

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import CoreData
 
 
@@ -33,26 +34,30 @@ class NewCourseViewModel: ObservableObject {
     }
     
     
-    func createPillCourse(courseName: String, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: String, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
+    func createPillCourse(courseName: String, color: Color, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: String, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
+        
+        
+        
+        
         var date = startDate
         for i in 0..<selectedCourseDuration {
             switch selectedRegimen {
             case "каждый день":
-                createPill(courseName: courseName, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
+                createPill(courseName: courseName, courseColor: stringColor, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "через день":
                 if i % 2 == 0 {
-                    createPill(courseName: courseName, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
+                    createPill(courseName: courseName, courseColor: stringColor, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "раз в 3 дня":
                 if i % 3 == 0 {
-                    createPill(courseName: courseName, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
+                    createPill(courseName: courseName, courseColor: stringColor, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "раз в неделю":
                 if i % 7 == 0 {
-                    createPill(courseName: courseName, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
+                    createPill(courseName: courseName, courseColor: stringColor, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             default:
@@ -64,11 +69,14 @@ class NewCourseViewModel: ObservableObject {
     
     
 //#warning("зарефакторить функцию")
-    func createPill(courseName: String, date: Date, day: Bool, dose: String, evening: Bool, id: UUID, morning: Bool, night: Bool, type: String, unit: String, startDate: Date) {
+    func createPill(courseName: String, courseColor: String, date: Date, day: Bool, dose: String, evening: Bool, id: UUID, morning: Bool, night: Bool, type: String, unit: String, startDate: Date) {
+        
+        
         
       if morning {
         let pill = Pill(context: context)
         pill.courseName = courseName
+        pill.courseColor = courseColor
         pill.date = date
         pill.timeOfDay = "morning"
         pill.dose = dose

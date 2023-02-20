@@ -26,4 +26,9 @@ struct CustomColor {
     static let night = Color("night")
     static let nightSecond = Color("nightSecond")
     static let nightShadow = Color("nightShadow")
+    
+    static let firstCourse = Color("firstCourse")
+    static let secondCourse = Color("secondCourse")
+    static let thirdCourse = Color("thirdCourse")
+    static let fourthCourse = Color("fourthCourse")
 }

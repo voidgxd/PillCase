@@ -35,9 +35,7 @@ struct TestView: View {
                             HStack{
                                 Text(dateFormatter.string(from: pill.date ?? Date.now))
                                 Text(pill.courseName ?? "")
-                                Text(pill.dose ?? "")
-                                Text(pill.unit ?? "")
-                                Text(pill.timeOfDay ?? "hz")
+                                Text(pill.courseColor ?? "")
                             }
                         }
                     }
