@@ -25,6 +25,8 @@
 		AB77BE412990049F005927A2 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB77BE402990049F005927A2 /* CalendarView.swift */; };
 		AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC0297893180049AC4B /* MedicationTimeView.swift */; };
 		AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC229789F230049AC4B /* MainTabView.swift */; };
+		AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */; };
+		AB8E636D29A68F5A00BC4F83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E636C29A68F5A00BC4F83 /* Extensions.swift */; };
 		AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1D297583320016A54E /* PillsDayView.swift */; };
 		AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */; };
 		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
@@ -57,6 +59,8 @@
 		AB77BE402990049F005927A2 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		AB89FBC0297893180049AC4B /* MedicationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTimeView.swift; sourceTree = "<group>"; };
 		AB89FBC229789F230049AC4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayViewModel.swift; sourceTree = "<group>"; };
+		AB8E636C29A68F5A00BC4F83 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AB93BB1D297583320016A54E /* PillsDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDayView.swift; sourceTree = "<group>"; };
 		AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCurseView.swift; sourceTree = "<group>"; };
 		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
+				AB8E636C29A68F5A00BC4F83 /* Extensions.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
 				AB3E5E64299C060D0043042C /* TestArray.swift */,
@@ -183,6 +188,7 @@
 			children = (
 				ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */,
 				AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */,
+				AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
+				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
 				ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
@@ -283,6 +290,7 @@
 				AB42ECBC2983007D007B6A47 /* CoursesView.swift in Sources */,
 				ABFB106B2977373D00538F57 /* LetterView.swift in Sources */,
 				AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */,
+				AB8E636D29A68F5A00BC4F83 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

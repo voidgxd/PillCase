@@ -10,7 +10,9 @@ import SwiftUI
 struct TodayView: View {
     
     @ObservedObject var viewModel = TodayViewModel()
+    @StateObject private var detailViewModel = DetailDayViewModel(date: Date())
     
+    @State private var isShowingDetail = false
 
     var body: some View {
         NavigationStack {
@@ -106,14 +108,17 @@ struct TodayView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     
                     Button {
-                        
+                        self.isShowingDetail = true
                     } label: {
                         
                             Image(systemName: "pills.circle").foregroundColor(.white
                             )
                             .font(.system(size: 22, weight: .bold))
                         }
-                    
+                    .sheet(isPresented: $isShowingDetail) {
+                        DetailDayView(date: .now, viewModel: DetailDayViewModel(date: .now))
+                        
+                                    }
                     
                 }
                 

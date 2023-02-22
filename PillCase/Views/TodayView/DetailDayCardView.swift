@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct DetailDayCardView: View {
+    
+
+    
+    var morningArray: [Pill]
+    var dayArray: [Pill]
+    var eveningArray: [Pill]
+    var nightArray: [Pill]
+    
+    var dateDay: Int
+    var dateMonth : String
+    var dayOfTheWeek: String
+    
     var body: some View {
         VStack(spacing: 0) {
             
@@ -37,10 +49,10 @@ struct DetailDayCardView: View {
                         VStack {
                             Spacer()
                             Spacer()
-                            Text("Декабрь")
+                            Text(dateMonth)
                                 .font(.system(size: 10, weight: .semibold, design: .default))
                                 .foregroundColor(.gray)
-                            Text("01")
+                            Text(String(dateDay))
                                 .font(.system(size: 56, weight: .medium, design: .default))
                                 
                             
@@ -50,7 +62,7 @@ struct DetailDayCardView: View {
                             
                             VStack{
                                 Spacer()
-                                PillsDayView()
+                                PillsDayView(morningNumberOfPills: morningArray.count, dayNumberofPills: dayArray.count, eveningNumberOfPills: eveningArray.count, nightNumberOfPills: nightArray.count)
                                 Spacer()
                             }
                             .padding(5)
@@ -59,7 +71,7 @@ struct DetailDayCardView: View {
                     Spacer()
                     
                     
-                        Text("Воскресенье")
+                        Text(dayOfTheWeek)
                             .font(.system(size: 14, weight: .bold, design: .default))
                             .foregroundColor(.white)
                         Spacer()
@@ -79,6 +91,6 @@ struct DetailDayCardView: View {
 
 struct DetailDayCardView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailDayCardView()
+        DetailDayCardView(morningArray: [], dayArray: [], eveningArray: [], nightArray: [], dateDay: 12, dateMonth: "Декабря", dayOfTheWeek: "Среда")
     }
 }

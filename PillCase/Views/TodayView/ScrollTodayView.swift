@@ -34,19 +34,19 @@ struct ScrollTodayView: View {
                 Spacer()
                 // morning
                 if !morningArray.isEmpty {
-                    TodayCardView(pillListOfSegment: morningArray, timeOfDay: "Утро", colorOfHeader: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: morningArray.count)
+                    TodayCardView(pillListOfSegment: morningArray, timeOfDay: "Утро", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: morningArray.count)
                 }
                 // day
                 if !dayArray.isEmpty {
-                    TodayCardView(pillListOfSegment: dayArray, timeOfDay: "День", colorOfHeader: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: dayArray.count)
+                    TodayCardView(pillListOfSegment: dayArray, timeOfDay: "День", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: dayArray.count)
                 }
                 // evening
                 if !eveningArray.isEmpty {
-                    TodayCardView(pillListOfSegment: eveningArray, timeOfDay: "Вечер", colorOfHeader: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: eveningArray.count)
+                    TodayCardView(pillListOfSegment: eveningArray, timeOfDay: "Вечер", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: eveningArray.count)
                 }
                 // night
                 if !nightArray.isEmpty {
-                    TodayCardView(pillListOfSegment: nightArray, timeOfDay: "Ночь", colorOfHeader: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: nightArray.count)
+                    TodayCardView(pillListOfSegment: nightArray, timeOfDay: "Ночь", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: nightArray.count)
                 }
                 Spacer()
         
@@ -73,7 +73,7 @@ struct TodayCardView: View {
     var pillListOfSegment: [Pill]
 //    var pillListOfSegment: [TestPill]
     var timeOfDay: String
-    var colorOfHeader: Color
+    var headersColor: Color
     var dateDay: Int
     var dateMonth : String
     var morningNumberOfPills: Int = 0
@@ -99,7 +99,7 @@ struct TodayCardView: View {
                 Rectangle()
                     .frame(width: 120, height: 20)
                     .cornerRadius(16, corners: [.topLeft, .topRight])
-                    .foregroundColor(colorOfHeader)
+                    .foregroundColor(headersColor)
                     .position(x: 60, y: 20)
             }
             

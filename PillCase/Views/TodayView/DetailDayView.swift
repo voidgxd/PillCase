@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct DetailDayView: View {
+    
+    var date: Date
+    
+    @ObservedObject var viewModel: DetailDayViewModel
+    
+    var morningArray: [Pill] = []
+    var dayArray: [Pill] = []
+    var eveningArray: [Pill] = []
+    var nightArray: [Pill] = []
+    
+    
+    
     var body: some View {
         VStack(spacing: 0){
             VStack {
                 
                 Divider()
-                DetailDayCardView()
+                DetailDayCardView(morningArray: morningArray, dayArray: dayArray, eveningArray: eveningArray, nightArray: nightArray, dateDay: viewModel.dateToInt(date), dateMonth: viewModel.getMonthName(from: date), dayOfTheWeek: viewModel.getDayOfWeek(from: date))
                 Divider()
                 
             }
@@ -22,13 +34,21 @@ struct DetailDayView: View {
                 
                 
                 ScrollView(showsIndicators: false){
-                    DetalTimeOfTheDayView(timeOfTheDay: "Утро", color: CustomColor.morning)
-                    Divider()
-                    DetalTimeOfTheDayView(timeOfTheDay: "День", color: CustomColor.day)
-                    Divider()
-                    DetalTimeOfTheDayView(timeOfTheDay: "Вечер", color: CustomColor.evening)
-                    Divider()
-                    DetalTimeOfTheDayView(timeOfTheDay: "Ночь", color: CustomColor.night)
+                    if !morningArray.isEmpty {
+                        DetalTimeOfTheDayView(timeOfTheDay: "Утро", headerColor: CustomColor.morning, pillListOfSegment: morningArray)
+                        Divider()
+                    }
+                    if !dayArray.isEmpty {
+                        DetalTimeOfTheDayView(timeOfTheDay: "День", headerColor: CustomColor.day, pillListOfSegment: dayArray)
+                        Divider()
+                    }
+                    if !eveningArray.isEmpty {
+                        DetalTimeOfTheDayView(timeOfTheDay: "Вечер", headerColor: CustomColor.evening, pillListOfSegment: eveningArray)
+                        Divider()
+                    }
+                    if !nightArray.isEmpty {
+                        DetalTimeOfTheDayView(timeOfTheDay: "Ночь", headerColor: CustomColor.night, pillListOfSegment: nightArray)
+                    }
                     
                 }
                 
@@ -44,14 +64,17 @@ struct DetailDayView: View {
 
 struct DetailDayView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailDayView()
+        DetailDayView(date: .now, viewModel: DetailDayViewModel(date: .now))
     }
 }
 
 struct DetalTimeOfTheDayView: View {
-    var timeOfTheDay: String = " "
-    var color: Color = CustomColor.morning
     
+    var timeOfTheDay: String = " "
+    var headerColor: Color = CustomColor.morning
+    var pillListOfSegment: [Pill]
+    
+    var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
         VStack {
@@ -65,31 +88,47 @@ struct DetalTimeOfTheDayView: View {
                 Rectangle()
                     .frame(width: 320, height: 30)
                     .cornerRadius(16, corners: [.topLeft, .topRight])
-                    .foregroundColor(color)
+                    .foregroundColor(headerColor)
                 VStack{
                     Text(timeOfTheDay)
                         .padding(.top, 5)
                         .font(.system(size: 18, weight: .bold, design: .default))
                         .foregroundColor(.white)
                     VStack (alignment: .leading, spacing: 8){
-                        HStack {
-                            Image(systemName: "pill")
-                            Text("Пенталгин 150 мг - 1 шт")
-                            Spacer()
+                        ForEach(pillListOfSegment, id: \.id) { pill in
+                            HStack(spacing: 6) {
+                                ZStack{
+                                    Circle()
+                                        .frame(width: 22, height: 22)
+                                        .foregroundColor(colors[Int(pill.courseColor)])
+                                    Image(pill.type ?? "Pill1")
+                                        .resizable()
+                                        .frame(width: 19, height: 19)
+                                }
+                                Text(pill.courseName ?? "")
+                                    .font(.system(size: 18, weight: .semibold, design: .default))
+                                Spacer()
+                                Text(String(pill.dose ?? ""))
+                                    .font(.system(size: 16, weight: .light, design: .default))
+                                    .frame(alignment: .trailing)
+                                
+                                Text(pill.unit ?? "")
+                                    .font(.system(size: 16, weight: .light, design: .default))
+                                    .frame(alignment: .trailing)
+                                
+                                
+                                
+                                
+                            }
+                                
+                            }
+                            .font(.system(size: 14, weight: .light))
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                            .padding([.leading, .trailing], 4)
+                            
+                            
                         }
-                        HStack {
-                            Image(systemName: "pill.fill")
-                            Text("Пенталгин 150 мг - 1 шт")
-                        }
-                        HStack {
-                            Image(systemName: "pill")
-                            Text("Парацетамол 150 мг - 1 шт")
-                        }
-                        HStack {
-                            Image(systemName: "pill")
-                            Text("Пенталгин 150 мг - 1 шт")
-                        }
-                    }
                     .padding(.top, 5.0)
                     .padding([.trailing, .leading],  8)
                 }

@@ -21,6 +21,7 @@ struct ListCoursesView: View {
                 AddNewCourseSubView()
                 }
             }
+        
         .background(CustomColor.backGroundColor)
         }
     
