@@ -13,10 +13,20 @@ struct DetailDayView: View {
     
     @ObservedObject var viewModel: DetailDayViewModel
     
-    var morningArray: [Pill] = []
-    var dayArray: [Pill] = []
-    var eveningArray: [Pill] = []
-    var nightArray: [Pill] = []
+    var morningArray: [Pill]
+    var dayArray: [Pill]
+    var eveningArray: [Pill]
+    var nightArray: [Pill]
+    
+    init(date: Date, viewModel: DetailDayViewModel) {
+        self.date = date
+        self.viewModel = viewModel
+        
+        morningArray = viewModel.morning
+        dayArray = viewModel.day
+        eveningArray = viewModel.evening
+        nightArray = viewModel.night
+    }
     
     
     

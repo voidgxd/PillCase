@@ -47,7 +47,6 @@ class DetailDayViewModel: ObservableObject {
         self.context = CoreDataManager.shared.context
         fetchPills(for: date)
         sortPillsByTimeOfDay()
-        print(todayPills)
     }
 
     func fetchPills(for date: Date) {
