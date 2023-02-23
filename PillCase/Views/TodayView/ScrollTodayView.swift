@@ -16,11 +16,6 @@ struct ScrollTodayView: View {
     var nightArray: [Pill] = []
     
     
-//    var morningArray: [TestPill] = testArrayOfPills1
-//    var dayArray: [TestPill] = testArrayOfPills2
-//    var eveningArray: [TestPill] = testArrayOfPills3
-//    var nightArray: [TestPill] = testArrayOfPills4
-    
     var dateDay: Int
     var dateMonth : String
     

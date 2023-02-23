@@ -13,11 +13,32 @@ class TodayViewModel: ObservableObject {
 
     @Published var todayPills: [Pill] = []
 
-    @Published var morning: [Pill] = []
-    @Published var day: [Pill] = []
-    @Published var evening: [Pill] = []
-    @Published var night: [Pill] = []
-
+    @Published var morning: [Pill] = [] {
+           didSet {
+               isMorningEmpty = morning.isEmpty
+           }
+       }
+       @Published var day: [Pill] = [] {
+           didSet {
+               isDayEmpty = day.isEmpty
+           }
+       }
+       @Published var evening: [Pill] = [] {
+           didSet {
+               isEveningEmpty = evening.isEmpty
+           }
+       }
+       @Published var night: [Pill] = [] {
+           didSet {
+               isNightEmpty = night.isEmpty
+           }
+       }
+       @Published var isMorningEmpty = true
+       @Published var isDayEmpty = true
+       @Published var isEveningEmpty = true
+       @Published var isNightEmpty = true
+    
+    
     
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
@@ -80,5 +101,21 @@ class TodayViewModel: ObservableObject {
            }
        }
 
+    func delete(_ pillId: UUID) {
+        let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", pillId.uuidString)
+        do {
+            let pill = try context.fetch(fetchRequest).first
+            if let pillToDelete = pill {
+                context.delete(pillToDelete)
+                try context.save()
+                // Update the data and refresh UI after deletion
+                fetchTodayPills()
+                sortPillsByTimeOfDay()
+            }
+        } catch {
+            print("Failed to delete pill: \(error)")
+        }
+    }
 
 }

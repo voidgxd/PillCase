@@ -38,36 +38,36 @@ struct TodayView: View {
                             
                             HStack (spacing: 0) {
                                 ZStack {
-                                    SegmentView(color: CustomColor.morning, secondColor: CustomColor.morningSecond, shadowColor: CustomColor.morningShadow, degrees: 0, letter: "M", isEmpty: viewModel.morning.isEmpty)
+                                    SegmentView(color: CustomColor.morning, secondColor: CustomColor.morningSecond, shadowColor: CustomColor.morningShadow, degrees: 0, letter: "M", isEmpty: viewModel.isMorningEmpty)
                                         .overlay {
                                             LetterView(color: CustomColor.morning, shadowColor: CustomColor.morningShadow, letter: "M", degrees: 0, positionX: 142.5, positionY: 142)
                                         }
-                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.morning)
+                                    PillsOfSegmentView(viewModel: viewModel, pillsTimeOfDay: viewModel.morning)
                                 }
                                 
                                 ZStack {
-                                    SegmentView(color: CustomColor.day, secondColor: CustomColor.daySecond, shadowColor: CustomColor.dayShadow, degrees: 90, letter: "D", isEmpty: viewModel.day.isEmpty)
+                                    SegmentView(color: CustomColor.day, secondColor: CustomColor.daySecond, shadowColor: CustomColor.dayShadow, degrees: 90, letter: "D", isEmpty: viewModel.isDayEmpty)
                                         .overlay {
                                             LetterView(color: CustomColor.day, shadowColor: CustomColor.dayShadow, letter: "D", degrees: 0, positionX: 7.5, positionY: 142)
                                         }
-                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.day)
+                                    PillsOfSegmentView(viewModel: viewModel, pillsTimeOfDay: viewModel.day)
                                 }
                                 
                             }
                             HStack (spacing: 0) {
                                 ZStack{
-                                    SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.nightShadow, degrees: -90, letter: "N", isEmpty: viewModel.night.isEmpty)
+                                    SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.nightShadow, degrees: -90, letter: "N", isEmpty: viewModel.isNightEmpty)
                                         .overlay {
                                             LetterView(color: CustomColor.night, shadowColor: CustomColor.nightShadow, letter: "N", degrees: 0, positionX: 142.5, positionY: 8)
                                         }
-                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.night)
+                                    PillsOfSegmentView(viewModel: viewModel, pillsTimeOfDay: viewModel.night)
                                 }
                                 ZStack {
-                                    SegmentView(color: CustomColor.evening, secondColor: CustomColor.eveningSecond, shadowColor: CustomColor.eveningShadow, degrees: 180, letter: "E", isEmpty: viewModel.evening.isEmpty)
+                                    SegmentView(color: CustomColor.evening, secondColor: CustomColor.eveningSecond, shadowColor: CustomColor.eveningShadow, degrees: 180, letter: "E", isEmpty: viewModel.isEveningEmpty)
                                         .overlay {
                                             LetterView(color: CustomColor.evening, shadowColor: CustomColor.eveningShadow, letter: "E", degrees: 0, positionX: 7.5, positionY: 8)
                                         }
-                                    PillsOfSegmentView(pillsTimeOfDay: viewModel.evening)
+                                    PillsOfSegmentView(viewModel: viewModel, pillsTimeOfDay: viewModel.evening)
                                 }
                             }
                         }
