@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ScrollTodayView: View {
     
+    @ObservedObject var viewModel: TodayViewModel
     
-    var morningArray: [Pill] = []
-    var dayArray: [Pill] = []
-    var eveningArray: [Pill] = []
-    var nightArray: [Pill] = []
+ 
+
     
     
     var dateDay: Int
@@ -24,31 +23,57 @@ struct ScrollTodayView: View {
     
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20){
-                Spacer()
-                // morning
-                if !morningArray.isEmpty {
-                    TodayCardView(pillListOfSegment: morningArray, timeOfDay: "Утро", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: morningArray.count)
+        ZStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20){
+                    Spacer()
+                    
+                    
+                    
+                    // morning
+                    
+                    if !viewModel.morning.isEmpty {
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: "Утро", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
+                            .onChange(of: viewModel.morning, perform: { _ in
+                                
+                                print("On receive")
+                            })
+                    } else {
+                        
+                    }
+                    // day
+                    if !viewModel.day.isEmpty {
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.day, timeOfDay: "День", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: viewModel.day.count)
+                    }
+                    //                // evening
+                    if !viewModel.evening.isEmpty {
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.evening, timeOfDay: "Вечер", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: viewModel.evening.count)
+                    }
+                    //                // night
+                    if !viewModel.night.isEmpty {
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: "Ночь", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
+                    }
+                    
+                    Spacer()
+                    
                 }
-                // day
-                if !dayArray.isEmpty {
-                    TodayCardView(pillListOfSegment: dayArray, timeOfDay: "День", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: dayArray.count)
-                }
-                // evening
-                if !eveningArray.isEmpty {
-                    TodayCardView(pillListOfSegment: eveningArray, timeOfDay: "Вечер", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: eveningArray.count)
-                }
-                // night
-                if !nightArray.isEmpty {
-                    TodayCardView(pillListOfSegment: nightArray, timeOfDay: "Ночь", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: nightArray.count)
-                }
-                Spacer()
-        
+            }
+            .frame(height: 180)
+            .background(CustomColor.backGroundColor)
+            
+            // all empty
+            if viewModel.morning.isEmpty && viewModel.day.isEmpty && viewModel.evening.isEmpty && viewModel.night.isEmpty {
+                
+                Text("Нет приемов")
+                    .font(.system(size: 28, weight: .medium, design: .monospaced))
+                
+                   
+                
+                    
+                    
             }
         }
-        .frame(height: 180)
-        .background(CustomColor.backGroundColor)
+        
         }
 
         
@@ -57,11 +82,13 @@ struct ScrollTodayView: View {
 
 struct ScrollTodayView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollTodayView(dateDay: 20, dateMonth: "ASda")
+        ScrollTodayView(viewModel: TodayViewModel(), dateDay: 1, dateMonth: "123")
     }
 }
 
 struct TodayCardView: View {
+    
+    var viewModel: TodayViewModel
     
     var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
@@ -121,6 +148,7 @@ struct TodayCardView: View {
                         
                         PillsDayView(morningNumberOfPills: morningNumberOfPills, dayNumberofPills: dayNumberOfPills, eveningNumberOfPills: eveningNumberOfPills, nightNumberOfPills: nightNumberOfPIlls)
                             .frame(width: 60)
+                        
                     }
                     .frame(height: 60)
                     Spacer()

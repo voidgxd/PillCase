@@ -19,8 +19,7 @@ struct TodayView: View {
             VStack {
                 Divider()
                     .padding(.top, 20)
-                ScrollTodayView(morningArray: viewModel.morning, dayArray: viewModel.day, eveningArray: viewModel.evening, nightArray: viewModel.night, dateDay: viewModel.dateToInt(.now), dateMonth: viewModel.getMonthName(from: .now))
-                
+                ScrollTodayView(viewModel: viewModel, dateDay: viewModel.dateToInt(.now), dateMonth: viewModel.getMonthName(from: .now))
 //                ScrollTodayView(dateDay: 20, dateMonth: "февраля")
                 Divider()
                 Spacer()

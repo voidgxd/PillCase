@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import Combine
 
 class TodayViewModel: ObservableObject {
 
@@ -33,11 +34,10 @@ class TodayViewModel: ObservableObject {
                isNightEmpty = night.isEmpty
            }
        }
-       @Published var isMorningEmpty = true
-       @Published var isDayEmpty = true
-       @Published var isEveningEmpty = true
-       @Published var isNightEmpty = true
-    
+    @Published var isMorningEmpty = true
+    @Published var isDayEmpty = true
+    @Published var isEveningEmpty = true
+    @Published var isNightEmpty = true
     
     
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
@@ -69,10 +69,12 @@ class TodayViewModel: ObservableObject {
         do {
             let pills = try context.fetch(Pill.fetchRequest())
             todayPills = pills.filter { Calendar.current.isDate($0.date!, inSameDayAs: Date()) }
+            
         } catch {
             print("Failed to fetch today's pills: \(error)")
         }
     }
+    
 
     // Sorting by time of day.
 
@@ -100,7 +102,19 @@ class TodayViewModel: ObservableObject {
                }
            }
        }
+    
+    func reload() {
+        fetchTodayPills()
+        sortPillsByTimeOfDay()
+    }
 
+    
+    
+  
+    
+    
+    
+    
     func delete(_ pillId: UUID) {
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", pillId.uuidString)
@@ -109,9 +123,15 @@ class TodayViewModel: ObservableObject {
             if let pillToDelete = pill {
                 context.delete(pillToDelete)
                 try context.save()
+                
                 // Update the data and refresh UI after deletion
-                fetchTodayPills()
-                sortPillsByTimeOfDay()
+                // Передалать под менее костыльную функцию
+                morning.removeAll()
+                day.removeAll()
+                evening.removeAll()
+                night.removeAll()
+                reload()
+                
             }
         } catch {
             print("Failed to delete pill: \(error)")

@@ -29,6 +29,9 @@ struct SegmentView: View {
     
     let letter: String
     var isEmpty: Bool
+    
+    
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -42,11 +45,11 @@ struct SegmentView: View {
                 .rotationEffect(.degrees(degrees))
                 
             
-            if isEmpty {
-                EmptyContainerView(secondColor: secondColor, shadowColor: shadowColor)
-            } else {
-                FilledContainerView(color: color,secondColor: secondColor, shadowColor: shadowColor)
-            }
+                if isEmpty {
+                    EmptyContainerView(secondColor: secondColor, shadowColor: shadowColor)
+                } else {
+                    FilledContainerView(color: color,secondColor: secondColor, shadowColor: shadowColor)
+                }
             
             
         }
