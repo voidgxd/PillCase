@@ -21,7 +21,7 @@ struct ScrollCurseView: View {
         
             }
         }
-        .frame(height: 160)
+        .frame(height: 180)
         .background(CustomColor.backGroundColor)
         }
 
@@ -58,7 +58,7 @@ struct CurseCardView: View {
             ZStack {
                 
                 RoundedRectangle(cornerRadius: 16)
-                    .frame(width: 120, height: 140)
+                    .frame(width: 120, height: 160)
                     .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4)
                     .shadow(color: .white.opacity(0.99),  radius: 3, x: -4, y: -4)
                     .overlay {

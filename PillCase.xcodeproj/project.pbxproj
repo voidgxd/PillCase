@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2D0A35298C08DE00718E8A /* NewCourseView.swift */; };
 		AB2EE547298845A900970390 /* CourseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2EE546298845A900970390 /* CourseDayView.swift */; };
+		AB314F3029AE6FE400DB808D /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB314F2F29AE6FE400DB808D /* BarChartView.swift */; };
+		AB314F3229AE777A00DB808D /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB314F3129AE777A00DB808D /* CourseModel.swift */; };
 		AB3E5E61299BFB3C0043042C /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */; };
 		AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E62299C01480043042C /* PillsOfSegmentView.swift */; };
 		AB3E5E65299C060D0043042C /* TestArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3E5E64299C060D0043042C /* TestArray.swift */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		AB2D0A35298C08DE00718E8A /* NewCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseView.swift; sourceTree = "<group>"; };
 		AB2EE546298845A900970390 /* CourseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayView.swift; sourceTree = "<group>"; };
+		AB314F2F29AE6FE400DB808D /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		AB314F3129AE777A00DB808D /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		AB3E5E62299C01480043042C /* PillsOfSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsOfSegmentView.swift; sourceTree = "<group>"; };
 		AB3E5E64299C060D0043042C /* TestArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArray.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */,
+				AB314F3129AE777A00DB808D /* CourseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 				AB89FBC0297893180049AC4B /* MedicationTimeView.swift */,
 				AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */,
 				AB2EE546298845A900970390 /* CourseDayView.swift */,
+				AB314F2F29AE6FE400DB808D /* BarChartView.swift */,
 				AB42ECBB2983007D007B6A47 /* CoursesView.swift */,
 				AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */,
 				AB2D0A35298C08DE00718E8A /* NewCourseView.swift */,
@@ -269,6 +275,7 @@
 				AB3E5E65299C060D0043042C /* TestArray.swift in Sources */,
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
+				AB314F3229AE777A00DB808D /* CourseModel.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
 				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
 				ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */,
@@ -284,6 +291,7 @@
 				AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */,
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,
 				ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */,
+				AB314F3029AE6FE400DB808D /* BarChartView.swift in Sources */,
 				AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */,
 				ABDB563E2995566200D5D220 /* TestView.swift in Sources */,
 				AB3E5E61299BFB3C0043042C /* TodayViewModel.swift in Sources */,

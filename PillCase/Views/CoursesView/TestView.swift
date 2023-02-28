@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TestView: View {
-    @ObservedObject var viewModel = TodayViewModel()
+//    @ObservedObject var viewModel = TodayViewModel()
+    @ObservedObject var viewModel = NewCourseViewModel()
     
     let date = Date()
         let dateFormatter: DateFormatter = {
@@ -29,31 +30,34 @@ struct TestView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                List {
-                    ForEach(pills) { pill in
-                        VStack{
-                            HStack{
-                                Text(dateFormatter.string(from: pill.date ?? Date.now))
-                                Text(pill.courseName ?? "")
-                                
-                            }
-                        }
+                List(viewModel.courses) { course in
+                    HStack {
+                        Text(course.courseName)
+                        Text(course.dose)
+                        Text(course.unit)
+                    // неправильно работает функция
+                        Text(String(course.morning))
+                        Text(String(course.day))
+                        Text(String(course.evening))
+                        Text(String(course.night))
+                      
                     }
-                }
+                      }
                 Button("Создать курс") {
-                    viewModel.fetchTodayPills()
-                    print(viewModel.todayPills.count)
+                    viewModel.createCourses(from: viewModel.pills)
+                    print(viewModel.courses)
                     
                 }
             }
         }
         
         .navigationTitle("TEST")
+        
     }
 }
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView(viewModel: TodayViewModel())
+        TestView(viewModel: NewCourseViewModel())
     }
 }

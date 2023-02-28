@@ -16,7 +16,7 @@ class NewCourseViewModel: ObservableObject {
     
     @Published var pills: [Pill] = []
     
-    
+    @Published var courses: [Course] = []
     
     
     private let context: NSManagedObjectContext
@@ -34,6 +34,70 @@ class NewCourseViewModel: ObservableObject {
         }
     }
     
+    func createCourses(from pills: [Pill]){
+        
+        
+        var coursesArray = [Course]()
+        var courseDict = [String: [Pill]]()
+        
+        // Group pills by course name
+        for pill in pills {
+            if courseDict[pill.courseName!] == nil {
+                courseDict[pill.courseName!] = [Pill]()
+            }
+            courseDict[pill.courseName!]?.append(pill)
+        }
+        
+        // Create a course for each group of pills
+        for (courseName, coursePills) in courseDict {
+            guard let firstPill = coursePills.sorted(by: { $0.date! < $1.date! }).first,
+                  let lastPill = coursePills.sorted(by: { $0.date! > $1.date! }).first else {
+                continue
+            }
+            
+            // Calculate remaining number of days
+            let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: lastPill.date!).day ?? 0
+            
+            // Determine dose schedule
+            var morning = false
+            var day = false
+            var evening = false
+            var night = false
+            
+            
+            for pill in coursePills {
+                switch pill.timeOfDay {
+                case "morning":
+                    morning = true
+                case "day":
+                    day = true
+                case "evening":
+                    evening = true
+                case "night":
+                    night = true
+                default:
+                    break
+                }
+            }
+            
+            // Create the course
+            let course = Course(courseColor: Int(firstPill.courseColor),
+                                courseName: courseName,
+                                startDate: firstPill.date!,
+                                endDate: lastPill.date!,
+                                dose: firstPill.dose!,
+                                morning: morning,
+                                day: day,
+                                evening: evening,
+                                night: night,
+                                type: firstPill.type!,
+                                unit: firstPill.unit!)
+            
+            coursesArray.append(course)
+        }
+        
+        courses = coursesArray
+    }
     
     func createPillCourse(courseName: String, color: Color, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: String, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
         
@@ -54,7 +118,7 @@ class NewCourseViewModel: ObservableObject {
         
         
         var date = startDate
-        for i in 0..<selectedCourseDuration {
+        for i in 0..<selectedCourseDuration+1 {
             switch selectedRegimen {
             case "каждый день":
                 createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate)
@@ -78,7 +142,9 @@ class NewCourseViewModel: ObservableObject {
                 break
             }
         }
-        
+        // test
+        createCourses(from: pills)
+        print(courses)
     }
     
     
@@ -166,15 +232,5 @@ class NewCourseViewModel: ObservableObject {
                 print("Failed to save pill: \(error)")
             }
         }
-        
     }
-    
-    func update() {
-        
-    }
-    
-    func delete() {
-        
-    }
-    
 }

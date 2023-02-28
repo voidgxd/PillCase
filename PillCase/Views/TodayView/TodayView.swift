@@ -20,10 +20,8 @@ struct TodayView: View {
                 Divider()
                     .padding(.top, 20)
                 ScrollTodayView(viewModel: viewModel, dateDay: viewModel.dateToInt(.now), dateMonth: viewModel.getMonthName(from: .now))
-//                ScrollTodayView(dateDay: 20, dateMonth: "февраля")
                 Divider()
                 Spacer()
-
                 ZStack {
                     RoundedRectangle(cornerRadius: 35)
                     

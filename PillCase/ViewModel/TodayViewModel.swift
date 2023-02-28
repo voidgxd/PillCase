@@ -11,6 +11,8 @@ import SwiftUI
 import Combine
 
 class TodayViewModel: ObservableObject {
+    
+    // зарефакторить и убрать булианы
 
     @Published var todayPills: [Pill] = []
 

@@ -10,17 +10,9 @@ import SwiftUI
 struct ScrollTodayView: View {
     
     @ObservedObject var viewModel: TodayViewModel
-    
- 
 
-    
-    
     var dateDay: Int
     var dateMonth : String
-    
-    
-    
-    
     
     var body: some View {
         ZStack {
