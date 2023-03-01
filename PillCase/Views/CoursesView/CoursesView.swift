@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CoursesView: View {
+    
+    @ObservedObject var viewModel = NewCourseViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack() {
@@ -19,7 +22,7 @@ struct CoursesView: View {
                 
                 VStack(spacing: 0) {
                     VStack{
-                        ListCoursesView()
+                        ListCoursesView(viewModel: viewModel)
                     }
                     
                     Divider()
@@ -49,7 +52,7 @@ struct CoursesView: View {
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                
+                                print(viewModel.courses)
                             } label: {
                                 Image(systemName: "plus").foregroundColor(.white
                                 )
@@ -58,6 +61,7 @@ struct CoursesView: View {
                         }
                         
                     }
+                   
                     .background(CustomColor.backGroundColor)
                     
             }

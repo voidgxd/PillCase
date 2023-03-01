@@ -48,12 +48,18 @@ struct TestView: View {
                     print(viewModel.courses)
                     
                 }
+                Button("print") {
+                    print(viewModel.courses)
+                    
+                }
             }
+            
         }
         
         .navigationTitle("TEST")
         
     }
+    
 }
 
 struct TestView_Previews: PreviewProvider {

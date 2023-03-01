@@ -20,5 +20,9 @@ struct Course: Identifiable {
     let type: String
     let unit: String
     let id = UUID()
+    let remainingDays: Int
+    let regimen: String
+    let numberOfPills: Int
+    let douration: Int
 }
 

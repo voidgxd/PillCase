@@ -9,17 +9,31 @@ import SwiftUI
 
 struct ListCoursesView: View {
     // поменять на модель
-    var courses:[String] = ["1", "2", "3"]
+//    var courses:[String] = ["1", "2", "3"]
+    
+    
+    var viewModel: NewCourseViewModel
+    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
+    
+            
         ScrollView(showsIndicators: false) {
-            CourseCardView(color: .blue, name: "Витамин Д", duration: 30, daysLeft: 23, pillType: (Image("Pill1")), dose: 10000, unitOfMeasurement: "МЕ", sumNumberOfPills: 2, intervalOfMedication: "каждый день", morning: true, evening: true)
-            CourseCardView(color: .green, name: "Актовегин", duration: 7, daysLeft: 2, pillType: (Image("Pill3")), dose: 200, unitOfMeasurement: "мг", sumNumberOfPills: 3, intervalOfMedication: "каждый день", morning: true, day: true, evening: true)
-            CourseCardView(color: .red, name: "Омега 3", duration: 21, daysLeft: 18, pillType: (Image("RoundPill4")), dose: 300, unitOfMeasurement: "мг", sumNumberOfPills: 2, intervalOfMedication: "каждый день", morning: true, night: true)
-           
-            if courses.count < 4 {
-                AddNewCourseSubView()
-                }
+            ForEach(viewModel.courses) { course in
+                CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: course.dose, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
+
+
+            }
+//            ForEach(viewModel.courses) { course in
+//                Text(course.courseName)
+//
+//
+//            }
+//
+//
+////            if courses.count < 4 {
+////                AddNewCourseSubView()
+////                }
             }
         
         .background(CustomColor.backGroundColor)
@@ -29,7 +43,7 @@ struct ListCoursesView: View {
 
 struct ScrollCoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListCoursesView()
+        ListCoursesView(viewModel: NewCourseViewModel())
     }
 }
 
@@ -40,7 +54,7 @@ struct CourseCardView: View {
     var duration: Int
     var daysLeft: Int
     var pillType: Image
-    var dose: Int
+    var dose: String
     var unitOfMeasurement: String
     var sumNumberOfPills: Int
     var intervalOfMedication: String
@@ -48,6 +62,8 @@ struct CourseCardView: View {
     var day: Bool = false
     var evening: Bool = false
     var night: Bool = false
+    
+
     
     var body: some View {
         ZStack {

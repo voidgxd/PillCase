@@ -82,7 +82,7 @@ struct TodayCardView: View {
     
     var viewModel: TodayViewModel
     
-    var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
+    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var pillListOfSegment: [Pill]
 //    var pillListOfSegment: [TestPill]
