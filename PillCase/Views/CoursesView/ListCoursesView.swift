@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ListCoursesView: View {
-    // поменять на модель
-//    var courses:[String] = ["1", "2", "3"]
+
+
+    @ObservedObject var viewModel: CourseViewModel
     
-    
-    var viewModel: NewCourseViewModel
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
@@ -24,13 +23,7 @@ struct ListCoursesView: View {
 
 
             }
-//            ForEach(viewModel.courses) { course in
-//                Text(course.courseName)
-//
-//
-//            }
-//
-//
+
 ////            if courses.count < 4 {
 ////                AddNewCourseSubView()
 ////                }
@@ -43,7 +36,7 @@ struct ListCoursesView: View {
 
 struct ScrollCoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        ListCoursesView(viewModel: NewCourseViewModel())
+        ListCoursesView(viewModel: CourseViewModel())
     }
 }
 

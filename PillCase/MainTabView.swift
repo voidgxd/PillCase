@@ -11,6 +11,9 @@ import SwiftUI
 
 
 struct MainTabView: View {
+    
+    @EnvironmentObject var viewModel: CourseViewModel
+    
     var body: some View {
         TabView {
             TodayView()
@@ -23,18 +26,14 @@ struct MainTabView: View {
                     Image(systemName: "pills.fill")
                     Text("Courses")
                 }
-            NewCourseView()
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("Calendar")
-                }
-            TestView(viewModel: NewCourseViewModel())
+            TestView(viewModel: CourseViewModel())
                 .tabItem {
                     Image(systemName: "hockey.puck.fill")
                     Text("Test")
                 }
         }
         .tint(CustomColor.nightShadow)
+        
     }
 }
 

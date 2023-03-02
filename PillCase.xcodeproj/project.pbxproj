@@ -35,7 +35,7 @@
 		AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */; };
 		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
 		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
-		ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */; };
+		ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB5639299543C400D5D220 /* CourseViewModel.swift */; };
 		ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563B29954A9000D5D220 /* CoreDataManager.swift */; };
 		ABDB563E2995566200D5D220 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563D2995566200D5D220 /* TestView.swift */; };
 		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
@@ -71,7 +71,7 @@
 		AB9E4D9929941C60007906FD /* Pill.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill.xcdatamodel; sourceTree = "<group>"; };
 		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
-		ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseViewModel.swift; sourceTree = "<group>"; };
+		ABDB5639299543C400D5D220 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		ABDB563B29954A9000D5D220 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ABDB563D2995566200D5D220 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		ABDB56382995437500D5D220 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ABDB5639299543C400D5D220 /* NewCourseViewModel.swift */,
+				ABDB5639299543C400D5D220 /* CourseViewModel.swift */,
 				AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */,
 				AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */,
 			);
@@ -278,7 +278,7 @@
 				AB314F3229AE777A00DB808D /* CourseModel.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
 				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
-				ABDB563A299543C400D5D220 /* NewCourseViewModel.swift in Sources */,
+				ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,

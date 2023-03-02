@@ -9,7 +9,8 @@ import Combine
 import SwiftUI
 
 struct NewCourseView: View {
-    @ObservedObject var viewModel = NewCourseViewModel()
+    @ObservedObject var viewModel: CourseViewModel
+    @Environment(\.presentationMode) var presentationMode
     @State var name: String = ""
     
     
@@ -188,41 +189,32 @@ struct NewCourseView: View {
                     HStack{
                         DatePicker("Первый день:", selection: $startDate, displayedComponents: [.date])
                             .datePickerStyle(.automatic)
-                        
                     }
-                    
                 }
-                
                 HStack{
                     Spacer()
                     Button("Создать курс") {
-                        self.viewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                        DispatchQueue.main.async {
+                            
+                            
+                            self.viewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                            self.presentationMode.wrappedValue.dismiss() // dismiss the view
+                        }
                     }
                     .foregroundColor(selectedColor)
                     Spacer()
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
             .tint(selectedColor)
             .navigationBarTitle("Новый курс")
             .navigationBarTitleDisplayMode(.inline)
-        
         }
         .tint(selectedColor)
-        
     }
 }
 
 struct NewCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCourseView(startDate: .now)
+        NewCourseView(viewModel: CourseViewModel(), startDate: .now)
     }
 }

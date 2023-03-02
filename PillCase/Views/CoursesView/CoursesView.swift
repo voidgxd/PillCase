@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoursesView: View {
     
-    @ObservedObject var viewModel = NewCourseViewModel()
+    @ObservedObject var viewModel = CourseViewModel()
     
     var body: some View {
         NavigationStack {
@@ -51,20 +51,20 @@ struct CoursesView: View {
                             }
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                print(viewModel.courses)
-                            } label: {
-                                Image(systemName: "plus").foregroundColor(.white
-                                )
-                                .font(.system(size: 22, weight: .bold))
-                            }
+                                                    NavigationLink(destination: NewCourseView(viewModel: viewModel)) {
+                                                        Image(systemName: "plus").foregroundColor(.white
+                                                        )
+                                                        .font(.system(size: 22, weight: .bold))
+                                                    }
                         }
                         
                     }
-                   
+                    .onAppear{
+                        self.viewModel.objectWillChange.send()
+                    }
                     .background(CustomColor.backGroundColor)
-                    
-            }
+            
+        }
         
     }
     

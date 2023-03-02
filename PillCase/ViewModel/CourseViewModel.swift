@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 
-class NewCourseViewModel: ObservableObject {
+class CourseViewModel: ObservableObject {
     
     
     
@@ -70,24 +70,23 @@ class NewCourseViewModel: ObservableObject {
                 
                 var numberOfPills = 0
                 
-                for pill in coursePills {
-                    switch pill.timeOfDay {
-                    case "morning":
-                        morning = true
-                        numberOfPills += 1
-                    case "day":
-                        day = true
-                        numberOfPills += 1
-                    case "evening":
-                        evening = true
-                        numberOfPills += 1
-                    case "night":
-                        night = true
-                        numberOfPills += 1
-                    default:
-                        break
-                    }
+                if coursePills.contains(where: { $0.timeOfDay == "morning" }) {
+                    numberOfPills += 1
+                    morning = true
                 }
+                if coursePills.contains(where: { $0.timeOfDay == "day" }) {
+                    numberOfPills += 1
+                    day = true
+                }
+                if coursePills.contains(where: { $0.timeOfDay == "evening" }) {
+                    numberOfPills += 1
+                    evening = true
+                }
+                if coursePills.contains(where: { $0.timeOfDay == "night" }) {
+                    numberOfPills += 1
+                    night = true
+                }
+                
                 
                 // Create the course
                 let course = Course(courseColor: Int(firstPill.courseColor),
@@ -109,8 +108,11 @@ class NewCourseViewModel: ObservableObject {
                 
                 coursesArray.append(course)
             }
-            courses.removeAll()
-            courses = coursesArray
+            
+                courses.removeAll()
+                courses = coursesArray
+                objectWillChange.send()
+            
         }
     }
     
@@ -157,7 +159,7 @@ class NewCourseViewModel: ObservableObject {
                 break
             }
         }
-        // test
+        fetchData()
         createCourses(from: pills)
         print(courses)
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestView: View {
 //    @ObservedObject var viewModel = TodayViewModel()
-    @ObservedObject var viewModel = NewCourseViewModel()
+    @ObservedObject var viewModel = CourseViewModel()
     
     let date = Date()
         let dateFormatter: DateFormatter = {
@@ -64,6 +64,6 @@ struct TestView: View {
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {
-        TestView(viewModel: NewCourseViewModel())
+        TestView(viewModel: CourseViewModel())
     }
 }
