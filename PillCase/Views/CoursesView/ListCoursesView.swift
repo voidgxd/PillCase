@@ -12,24 +12,42 @@ struct ListCoursesView: View {
 
     @ObservedObject var viewModel: CourseViewModel
     
+    @EnvironmentObject var todayViewModel: TodayViewModel
+    
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
     
+        if viewModel.courses.isEmpty {
+            Text("Добавьте курс")
+                .font(.system(size: 28, weight: .medium, design: .monospaced))
+        } else {
             
-        ScrollView(showsIndicators: false) {
-            ForEach(viewModel.courses) { course in
-                CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: course.dose, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
-
-
+            List {
+                ForEach(viewModel.courses) { course in
+                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: course.dose, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
+                        .background(CustomColor.backGroundColor)
+                        .listRowBackground(CustomColor.backGroundColor)
+                        .listRowSeparator(.hidden)
+                }
+                .onDelete { indexSet in
+                    indexSet.forEach { index in
+                        let courseToDelete = viewModel.courses[index].courseName
+                        viewModel.deleteCourse(forCourse: courseToDelete)
+                        todayViewModel.reload()
+                    }
+                }
+                
+                ////            if courses.count < 4 {
+                ////                AddNewCourseSubView()
+                ////                }
             }
-
-////            if courses.count < 4 {
-////                AddNewCourseSubView()
-////                }
-            }
-        
-        .background(CustomColor.backGroundColor)
+            .background(CustomColor.backGroundColor)
+            .listStyle(.plain)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scrollContentBackground(.hidden)
+        }
+     
         }
     
 }

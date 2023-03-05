@@ -9,26 +9,29 @@ import SwiftUI
 
 struct CoursesView: View {
     
+    @EnvironmentObject var todayViewModel: TodayViewModel
     @ObservedObject var viewModel = CourseViewModel()
+    
     
     var body: some View {
         NavigationStack {
-            VStack() {
-                Divider()
-                    .padding(.top, 20)
-                ScrollCurseView()
-                Spacer()
-                Divider()
+            ZStack{
+//                Divider()
+//                    .padding(.top, 20)
+//                ScrollCurseView()
+//                Spacer()
+//                Divider()
                 
                 VStack(spacing: 0) {
                     VStack{
                         ListCoursesView(viewModel: viewModel)
                     }
-                    
+                    Spacer()
                     Divider()
                 }
                 
             }
+            .background(CustomColor.backGroundColor)
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbarBackground(CustomColor.morning, for: .navigationBar)
                     .toolbarBackground(.visible, for: .navigationBar)

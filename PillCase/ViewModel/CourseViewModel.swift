@@ -44,12 +44,13 @@ class CourseViewModel: ObservableObject {
         // Group pills by course name
         if !pills.isEmpty {
             for pill in pills {
-                if courseDict[pill.courseName!] == nil {
-                    courseDict[pill.courseName!] = [Pill]()
+                if let courseName = pill.courseName {
+                    if courseDict[courseName] == nil {
+                        courseDict[courseName] = [Pill]()
+                    }
+                    courseDict[courseName]?.append(pill)
                 }
-                courseDict[pill.courseName!]?.append(pill)
             }
-            
             // Create a course for each group of pills
             for (courseName, coursePills) in courseDict {
                 guard let firstPill = coursePills.sorted(by: { $0.date! < $1.date! }).first,
@@ -58,7 +59,7 @@ class CourseViewModel: ObservableObject {
                 }
                 
                 // Calculate remaining number of days
-                let remainingDays = Calendar.current.dateComponents([.day], from: .now, to: lastPill.date!).day ?? 0
+                let remainingDays = Calendar.current.dateComponents([.day], from: .now, to: lastPill.date! + 1).day ?? 0
                 
                 //courseDouration here
                 
@@ -109,7 +110,7 @@ class CourseViewModel: ObservableObject {
                 coursesArray.append(course)
             }
             
-                courses.removeAll()
+//                courses.removeAll()
                 courses = coursesArray
                 objectWillChange.send()
             
@@ -261,5 +262,29 @@ class CourseViewModel: ObservableObject {
                 print("Failed to save pill: \(error)")
             }
         }
+    }
+    
+    func deleteCourse(forCourse courseName: String) {
+        let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "courseName = %@", courseName)
+        do {
+            let pills = try context.fetch(fetchRequest)
+            for pillToDelete in pills {
+                context.delete(pillToDelete)
+            }
+            try context.save()
+            
+            
+            courses.removeAll()
+            
+          
+          
+            
+        } catch {
+            print("Failed to delete pills: \(error)")
+        }
+        
+        createCourses(from: pills)
+        
     }
 }

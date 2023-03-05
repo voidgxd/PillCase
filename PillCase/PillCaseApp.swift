@@ -11,11 +11,14 @@ import SwiftUI
 struct PillCaseApp: App {
     
     let coreDataManager = CoreDataManager.shared
+    let todayViewModel = TodayViewModel()
+    
     
     var body: some Scene {
         WindowGroup {
             MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
+                .environmentObject(todayViewModel)
         }
     }
 }

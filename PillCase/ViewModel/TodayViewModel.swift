@@ -106,6 +106,10 @@ class TodayViewModel: ObservableObject {
        }
     
     func reload() {
+        morning.removeAll()
+        day.removeAll()
+        evening.removeAll()
+        night.removeAll()
         fetchTodayPills()
         sortPillsByTimeOfDay()
     }
@@ -128,10 +132,6 @@ class TodayViewModel: ObservableObject {
                 
                 // Update the data and refresh UI after deletion
                 // Передалать под менее костыльную функцию
-                morning.removeAll()
-                day.removeAll()
-                evening.removeAll()
-                night.removeAll()
                 reload()
                 
             }
