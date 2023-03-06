@@ -38,6 +38,12 @@
 		ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB5639299543C400D5D220 /* CourseViewModel.swift */; };
 		ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563B29954A9000D5D220 /* CoreDataManager.swift */; };
 		ABDB563E2995566200D5D220 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563D2995566200D5D220 /* TestView.swift */; };
+		ABF987B529B65C68004362F2 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987B429B65C68004362F2 /* CalendarCell.swift */; };
+		ABF987B729B65C95004362F2 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987B629B65C95004362F2 /* CalendarHelper.swift */; };
+		ABF987BB29B65CEF004362F2 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BA29B65CEF004362F2 /* DateHolder.swift */; };
+		ABF987BD29B65D13004362F2 /* DateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BC29B65D13004362F2 /* DateScrollerView.swift */; };
+		ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BE29B65D3C004362F2 /* MonthStruct.swift */; };
+		ABF987C329B65F71004362F2 /* CalendarPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987C229B65F71004362F2 /* CalendarPillView.swift */; };
 		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +80,12 @@
 		ABDB5639299543C400D5D220 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		ABDB563B29954A9000D5D220 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ABDB563D2995566200D5D220 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		ABF987B429B65C68004362F2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		ABF987B629B65C95004362F2 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		ABF987BA29B65CEF004362F2 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		ABF987BC29B65D13004362F2 /* DateScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScrollerView.swift; sourceTree = "<group>"; };
+		ABF987BE29B65D3C004362F2 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
+		ABF987C229B65F71004362F2 /* CalendarPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPillView.swift; sourceTree = "<group>"; };
 		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +103,7 @@
 		AB4BAD34297C53E20019D7AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ABF987B329B65C04004362F2 /* CalendarView */,
 				AB4BAD35297C53EE0019D7AF /* TodayView */,
 				AB68CBB7297FE3D5007AF62C /* CoursesView */,
 			);
@@ -199,6 +212,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		ABF987B329B65C04004362F2 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				ABF987B429B65C68004362F2 /* CalendarCell.swift */,
+				ABF987B629B65C95004362F2 /* CalendarHelper.swift */,
+				ABF987BA29B65CEF004362F2 /* DateHolder.swift */,
+				ABF987BE29B65D3C004362F2 /* MonthStruct.swift */,
+				ABF987C229B65F71004362F2 /* CalendarPillView.swift */,
+				ABF987BC29B65D13004362F2 /* DateScrollerView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -276,17 +302,23 @@
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
 				AB314F3229AE777A00DB808D /* CourseModel.swift in Sources */,
+				ABF987B529B65C68004362F2 /* CalendarCell.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
+				ABF987B729B65C95004362F2 /* CalendarHelper.swift in Sources */,
 				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
+				ABF987BB29B65CEF004362F2 /* DateHolder.swift in Sources */,
 				ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
+				ABF987BD29B65D13004362F2 /* DateScrollerView.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */,
 				AB2EE547298845A900970390 /* CourseDayView.swift in Sources */,
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
+				ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */,
+				ABF987C329B65F71004362F2 /* CalendarPillView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
 				AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */,
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,

@@ -13,6 +13,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var todayViewModel: TodayViewModel
+    let dateHolder = DateHolder()
     
     var body: some View {
         TabView {
@@ -25,6 +26,11 @@ struct MainTabView: View {
                 .tabItem {
                     Image(systemName: "pills.fill")
                     Text("Courses")
+                }
+            CalendarPillView().environmentObject(dateHolder)
+                .tabItem {
+                    Image(systemName: "hockey.puck.fill")
+                    Text("Calendar")
                 }
             TestView(viewModel: CourseViewModel())
                 .tabItem {

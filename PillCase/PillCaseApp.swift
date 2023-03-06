@@ -16,6 +16,7 @@ struct PillCaseApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
             MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
                 .environmentObject(todayViewModel)
