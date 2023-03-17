@@ -44,13 +44,16 @@ struct DateScrollerView: View
                             )
                             .foregroundColor(CustomColor.backGroundColor)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
+                            
                     }
                 Text(CalendarHelper().monthYearString(dateHolder.date))
                     .font(.title)
                     .bold()
                     .animation(.none)
                     .frame(maxWidth: .infinity)
+                    
             }
+            
             Button(action: nextMonth)
             {
                 ZStack{

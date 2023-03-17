@@ -59,7 +59,7 @@ class CourseViewModel: ObservableObject {
                 }
                 
                 // Calculate remaining number of days
-                let remainingDays = Calendar.current.dateComponents([.day], from: .now, to: lastPill.date! + 1).day ?? 0
+                let remainingDays = Calendar.current.dateComponents([.day], from: .now, to: lastPill.date!).day! + 1 ?? 0
                 
                 //courseDouration here
                 

@@ -16,19 +16,39 @@ struct CalendarCell: View
     let daysInPrevMonth : Int
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .bottom){
           
             VStack(alignment: .center, spacing: 0){
-                
-                HStack {
+                ZStack(alignment: .bottom){
                     
-                    Text(monthStruct().day())
-                        .foregroundColor(textColor(type: monthStruct().monthType))
+                    RoundedRectangle(cornerRadius: 16)
+                    
+                        .frame(maxWidth: .infinity, maxHeight: 72)
+                        .foregroundColor(CustomColor.backGroundColor)
+                    //                .shadow(color: .black.opacity(0.30), radius: 5, x: 9, y: 9)
+                    //                .shadow(color: .white.opacity(1),  radius: 4, x: -9, y: -9)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                .fill (
+                                    .shadow(.inner(color:.black.opacity(0.45),radius: 2, x: 2, y: 2))
+                                    .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -6, y: -6))
+                                )
+                                .foregroundColor(CustomColor.backGroundColor)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                            
+                        }
+                    VStack(spacing: 0) {
+                        HStack(alignment: .bottom) {
+                            
+                            Text(monthStruct().day())
+                                .foregroundColor(textColor(type: monthStruct().monthType))
+                            
+                            
+                        }
                         
-                    
+                        PillsDayView(morningNumberOfPills: 3)
+                    }
                 }
-                
-                PillsDayView(morningNumberOfPills: 3)
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

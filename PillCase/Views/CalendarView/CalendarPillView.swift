@@ -19,6 +19,8 @@ struct CalendarPillView: View
                 DateScrollerView()
                     .environmentObject(dateHolder)
                     .padding()
+                    .frame(height: 84)
+
                 dayOfWeekStack
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
@@ -35,7 +37,7 @@ struct CalendarPillView: View
                                 )
                                 .foregroundColor(CustomColor.backGroundColor)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                            
+                                
                         }
                     
                     calendarGrid
