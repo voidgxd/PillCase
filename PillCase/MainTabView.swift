@@ -13,6 +13,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var todayViewModel: TodayViewModel
+    
     let dateHolder = DateHolder()
     
     var body: some View {
@@ -39,7 +40,6 @@ struct MainTabView: View {
                 }
         }
         .tint(CustomColor.nightShadow)
-        
     }
 }
 

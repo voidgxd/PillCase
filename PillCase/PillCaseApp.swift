@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct PillCaseApp: App {
@@ -20,6 +21,11 @@ struct PillCaseApp: App {
             MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
                 .environmentObject(todayViewModel)
+                .onAppear {
+                                checkOldPills()
+                            }
         }
     }
+
 }
+

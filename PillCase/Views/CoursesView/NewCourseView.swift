@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 struct NewCourseView: View {
-    @ObservedObject var viewModel: CourseViewModel
+    @ObservedObject var courseViewModel: CourseViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var name: String = ""
     
@@ -197,7 +197,7 @@ struct NewCourseView: View {
                         DispatchQueue.main.async {
                             
                             
-                            self.viewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                            self.courseViewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
                             self.presentationMode.wrappedValue.dismiss() // dismiss the view
                         }
                     }
@@ -215,6 +215,7 @@ struct NewCourseView: View {
 
 struct NewCourseView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCourseView(viewModel: CourseViewModel(), startDate: .now)
+        NewCourseView(courseViewModel: CourseViewModel(), startDate: .now)
+            .environmentObject(CourseViewModel())
     }
 }

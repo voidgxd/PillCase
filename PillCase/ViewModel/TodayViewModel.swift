@@ -121,7 +121,7 @@ class TodayViewModel: ObservableObject {
     
     
     
-    func delete(_ pillId: UUID) {
+    public func delete(_ pillId: UUID) {
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", pillId.uuidString)
         do {

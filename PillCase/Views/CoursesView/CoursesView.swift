@@ -10,7 +10,7 @@ import SwiftUI
 struct CoursesView: View {
     
     @EnvironmentObject var todayViewModel: TodayViewModel
-    @ObservedObject var viewModel = CourseViewModel()
+    @ObservedObject var courseViewModel = CourseViewModel()
     
     
     var body: some View {
@@ -24,7 +24,7 @@ struct CoursesView: View {
                 
                 VStack(spacing: 0) {
                     VStack{
-                        ListCoursesView(viewModel: viewModel)
+                        ListCoursesView(viewModel: courseViewModel)
                     }
                     Spacer()
                     Divider()
@@ -54,7 +54,7 @@ struct CoursesView: View {
                             }
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
-                                                    NavigationLink(destination: NewCourseView(viewModel: viewModel)) {
+                            NavigationLink(destination: NewCourseView(courseViewModel: courseViewModel)) {
                                                         Image(systemName: "plus").foregroundColor(.white
                                                         )
                                                         .font(.system(size: 22, weight: .bold))
@@ -63,7 +63,7 @@ struct CoursesView: View {
                         
                     }
                     .onAppear{
-                        self.viewModel.objectWillChange.send()
+                        self.courseViewModel.objectWillChange.send()
                     }
                     .background(CustomColor.backGroundColor)
             

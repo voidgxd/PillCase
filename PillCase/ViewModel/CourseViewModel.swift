@@ -166,7 +166,7 @@ class CourseViewModel: ObservableObject {
     }
     
     
-    //#warning("зарефакторить функцию")
+    #warning("зарефакторить функцию")
     func createPill(courseName: String, courseColor: Int, date: Date, day: Bool, dose: String, evening: Bool, id: UUID, morning: Bool, night: Bool, type: String, unit: String, startDate: Date, regimen: String, douration: Int) {
         
         
@@ -287,4 +287,6 @@ class CourseViewModel: ObservableObject {
         createCourses(from: pills)
         
     }
+    
+   
 }

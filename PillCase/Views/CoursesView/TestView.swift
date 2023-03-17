@@ -30,37 +30,32 @@ struct TestView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                List(viewModel.courses) { course in
+                List(viewModel.pills) { pill in
                     HStack {
-                        Text(course.courseName)
-                        Text(course.dose)
-                        Text(course.unit)
-                    // неправильно работает функция
-                        Text(String(course.morning))
-                        Text(String(course.day))
-                        Text(String(course.evening))
-                        Text(String(course.night))
-                      
+                        Text(pill.courseName!)
+                        
                     }
-                      }
-                Button("Создать курс") {
-                    viewModel.createCourses(from: viewModel.pills)
-                    print(viewModel.courses)
                     
                 }
-                Button("print") {
-                    print(viewModel.courses)
-                    
-                }
-            }
             
+            Button("Создать курс") {
+                viewModel.createCourses(from: viewModel.pills)
+                print(viewModel.courses)
+                
+            }
+            Button("print") {
+                print(viewModel.pills)
+                
+            }
+        }
+    
         }
         
         .navigationTitle("TEST")
         
     }
-    
 }
+
 
 struct TestView_Previews: PreviewProvider {
     static var previews: some View {

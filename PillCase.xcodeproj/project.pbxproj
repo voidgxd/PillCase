@@ -19,6 +19,7 @@
 		AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD30297C4DBF0019D7AF /* PillView.swift */; };
 		AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD32297C51320019D7AF /* DetailDayView.swift */; };
 		AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */; };
+		AB4EFF1129C48F1F0092F560 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */; };
 		AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB5639299543C400D5D220 /* CourseViewModel.swift */; };
 		ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563B29954A9000D5D220 /* CoreDataManager.swift */; };
 		ABDB563E2995566200D5D220 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB563D2995566200D5D220 /* TestView.swift */; };
+		ABE7C93529C3BA7400146AA9 /* App Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7C93429C3BA7400146AA9 /* App Ext.swift */; };
 		ABF987B529B65C68004362F2 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987B429B65C68004362F2 /* CalendarCell.swift */; };
 		ABF987B729B65C95004362F2 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987B629B65C95004362F2 /* CalendarHelper.swift */; };
 		ABF987BB29B65CEF004362F2 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BA29B65CEF004362F2 /* DateHolder.swift */; };
@@ -60,6 +62,7 @@
 		AB4BAD30297C4DBF0019D7AF /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		AB4BAD32297C51320019D7AF /* DetailDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayView.swift; sourceTree = "<group>"; };
 		AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayCardView.swift; sourceTree = "<group>"; };
+		AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoursesView.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		ABDB5639299543C400D5D220 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		ABDB563B29954A9000D5D220 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ABDB563D2995566200D5D220 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		ABE7C93429C3BA7400146AA9 /* App Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Ext.swift"; sourceTree = "<group>"; };
 		ABF987B429B65C68004362F2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		ABF987B629B65C95004362F2 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		ABF987BA29B65CEF004362F2 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			children = (
 				ABDB563B29954A9000D5D220 /* CoreDataManager.swift */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
+				ABE7C93429C3BA7400146AA9 /* App Ext.swift */,
 				AB89FBC229789F230049AC4B /* MainTabView.swift */,
 				AB539E8B296A11850028C660 /* Models */,
 				AB4BAD34297C53E20019D7AF /* Views */,
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				ABDB5639299543C400D5D220 /* CourseViewModel.swift */,
+				AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */,
 				AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */,
 				AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */,
 			);
@@ -308,6 +314,7 @@
 				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
 				ABF987BB29B65CEF004362F2 /* DateHolder.swift in Sources */,
 				ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */,
+				AB4EFF1129C48F1F0092F560 /* MainViewModel.swift in Sources */,
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
@@ -315,6 +322,7 @@
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */,
 				AB2EE547298845A900970390 /* CourseDayView.swift in Sources */,
+				ABE7C93529C3BA7400146AA9 /* App Ext.swift in Sources */,
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
 				ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */,
