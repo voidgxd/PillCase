@@ -10,6 +10,8 @@ import CoreData
 
 class MainViewModel: ObservableObject {
     
+    @Published var todayViewModel = TodayViewModel()
+//    @Published var courseViewModel = CourseViewModel()
     
     @Published var pills: [Pill] = []
     

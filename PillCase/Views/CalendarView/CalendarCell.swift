@@ -15,6 +15,8 @@ struct CalendarCell: View
     let daysInMonth : Int
     let daysInPrevMonth : Int
     
+   @State var isShowingCourses = true
+    
     var body: some View {
         ZStack(alignment: .bottom){
           
@@ -45,8 +47,11 @@ struct CalendarCell: View
                             
                             
                         }
-                        
-                        PillsDayView(morningNumberOfPills: 3)
+                        if isShowingCourses {
+                            CourseDayCalendarView(firstCourseColor: CustomColor.firstCourse, secondCourseColor: CustomColor.secondCourse, thirdCourseColor: CustomColor.thirdCourse, fourthCourseColor: CustomColor.fourthCourse, firstCoursePillType: "Pill3", secondCoursePillType: "Pill4", thirdCoursePillType: "RoundPill3", fourthCoursePillType: "Pill2")
+                        } else {
+                            PillsDayView(morningNumberOfPills: 3)
+                            }
                     }
                 }
                 

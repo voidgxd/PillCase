@@ -12,7 +12,9 @@ import CoreData
 struct PillCaseApp: App {
     
     let coreDataManager = CoreDataManager.shared
-    let todayViewModel = TodayViewModel()
+    
+    let mainViewModel = MainViewModel()
+//    let todayViewModel = TodayViewModel()
     
     
     var body: some Scene {
@@ -20,7 +22,7 @@ struct PillCaseApp: App {
             
             MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
-                .environmentObject(todayViewModel)
+                .environmentObject(mainViewModel)
                 .onAppear {
                                 checkOldPills()
                             }

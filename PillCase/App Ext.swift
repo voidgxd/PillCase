@@ -38,7 +38,7 @@ extension PillCaseApp {
         }
         print("Called")
         try? context.save()
-        todayViewModel.fetchTodayPills()
+            mainViewModel.todayViewModel.fetchTodayPills()
         
     }
 }

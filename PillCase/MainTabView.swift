@@ -12,18 +12,19 @@ import SwiftUI
 
 struct MainTabView: View {
     
-    @EnvironmentObject var todayViewModel: TodayViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
+//    @EnvironmentObject var todayViewModel: TodayViewModel
     
     let dateHolder = DateHolder()
     
     var body: some View {
         TabView {
-            TodayView().environmentObject(todayViewModel)
+            TodayView().environmentObject(mainViewModel.todayViewModel)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Today")
                 }
-            CoursesView().environmentObject(todayViewModel)
+            CoursesView().environmentObject(mainViewModel.todayViewModel)
                 .tabItem {
                     Image(systemName: "pills.fill")
                     Text("Courses")

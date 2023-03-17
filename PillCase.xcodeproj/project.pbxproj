@@ -20,6 +20,9 @@
 		AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD32297C51320019D7AF /* DetailDayView.swift */; };
 		AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */; };
 		AB4EFF1129C48F1F0092F560 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */; };
+		AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1229C49D7A0092F560 /* CalendarViewModel.swift */; };
+		AB4EFF1529C4A2E70092F560 /* CourseDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */; };
+		AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */; };
 		AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 		AB4BAD32297C51320019D7AF /* DetailDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayView.swift; sourceTree = "<group>"; };
 		AB4BAD36297C54780019D7AF /* DetailDayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayCardView.swift; sourceTree = "<group>"; };
 		AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		AB4EFF1229C49D7A0092F560 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayCalendarView.swift; sourceTree = "<group>"; };
+		AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayModel.swift; sourceTree = "<group>"; };
 		AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoursesView.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 			children = (
 				AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */,
 				AB314F3129AE777A00DB808D /* CourseModel.swift */,
+				AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 				AB77BE42299009D5005927A2 /* Calendar */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
+				AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */,
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
 				AB8E636C29A68F5A00BC4F83 /* Extensions.swift */,
 				AB6ED29F2968BC0700910504 /* Assets.xcassets */,
@@ -202,7 +210,6 @@
 		AB77BE42299009D5005927A2 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				AB77BE402990049F005927A2 /* CalendarView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 				ABDB5639299543C400D5D220 /* CourseViewModel.swift */,
 				AB4EFF1029C48F1F0092F560 /* MainViewModel.swift */,
 				AB3E5E60299BFB3C0043042C /* TodayViewModel.swift */,
+				AB4EFF1229C49D7A0092F560 /* CalendarViewModel.swift */,
 				AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */,
 			);
 			path = ViewModel;
@@ -225,6 +233,7 @@
 				ABF987B629B65C95004362F2 /* CalendarHelper.swift */,
 				ABF987BA29B65CEF004362F2 /* DateHolder.swift */,
 				ABF987BE29B65D3C004362F2 /* MonthStruct.swift */,
+				AB77BE402990049F005927A2 /* CalendarView.swift */,
 				ABF987C229B65F71004362F2 /* CalendarPillView.swift */,
 				ABF987BC29B65D13004362F2 /* DateScrollerView.swift */,
 			);
@@ -304,6 +313,7 @@
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
+				AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */,
 				AB3E5E65299C060D0043042C /* TestArray.swift in Sources */,
 				AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */,
 				AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */,
@@ -318,6 +328,7 @@
 				AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */,
 				AB3E5E63299C01480043042C /* PillsOfSegmentView.swift in Sources */,
 				ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */,
+				AB4EFF1529C4A2E70092F560 /* CourseDayCalendarView.swift in Sources */,
 				ABF987BD29B65D13004362F2 /* DateScrollerView.swift in Sources */,
 				AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */,
 				ABDB563C29954A9000D5D220 /* CoreDataManager.swift in Sources */,
@@ -326,6 +337,7 @@
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
 				ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */,
+				AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */,
 				ABF987C329B65F71004362F2 /* CalendarPillView.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
 				AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */,
