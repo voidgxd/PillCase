@@ -10,6 +10,7 @@ import SwiftUI
 struct TestView: View {
 //    @ObservedObject var viewModel = TodayViewModel()
     @ObservedObject var viewModel = CourseViewModel()
+    @ObservedObject var calendarViewModel = CalendarViewModel()
     
     let date = Date()
         let dateFormatter: DateFormatter = {
@@ -28,15 +29,16 @@ struct TestView: View {
     
     
     var body: some View {
+        
+        
+        var obj = calendarViewModel.getDayPill(date: .now)
+        
         NavigationStack{
             VStack{
-                List(viewModel.pills) { pill in
-                    HStack {
-                        Text(pill.courseName!)
-                        
-                    }
-                    
-                }
+                Text(String(obj.morningPills))
+                Text(String(obj.dayPills))
+                Text(String(obj.eveningPills))
+                Text(String(obj.nightPills))
             
             Button("Создать курс") {
                 viewModel.createCourses(from: viewModel.pills)

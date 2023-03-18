@@ -7,11 +7,13 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class MainViewModel: ObservableObject {
     
     @Published var todayViewModel = TodayViewModel()
 //    @Published var courseViewModel = CourseViewModel()
+    @Published var calendarViewModel = CalendarViewModel()
     
     @Published var pills: [Pill] = []
     

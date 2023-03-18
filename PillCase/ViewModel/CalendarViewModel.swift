@@ -13,6 +13,11 @@ class CalendarViewModel: ObservableObject {
     
     
     @Published var isShowingCourses = false
+    @Published var dataChanged = false
+    
+    func dataDidChange() {
+        dataChanged = true
+    }
     
     private let context: NSManagedObjectContext
 
@@ -23,8 +28,10 @@ class CalendarViewModel: ObservableObject {
     
     @Published var pills: [Pill] = []
     
+    #warning("add private to fechData")
     
-    private func fetchData() {
+     func fetchData() {
+        pills.removeAll()
         do {
             pills = try context.fetch(Pill.fetchRequest())
         } catch {
@@ -42,11 +49,13 @@ class CalendarViewModel: ObservableObject {
         var night: [Pill] = []
         
         
-        func fetchThisDayPills() {
-                thisDayPills = pills.filter { Calendar.current.isDate($0.date!, inSameDayAs: Date()) }
-            }
+        func fetchThisDayPills(for date: Date) {
+            thisDayPills = pills.filter { Calendar.current.isDate($0.date!, inSameDayAs: date) }
+        }
         
-        fetchThisDayPills()
+        fetchThisDayPills(for: date)
+        
+        
         
         func sortPillsByTimeOfDay() {
             for pill in thisDayPills {
@@ -73,6 +82,8 @@ class CalendarViewModel: ObservableObject {
                }
            }
         
+        sortPillsByTimeOfDay()
+        
         var calendarDay = CalendarDay(date: date, morningPills: morning.count, dayPills: day.count, eveningPills: evening.count, nightPills: night.count, courses: [])
         
         // Get unique course names
@@ -88,6 +99,8 @@ class CalendarViewModel: ObservableObject {
           }
           
           // Return CalendarDay instance
+        
+        print(calendarDay)
           return calendarDay
         
     }

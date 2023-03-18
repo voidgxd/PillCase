@@ -29,7 +29,9 @@ struct MainTabView: View {
                     Image(systemName: "pills.fill")
                     Text("Courses")
                 }
-            CalendarPillView().environmentObject(dateHolder)
+            CalendarPillView()
+                .environmentObject(dateHolder)
+                .environmentObject(mainViewModel.calendarViewModel)
                 .tabItem {
                     Image(systemName: "hockey.puck.fill")
                     Text("Calendar")

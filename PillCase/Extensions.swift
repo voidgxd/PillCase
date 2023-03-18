@@ -12,3 +12,11 @@ extension String {
         return prefix(1).capitalized + dropFirst()
     }
 }
+
+extension Date {
+    func toString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+}

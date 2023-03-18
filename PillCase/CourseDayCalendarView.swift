@@ -10,15 +10,15 @@ import SwiftUI
 struct CourseDayCalendarView: View {
     
     
-    var firstCourseColor: Color
-    var secondCourseColor: Color
-    var thirdCourseColor: Color
-    var fourthCourseColor: Color
+    var firstCourseColor: Color?
+    var secondCourseColor: Color?
+    var thirdCourseColor: Color?
+    var fourthCourseColor: Color?
     
-    var firstCoursePillType: String
-    var secondCoursePillType: String
-    var thirdCoursePillType: String
-    var fourthCoursePillType: String
+    var firstCoursePillType: String?
+    var secondCoursePillType: String?
+    var thirdCoursePillType: String?
+    var fourthCoursePillType: String?
     
     
     
@@ -36,47 +36,51 @@ struct CourseDayCalendarView: View {
                 VStack (spacing: 2){
                     HStack (spacing: 2) {
                         ZStack{
-                            
-                            
-                            Rectangle().cornerRadius(10, corners: .topLeft)
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(firstCourseColor)
-                            Image(firstCoursePillType)
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                            
+                            // morning
+                            if firstCourseColor != nil {
+                                Rectangle().cornerRadius(10, corners: .topLeft)
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(firstCourseColor)
+                                Image(firstCoursePillType!)
+                                    .resizable()
+                                    .frame(width: 16, height: 16)
+                            }
                         }
                         ZStack{
                             // day
-                            Rectangle().cornerRadius(10, corners: .topRight)
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(secondCourseColor)
-                            Image(secondCoursePillType)
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                                
+                            if secondCourseColor != nil {
+                                Rectangle().cornerRadius(10, corners: .topRight)
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(secondCourseColor)
+                                Image(secondCoursePillType!)
+                                    .resizable()
+                                    .frame(width: 16, height: 16)
+                            }
                                 
                         }
                     }
                     HStack(spacing: 2) {
                         ZStack{
                             // night
-                            Rectangle().cornerRadius(10, corners: .bottomLeft)
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(thirdCourseColor)
-                            Image(thirdCoursePillType)
-                                .resizable()
-                                .frame(width: 16, height: 16)
+                            if thirdCourseColor != nil {
+                                Rectangle().cornerRadius(10, corners: .bottomLeft)
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(thirdCourseColor)
+                                Image(thirdCoursePillType!)
+                                    .resizable()
+                                    .frame(width: 16, height: 16)
+                            }
                         }
                         ZStack{
                             // evening
-                            Rectangle().cornerRadius(10, corners: .bottomRight)
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(fourthCourseColor)
-                            Image(fourthCoursePillType)
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                                
+                            if fourthCourseColor != nil {
+                                Rectangle().cornerRadius(10, corners: .bottomRight)
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(fourthCourseColor)
+                                Image(fourthCoursePillType!)
+                                    .resizable()
+                                    .frame(width: 16, height: 16)
+                            }
                         }
                     }
                 }

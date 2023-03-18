@@ -10,6 +10,7 @@ import SwiftUI
 struct CalendarPillView: View
 {
     @EnvironmentObject var dateHolder: DateHolder
+    @EnvironmentObject var calendarViewModel: CalendarViewModel
     
     var body: some View
     {
@@ -108,6 +109,7 @@ struct CalendarPillView: View
     {
         VStack(spacing: 1)
         {
+            
             let daysInMonth = CalendarHelper().daysInMonth(dateHolder.date)
             let firstDayOfMonth = CalendarHelper().firstOfMonth(dateHolder.date)
             let startingSpaces = CalendarHelper().weekDay(firstDayOfMonth)
@@ -130,6 +132,7 @@ struct CalendarPillView: View
                             
                             CalendarCell(count: count, startingSpaces:startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
                                 .environmentObject(dateHolder)
+                                
                             
                         }
                         

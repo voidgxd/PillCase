@@ -13,7 +13,6 @@ import CoreData
 class CourseViewModel: ObservableObject {
     
     
-    
     @Published var pills: [Pill] = []
     
     @Published var courses: [Course] = []
@@ -285,6 +284,7 @@ class CourseViewModel: ObservableObject {
         }
         
         createCourses(from: pills)
+        
         
     }
     

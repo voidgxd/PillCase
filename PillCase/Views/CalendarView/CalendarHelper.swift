@@ -51,5 +51,6 @@ class CalendarHelper
         let components = calendar.dateComponents([.weekday], from: date)
         return components.weekday! - 1
     }
-    
+
 }
+
