@@ -18,7 +18,7 @@ struct CalendarCell: View
     let daysInPrevMonth : Int
     
     
-   @State var isShowingCourses = false
+   
     
     var date: Date? {
         let monthStruct = self.monthStruct()
@@ -36,11 +36,11 @@ struct CalendarCell: View
         }
     }
     
-    @State var calendarDay = CalendarDay(date: .now, morningPills: 0, dayPills: 0, eveningPills: 0, nightPills: 0, courses: [])
+//    @State var calendarDay = CalendarDay(date: .now, morningPills: 0, dayPills: 0, eveningPills: 0, nightPills: 0, courses: [])
     
     var body: some View {
         
-        var calendarDay = calendarViewModel.getDayPill(date: date!)
+        let calendarDay = calendarViewModel.getDayPill(date: date!)
         
         ZStack(alignment: .bottom){
           
@@ -70,8 +70,8 @@ struct CalendarCell: View
                                 .foregroundColor(textColor(type: monthStruct().monthType))
                             
                                                         }
-                        if isShowingCourses {
-//                            CourseDayCalendarView(firstCourseColor: calendarDay.courses[0].courseColor, secondCourseColor: calendarDay.courses[1].courseColor, thirdCourseColor: calendarDay.courses[2].courseColor, fourthCourseColor: calendarDay.courses[3].courseColor, firstCoursePillType: calendarDay.courses[0].coursePillType, secondCoursePillType: calendarDay.courses[1].coursePillType, thirdCoursePillType: calendarDay.courses[2].coursePillType, fourthCoursePillType: calendarDay.courses[3].coursePillType)
+                        if calendarViewModel.isShowingCourses {
+                         CourseDayCalendarView(calendarDay: calendarDay)
                         } else {
                             PillsDayView(morningNumberOfPills: calendarDay.morningPills, dayNumberofPills: calendarDay.dayPills, eveningNumberOfPills: calendarDay.eveningPills, nightNumberOfPills: calendarDay.nightPills)
                             
@@ -84,9 +84,7 @@ struct CalendarCell: View
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
         }
-        .onChange(of: calendarViewModel.dataChanged) { _ in
-            calendarDay = calendarViewModel.getDayPill(date: date!)
-        }
+     
         
     }
     func textColor(type: MonthType) -> Color
@@ -115,6 +113,6 @@ struct CalendarCell: View
 
 struct CalendarCell_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1, calendarDay: CalendarDay(date: .now, morningPills: 1, dayPills: 1, eveningPills: 3, nightPills: 4, courses: []))
+        CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1)
     }
 }

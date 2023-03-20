@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PillsOfSegmentView: View {
-
+    
     var viewModel: TodayViewModel
     
     var pillsTimeOfDay: [Pill] = []
@@ -52,7 +52,7 @@ struct PillsOfSegmentView_Previews: PreviewProvider {
 }
 
 struct SinglePillView: View {
-    
+    @EnvironmentObject var mainViewModel: MainViewModel
     var viewModel: TodayViewModel
     
     @State private var isAnimating = false
@@ -91,6 +91,7 @@ struct SinglePillView: View {
                                                        self.isAnimating = false
                                                    }
                                                    self.viewModel.delete(pillsTimeOfDay[i].id!)
+                                                   self.mainViewModel.creationReload()
                                                }
                                        )
                 } else {

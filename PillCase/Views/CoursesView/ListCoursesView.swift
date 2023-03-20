@@ -13,6 +13,8 @@ struct ListCoursesView: View {
     @ObservedObject var viewModel: CourseViewModel
     
     @EnvironmentObject var todayViewModel: TodayViewModel
+    // test
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
@@ -34,7 +36,9 @@ struct ListCoursesView: View {
                     indexSet.forEach { index in
                         let courseToDelete = viewModel.courses[index].courseName
                         viewModel.deleteCourse(forCourse: courseToDelete)
-                        todayViewModel.reload()
+                        // убрать в родительскую вьюмодель
+                        mainViewModel.todayViewModel.reload()
+                        mainViewModel.calendarViewModel.fetchData()
                     }
                 }
                 

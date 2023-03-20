@@ -9,6 +9,7 @@ import Combine
 import SwiftUI
 
 struct NewCourseView: View {
+    @EnvironmentObject var mainViewModel: MainViewModel
     @ObservedObject var courseViewModel: CourseViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var name: String = ""
@@ -198,6 +199,7 @@ struct NewCourseView: View {
                             
                             
                             self.courseViewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                            self.mainViewModel.creationReload()
                             self.presentationMode.wrappedValue.dismiss() // dismiss the view
                         }
                     }

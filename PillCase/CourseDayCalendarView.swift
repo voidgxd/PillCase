@@ -10,20 +10,15 @@ import SwiftUI
 struct CourseDayCalendarView: View {
     
     
-    var firstCourseColor: Color?
-    var secondCourseColor: Color?
-    var thirdCourseColor: Color?
-    var fourthCourseColor: Color?
-    
-    var firstCoursePillType: String?
-    var secondCoursePillType: String?
-    var thirdCoursePillType: String?
-    var fourthCoursePillType: String?
+    let calendarDay: CalendarDay
     
     
     
     
     var body: some View {
+        
+        let courses = calendarDay.courses.sorted(by: { $0.courseName < $1.courseName })
+        
         ZStack {
             RoundedRectangle(cornerRadius: 12)
             
@@ -37,24 +32,32 @@ struct CourseDayCalendarView: View {
                     HStack (spacing: 2) {
                         ZStack{
                             // morning
-                            if firstCourseColor != nil {
+                            if courses.count > 0 {
                                 Rectangle().cornerRadius(10, corners: .topLeft)
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(firstCourseColor)
-                                Image(firstCoursePillType!)
+                                    .foregroundColor(courses[0].courseColor)
+                                Image(courses[0].coursePillType)
                                     .resizable()
                                     .frame(width: 16, height: 16)
+                            } else {
+                                Rectangle().cornerRadius(10, corners: .topLeft)
+                                    .frame(width: 20, height: 20)
+                                    .opacity(0)
                             }
                         }
                         ZStack{
                             // day
-                            if secondCourseColor != nil {
+                            if courses.count > 1 {
                                 Rectangle().cornerRadius(10, corners: .topRight)
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(secondCourseColor)
-                                Image(secondCoursePillType!)
+                                    .foregroundColor(courses[1].courseColor)
+                                Image(courses[1].coursePillType)
                                     .resizable()
                                     .frame(width: 16, height: 16)
+                            } else {
+                                Rectangle().cornerRadius(10, corners: .topLeft)
+                                    .frame(width: 20, height: 20)
+                                    .opacity(0)
                             }
                                 
                         }
@@ -62,24 +65,32 @@ struct CourseDayCalendarView: View {
                     HStack(spacing: 2) {
                         ZStack{
                             // night
-                            if thirdCourseColor != nil {
+                            if courses.count > 2 {
                                 Rectangle().cornerRadius(10, corners: .bottomLeft)
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(thirdCourseColor)
-                                Image(thirdCoursePillType!)
+                                    .foregroundColor(courses[2].courseColor)
+                                Image(courses[2].coursePillType)
                                     .resizable()
                                     .frame(width: 16, height: 16)
+                            } else {
+                                Rectangle().cornerRadius(10, corners: .topLeft)
+                                    .frame(width: 20, height: 20)
+                                    .opacity(0)
                             }
                         }
                         ZStack{
                             // evening
-                            if fourthCourseColor != nil {
+                            if courses.count > 3 {
                                 Rectangle().cornerRadius(10, corners: .bottomRight)
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(fourthCourseColor)
-                                Image(fourthCoursePillType!)
+                                    .foregroundColor(courses[3].courseColor)
+                                Image(courses[3].coursePillType)
                                     .resizable()
                                     .frame(width: 16, height: 16)
+                            } else {
+                                Rectangle().cornerRadius(10, corners: .topLeft)
+                                    .frame(width: 20, height: 20)
+                                    .opacity(0)
                             }
                         }
                     }
@@ -93,6 +104,6 @@ struct CourseDayCalendarView: View {
 
 struct CourseDayCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDayCalendarView(firstCourseColor: CustomColor.firstCourse, secondCourseColor: CustomColor.secondCourse, thirdCourseColor: CustomColor.thirdCourse, fourthCourseColor: CustomColor.fourthCourse, firstCoursePillType: "Pill2", secondCoursePillType: "Pill4", thirdCoursePillType: "RoundPill2", fourthCoursePillType: "Syringe" )
+        CourseDayCalendarView(calendarDay: CalendarDay(date: .now, morningPills: 2, dayPills: 2, eveningPills: 2, nightPills: 2, courses: []))
     }
 }

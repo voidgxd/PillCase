@@ -12,9 +12,18 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     
     @Published var todayViewModel = TodayViewModel()
-//    @Published var courseViewModel = CourseViewModel()
+    @Published var courseViewModel = CourseViewModel()
     @Published var calendarViewModel = CalendarViewModel()
     
     @Published var pills: [Pill] = []
+    
+    func deletingReload() {
+        todayViewModel.reload()
+        calendarViewModel.fetchData()
+    }
+    
+    func creationReload() {
+        calendarViewModel.fetchData()
+    }
     
 }

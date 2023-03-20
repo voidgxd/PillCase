@@ -24,3 +24,11 @@ struct CalendarDay {
         let courseColor: Color
     }
 }
+
+extension CalendarDay.CalendarCourse: Equatable {
+    static func ==(lhs: CalendarDay.CalendarCourse, rhs: CalendarDay.CalendarCourse) -> Bool {
+        return lhs.courseName == rhs.courseName &&
+               lhs.coursePillType == rhs.coursePillType &&
+               lhs.courseColor == rhs.courseColor
+    }
+}

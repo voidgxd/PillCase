@@ -12,6 +12,8 @@ struct CalendarPillView: View
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var calendarViewModel: CalendarViewModel
     
+    
+    
     var body: some View
     {
         NavigationStack {
@@ -75,21 +77,16 @@ struct CalendarPillView: View
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     
-                    Button {
-                        
-                    } label: {
-                        
-                            Image(systemName: "pills.circle").foregroundColor(.white
-                            )
+                    Button(action: {
+                        calendarViewModel.isShowingCourses.toggle()
+                    }) {
+                        Image(systemName: "pills.circle")
+                            .foregroundColor(.white)
                             .font(.system(size: 22, weight: .bold))
-                        }
-                    
-                        
-                                    }
-                    
+                    }
                 }
+            }
         }
-        
     }
     var dayOfWeekStack: some View
     {

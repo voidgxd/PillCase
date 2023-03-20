@@ -36,7 +36,7 @@ struct MainTabView: View {
                     Image(systemName: "hockey.puck.fill")
                     Text("Calendar")
                 }
-            TestView(viewModel: CourseViewModel())
+            TestView(viewModel: mainViewModel.courseViewModel)
                 .tabItem {
                     Image(systemName: "hockey.puck.fill")
                     Text("Test")
