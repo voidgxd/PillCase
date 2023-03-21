@@ -16,12 +16,12 @@ struct NewCourseView: View {
     
     
     let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
-    @State var selectedColor: Color = CustomColor.firstCourse
+    @State var selectedColor: Color = CustomColor.thirdCourse
     
    
     
     let pillsType = ["Pill1", "Pill2", "Pill3", "Pill4", "RoundPill1", "RoundPill2", "RoundPill3", "RoundPill4", "RoundPillHalf1", "RoundPillHalf2", "Syringe", "Powder"]
-    @State var selectedPillType = "Pill1"
+    @State var selectedPillType = "Pill4"
     
     
     @State var dose: String = ""
@@ -49,9 +49,10 @@ struct NewCourseView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            
+            VStack{
                 Section(header : Text("Название и вид")){
-                    HStack (spacing:5){
+                    HStack (alignment: .center, spacing:5){
                         HStack{
                             TextField(text: $name) {
                                 Text("Витамин Д")
@@ -61,43 +62,61 @@ struct NewCourseView: View {
                         Divider()
                         
                         
-                        HStack(spacing: -10){
+                        HStack(spacing: 5){
                             
-                            VStack(alignment: .center, spacing: 0){
+                            HStack(alignment: .center, spacing: 0){
                                 
                                 Picker("", selection: $selectedPillType) {
                                     ForEach(pillsType, id: \.self) {
                                         
                                         Image($0)
                                             .resizable()
-                                            .frame(width: 30, height: 30)
-                                        
+                                            .frame(width: 35, height: 35)
+                                            .scaleEffect(x: 5)
                                     }
                                     
                                 }
-                                .frame(width: 60, height: 60)
-                                .pickerStyle(.wheel)
-                                .colorMultiply(.black)
                                 
-                      
+                                .pickerStyle(.wheel)
+                                .labelsHidden()
+                                
+                                .scaleEffect(x: 0.2)
+                                .frame(width: 80)
+                                .clipped()
+                                .compositingGroup()
+                                .colorMultiply(.black)
+                               
                                 
                             }
-                            .frame(height: 35)
+                            
+                            
                             
                          // add picker from 4 colors here with wheel style
-                            Picker("", selection: $selectedColor) {
-                                ForEach(colors, id: \.self) { color in
-                                    color
-                                        .frame(width: 25, height: 25)
-                                        .cornerRadius(20)
+                            HStack(alignment: .center, spacing: 0) {
+                                Picker("", selection: $selectedColor) {
+                                    ForEach(colors, id: \.self) { color in
+                                        color
+                                            .frame(width: 30, height: 30)
+                                            .cornerRadius(20)
+                                            .scaleEffect(x: 5)
+                                    }
                                 }
+                               
+                               
+                                .pickerStyle(.wheel)
+                                .labelsHidden()
+                                
+                                .scaleEffect(x: 0.2)
+                                .frame(width: 80)
+                                .clipped()
+                                .compositingGroup()
+                                
                             }
-                            .frame(width: 65, height: 60)
-                            .pickerStyle(.wheel)
+                            Spacer()
                         }
                 
                         Divider()
-                        Spacer()
+                        
                         ZStack() {
                             Circle()
                                 .frame(width: 42)
@@ -110,7 +129,93 @@ struct NewCourseView: View {
                         
                         
                     }
+                    
                 }
+                .frame(maxHeight: 120)
+            }
+            
+            Form() {
+                Section(header : Text("Название и вид")){
+                    HStack (alignment: .center, spacing:5){
+                        HStack{
+                            TextField(text: $name) {
+                                Text("Витамин Д")
+                            }
+                        }
+                        
+                        Divider()
+                        
+                        
+                        HStack(spacing: 5){
+                            
+                            HStack(alignment: .center, spacing: 0){
+                                
+                                Picker("", selection: $selectedPillType) {
+                                    ForEach(pillsType, id: \.self) {
+                                        
+                                        Image($0)
+                                            .resizable()
+                                            .frame(width: 35, height: 35)
+                                            .scaleEffect(x: 5)
+                                    }
+                                    
+                                }
+                                
+                                .pickerStyle(.wheel)
+                                .labelsHidden()
+                                
+                                .scaleEffect(x: 0.2)
+                                .frame(width: 80)
+                                .clipped()
+                                .compositingGroup()
+                                .colorMultiply(.black)
+                               
+                                
+                            }
+                            
+                            
+                            
+                         // add picker from 4 colors here with wheel style
+                            HStack(alignment: .center, spacing: 0) {
+                                Picker("", selection: $selectedColor) {
+                                    ForEach(colors, id: \.self) { color in
+                                        color
+                                            .frame(width: 30, height: 30)
+                                            .cornerRadius(20)
+                                            .scaleEffect(x: 5)
+                                    }
+                                }
+                               
+                               
+                                .pickerStyle(.wheel)
+                                .labelsHidden()
+                                
+                                .scaleEffect(x: 0.2)
+                                .frame(width: 80)
+                                .clipped()
+                                .compositingGroup()
+                                
+                            }
+                            Spacer()
+                        }
+                
+                        Divider()
+                        
+                        ZStack() {
+                            Circle()
+                                .frame(width: 42)
+                                .foregroundColor(selectedColor)
+                            Image(selectedPillType)
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                            
+                        }
+                        
+                        
+                    }
+                    
+                }
+                .frame(maxHeight: 120)
                 
                 
                 Section(header : Text("Дозировка")){

@@ -36,6 +36,7 @@
 		AB93BB1E297583320016A54E /* PillsDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1D297583320016A54E /* PillsDayView.swift */; };
 		AB93BB202975986B0016A54E /* ScrollCurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */; };
 		AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AB524296E030700A0E527 /* TimeOfDay.swift */; };
+		AB9D4BEA29CA30F40098AA8A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D4BE929CA30F40098AA8A /* Helper.swift */; };
 		AB9E4D9A29941C61007906FD /* PillModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */; };
 		ABBCCC14296C96C20054127B /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC13296C96C20054127B /* SegmentView.swift */; };
 		ABBCCC16296CA32A0054127B /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCCC15296CA32A0054127B /* CustomColors.swift */; };
@@ -83,6 +84,7 @@
 		AB93BB1D297583320016A54E /* PillsDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDayView.swift; sourceTree = "<group>"; };
 		AB93BB1F2975986B0016A54E /* ScrollCurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCurseView.swift; sourceTree = "<group>"; };
 		AB9AB524296E030700A0E527 /* TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
+		AB9D4BE929CA30F40098AA8A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		AB9E4D9929941C60007906FD /* Pill.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pill.xcdatamodel; sourceTree = "<group>"; };
 		ABBCCC13296C96C20054127B /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		ABBCCC15296CA32A0054127B /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				AB77BE42299009D5005927A2 /* Calendar */,
 				AB9AB524296E030700A0E527 /* TimeOfDay.swift */,
 				AB93BB1D297583320016A54E /* PillsDayView.swift */,
+				AB9D4BE929CA30F40098AA8A /* Helper.swift */,
 				AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */,
 				AB4BAD30297C4DBF0019D7AF /* PillView.swift */,
 				AB8E636C29A68F5A00BC4F83 /* Extensions.swift */,
@@ -339,6 +342,7 @@
 				ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */,
 				AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */,
 				ABF987C329B65F71004362F2 /* CalendarPillView.swift in Sources */,
+				AB9D4BEA29CA30F40098AA8A /* Helper.swift in Sources */,
 				AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */,
 				AB4BAD2F297C38780019D7AF /* ScrollTodayView.swift in Sources */,
 				AB4BAD33297C51320019D7AF /* DetailDayView.swift in Sources */,

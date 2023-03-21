@@ -5,7 +5,7 @@
 //  Created by Максим Мосалёв on 22.02.2023.
 //
 
-import Foundation
+import SwiftUI
 
 extension String {
     func capitalizingFirstLetter() -> String {
@@ -20,3 +20,10 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+//extension UISegmentedControl {
+//    override open func didMoveToSuperview() {
+//        super.didMoveToSuperview()
+//        self.setContentHuggingPriority(.defaultLow, for: .vertical)  // << here !!
+//    }
+//}

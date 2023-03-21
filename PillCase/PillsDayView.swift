@@ -58,7 +58,7 @@ struct PillsDayView: View {
             
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .frame(width: 50, height: 50)
+            .frame(width: 46, height: 46)
             
             
         }
