@@ -17,6 +17,10 @@ class CourseViewModel: ObservableObject {
     
     @Published var courses: [Course] = []
     
+    var isCoursesFull: Bool {
+        return courses.count > 3
+    }
+    
     
     private let context: NSManagedObjectContext
     
@@ -112,7 +116,8 @@ class CourseViewModel: ObservableObject {
 //                courses.removeAll()
                 courses = coursesArray
                 objectWillChange.send()
-            
+            print(courses)
+            print(pills)
         }
     }
     
@@ -138,7 +143,7 @@ class CourseViewModel: ObservableObject {
         for i in 0..<selectedCourseDuration+1 {
             switch selectedRegimen {
             case "каждый день":
-                createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "через день", douration: selectedCourseDuration)
+                createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "каждый день", douration: selectedCourseDuration)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "через день":
                 if i % 2 == 0 {

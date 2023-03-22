@@ -21,7 +21,7 @@ struct MainTabView: View {
         TabView {
             TodayView().environmentObject(mainViewModel.todayViewModel)
                 .tabItem {
-                    Image(systemName: "house")
+                    Image(systemName: "hockey.puck.fill")
                     Text("Today")
                 }
             CoursesView().environmentObject(mainViewModel.todayViewModel)
@@ -33,14 +33,14 @@ struct MainTabView: View {
                 .environmentObject(dateHolder)
                 .environmentObject(mainViewModel.calendarViewModel)
                 .tabItem {
-                    Image(systemName: "hockey.puck.fill")
+                    Image(systemName: "calendar.badge.minus")
                     Text("Calendar")
                 }
-            TestView(viewModel: mainViewModel.courseViewModel)
-                .tabItem {
-                    Image(systemName: "hockey.puck.fill")
-                    Text("Test")
-                }
+//            TestView(viewModel: mainViewModel.courseViewModel)
+//                .tabItem {
+//                    Image(systemName: "hockey.puck.fill")
+//                    Text("Test")
+//                }
         }
         .tint(CustomColor.nightShadow)
     }

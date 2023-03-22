@@ -47,11 +47,16 @@ struct NewCourseView: View {
     
     @State var startDate: Date = .now
     
+    var isButtonActive: Bool {
+           !name.isEmpty && !dose.isEmpty && (morning || day || evening || night)
+       }
+    
     var body: some View {
         NavigationStack {
             
             VStack{
-                Section(header : Text("Название и вид")){
+                
+                    Divider()
                     HStack (alignment: .center, spacing:5){
                         HStack{
                             TextField(text: $name) {
@@ -81,7 +86,7 @@ struct NewCourseView: View {
                                 .labelsHidden()
                                 
                                 .scaleEffect(x: 0.2)
-                                .frame(width: 80)
+                                .frame(width: 80, height: 90)
                                 .clipped()
                                 .compositingGroup()
                                 .colorMultiply(.black)
@@ -107,7 +112,7 @@ struct NewCourseView: View {
                                 .labelsHidden()
                                 
                                 .scaleEffect(x: 0.2)
-                                .frame(width: 80)
+                                .frame(width: 80, height: 90)
                                 .clipped()
                                 .compositingGroup()
                                 
@@ -129,99 +134,22 @@ struct NewCourseView: View {
                         
                         
                     }
-                    
-                }
-                .frame(maxHeight: 120)
+                    .padding([.leading, .trailing], 20)
+                
+                
+                
             }
-            
+            .frame(maxHeight: 105)
             Form() {
-                Section(header : Text("Название и вид")){
-                    HStack (alignment: .center, spacing:5){
-                        HStack{
-                            TextField(text: $name) {
-                                Text("Витамин Д")
-                            }
-                        }
-                        
-                        Divider()
-                        
-                        
-                        HStack(spacing: 5){
-                            
-                            HStack(alignment: .center, spacing: 0){
-                                
-                                Picker("", selection: $selectedPillType) {
-                                    ForEach(pillsType, id: \.self) {
-                                        
-                                        Image($0)
-                                            .resizable()
-                                            .frame(width: 35, height: 35)
-                                            .scaleEffect(x: 5)
-                                    }
-                                    
-                                }
-                                
-                                .pickerStyle(.wheel)
-                                .labelsHidden()
-                                
-                                .scaleEffect(x: 0.2)
-                                .frame(width: 80)
-                                .clipped()
-                                .compositingGroup()
-                                .colorMultiply(.black)
-                               
-                                
-                            }
-                            
-                            
-                            
-                         // add picker from 4 colors here with wheel style
-                            HStack(alignment: .center, spacing: 0) {
-                                Picker("", selection: $selectedColor) {
-                                    ForEach(colors, id: \.self) { color in
-                                        color
-                                            .frame(width: 30, height: 30)
-                                            .cornerRadius(20)
-                                            .scaleEffect(x: 5)
-                                    }
-                                }
-                               
-                               
-                                .pickerStyle(.wheel)
-                                .labelsHidden()
-                                
-                                .scaleEffect(x: 0.2)
-                                .frame(width: 80)
-                                .clipped()
-                                .compositingGroup()
-                                
-                            }
-                            Spacer()
-                        }
-                
-                        Divider()
-                        
-                        ZStack() {
-                            Circle()
-                                .frame(width: 42)
-                                .foregroundColor(selectedColor)
-                            Image(selectedPillType)
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                            
-                        }
-                        
-                        
-                    }
-                    
-                }
-                .frame(maxHeight: 120)
+               
                 
                 
                 Section(header : Text("Дозировка")){
+                    
                     VStack{
                         HStack {
                             TextField("250", text: $dose)
+                                .keyboardType(.numberPad)
                                 .onReceive(Just(dose)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
                                     if filtered != newValue {
@@ -234,7 +162,7 @@ struct NewCourseView: View {
                             Picker("", selection: $selectedUnit) {
                                 ForEach(units, id: \.self) {
                                     Text($0)
-                                    
+                                        .foregroundColor(.black)
                                 }
                             }
                             .frame(width: 90, height: 20)
@@ -242,10 +170,12 @@ struct NewCourseView: View {
                             
                             
                             
+                            
                         }
                         
                     }
                 }
+                .tint(.black)
                 Section(header: Text("Время приема")) {
 
                     Toggle(isOn: $morning) {
@@ -291,6 +221,7 @@ struct NewCourseView: View {
                     }
                     .pickerStyle(.menu)
                 }
+                .tint(.black)
                 Section(header: Text("Дата начала курса")) {
                     HStack{
                         DatePicker("Первый день:", selection: $startDate, displayedComponents: [.date])
@@ -308,7 +239,8 @@ struct NewCourseView: View {
                             self.presentationMode.wrappedValue.dismiss() // dismiss the view
                         }
                     }
-                    .foregroundColor(selectedColor)
+                    .disabled(!isButtonActive)
+                    
                     Spacer()
                 }
             }
@@ -316,7 +248,7 @@ struct NewCourseView: View {
             .navigationBarTitle("Новый курс")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .tint(selectedColor)
+//        .tint(selectedColor)
     }
 }
 

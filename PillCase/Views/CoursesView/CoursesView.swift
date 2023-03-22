@@ -58,7 +58,9 @@ struct CoursesView: View {
                                                         Image(systemName: "plus").foregroundColor(.white
                                                         )
                                                         .font(.system(size: 22, weight: .bold))
+                                                        .opacity(courseViewModel.isCoursesFull ? 0.2 : 1.0)
                                                     }
+                            .disabled(courseViewModel.isCoursesFull)
                         }
                         
                     }
