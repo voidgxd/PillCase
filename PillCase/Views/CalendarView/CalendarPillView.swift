@@ -92,13 +92,15 @@ struct CalendarPillView: View
     {
         HStack(spacing: 1)
         {
-            Text("Sun").dayOfWeek()
             Text("Mon").dayOfWeek()
             Text("Tue").dayOfWeek()
             Text("Wed").dayOfWeek()
             Text("Thu").dayOfWeek()
             Text("Fri").dayOfWeek()
             Text("Sat").dayOfWeek()
+                .foregroundColor(.red)
+            Text("Sun").dayOfWeek()
+                .foregroundColor(.red)
         }
     }
     

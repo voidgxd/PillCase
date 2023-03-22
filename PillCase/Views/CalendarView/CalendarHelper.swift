@@ -9,7 +9,11 @@ import Foundation
 
 class CalendarHelper
 {
-    let calendar = Calendar.current
+    let calendar: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.firstWeekday = 2 // start week from Monday
+        return calendar
+    }()
     let dateFormatter = DateFormatter()
     
     func monthYearString(_ date: Date) -> String
@@ -46,10 +50,15 @@ class CalendarHelper
         return calendar.date(from: components)!
     }
     
-    func weekDay(_ date: Date) -> Int
-    {
+    func weekDay(_ date: Date) -> Int {
         let components = calendar.dateComponents([.weekday], from: date)
-        return components.weekday! - 1
+        var weekday = components.weekday! - calendar.firstWeekday
+        
+        if weekday < 0 {
+            weekday += 7
+        }
+        
+        return weekday
     }
 
 }
