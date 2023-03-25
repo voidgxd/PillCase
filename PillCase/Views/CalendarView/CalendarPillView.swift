@@ -35,8 +35,8 @@ struct CalendarPillView: View
                         .overlay {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                 .fill (
-                                    .shadow(.inner(color:.black.opacity(0.45),radius: 2, x: 2, y: 2))
-                                    .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -6, y: -6))
+                                    .shadow(.inner(color:.black.opacity(0.45),radius: 1, x: 1, y: 1))
+                                    .shadow(.inner(color: .white.opacity(0.60), radius: 1, x: -1, y: -1))
                                 )
                                 .foregroundColor(CustomColor.backGroundColor)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -52,7 +52,7 @@ struct CalendarPillView: View
             }
             .background(CustomColor.backGroundColor)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(CustomColor.morning, for: .navigationBar)
+            .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             
             .toolbar {
@@ -92,16 +92,18 @@ struct CalendarPillView: View
     {
         HStack(spacing: 1)
         {
-            Text("Mon").dayOfWeek()
-            Text("Tue").dayOfWeek()
-            Text("Wed").dayOfWeek()
-            Text("Thu").dayOfWeek()
-            Text("Fri").dayOfWeek()
-            Text("Sat").dayOfWeek()
+            Text("MON").dayOfWeek()
+            Text("TUR").dayOfWeek()
+            Text("WED").dayOfWeek()
+            Text("THU").dayOfWeek()
+            Text("FRI").dayOfWeek()
+            Text("SAT").dayOfWeek()
                 .foregroundColor(.red)
-            Text("Sun").dayOfWeek()
+            Text("SUN").dayOfWeek()
                 .foregroundColor(.red)
         }
+        .font(.system(size: 18, weight: .thin, design: .rounded))
+        
     }
     
     var calendarGrid: some View

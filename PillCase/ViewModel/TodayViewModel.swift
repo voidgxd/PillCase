@@ -12,8 +12,9 @@ import Combine
 
 class TodayViewModel: ObservableObject {
     
+    
+//    private let notificationManager = NotificationManager.shared
     // зарефакторить и убрать булианы
-
     @Published var todayPills: [Pill] = []
 
     @Published var morning: [Pill] = [] {
@@ -65,6 +66,7 @@ class TodayViewModel: ObservableObject {
          self.context = CoreDataManager.shared.context
          fetchTodayPills()
          sortPillsByTimeOfDay()
+         
      }
 
     func fetchTodayPills() {

@@ -50,6 +50,7 @@
 		ABF987BD29B65D13004362F2 /* DateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BC29B65D13004362F2 /* DateScrollerView.swift */; };
 		ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987BE29B65D3C004362F2 /* MonthStruct.swift */; };
 		ABF987C329B65F71004362F2 /* CalendarPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF987C229B65F71004362F2 /* CalendarPillView.swift */; };
+		ABFA9DCB29CCCB680069F136 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA9DCA29CCCB680069F136 /* Notifications.swift */; };
 		ABFB106B2977373D00538F57 /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB106A2977373D00538F57 /* LetterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		ABDB5639299543C400D5D220 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		ABDB563B29954A9000D5D220 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		ABDB563D2995566200D5D220 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		ABE3091A29CF716B00255376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ABE7C93429C3BA7400146AA9 /* App Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Ext.swift"; sourceTree = "<group>"; };
 		ABF987B429B65C68004362F2 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		ABF987B629B65C95004362F2 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		ABF987BC29B65D13004362F2 /* DateScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScrollerView.swift; sourceTree = "<group>"; };
 		ABF987BE29B65D3C004362F2 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
 		ABF987C229B65F71004362F2 /* CalendarPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPillView.swift; sourceTree = "<group>"; };
+		ABFA9DCA29CCCB680069F136 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		ABFB106A2977373D00538F57 /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,10 +183,12 @@
 		AB6ED29A2968BC0600910504 /* PillCase */ = {
 			isa = PBXGroup;
 			children = (
+				ABE3091A29CF716B00255376 /* Info.plist */,
 				ABDB563B29954A9000D5D220 /* CoreDataManager.swift */,
 				AB6ED29B2968BC0600910504 /* PillCaseApp.swift */,
 				ABE7C93429C3BA7400146AA9 /* App Ext.swift */,
 				AB89FBC229789F230049AC4B /* MainTabView.swift */,
+				ABFA9DCA29CCCB680069F136 /* Notifications.swift */,
 				AB539E8B296A11850028C660 /* Models */,
 				AB4BAD34297C53E20019D7AF /* Views */,
 				ABDB56382995437500D5D220 /* ViewModel */,
@@ -315,6 +320,7 @@
 			files = (
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */,
+				ABFA9DCB29CCCB680069F136 /* Notifications.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
 				AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */,
 				AB3E5E65299C060D0043042C /* TestArray.swift in Sources */,
@@ -486,10 +492,13 @@
 				DEVELOPMENT_TEAM = 3N59S33GKB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PillCase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,10 +527,13 @@
 				DEVELOPMENT_TEAM = 3N59S33GKB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PillCase/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

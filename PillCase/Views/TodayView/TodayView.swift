@@ -79,7 +79,7 @@ struct TodayView: View {
             }
             
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(CustomColor.morning, for: .navigationBar)
+            .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             
             .toolbar {

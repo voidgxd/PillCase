@@ -21,8 +21,9 @@ struct ListCoursesView: View {
     var body: some View {
     
         if viewModel.courses.isEmpty {
-            Text("Добавьте курс")
-                .font(.system(size: 28, weight: .medium, design: .monospaced))
+            Text("Add Course")
+                .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
+                .foregroundColor(.gray)
         } else {
             
             List {
@@ -92,7 +93,7 @@ struct CourseCardView: View {
                 
                 Spacer()
                 HStack(spacing: 0) {
-                    HStack(spacing: 0) {
+                    HStack(spacing: 5) {
                     
                     ZStack{
                         
@@ -135,13 +136,14 @@ struct CourseCardView: View {
                     }
                     
                     
-                    VStack{
-                        Text("Дней осталось: ")
+                    VStack(){
+                        Text("Days left: ")
                             .font(.system(size: 10, weight: .semibold, design: .default))
                             .fixedSize(horizontal: false, vertical: false)
                             .foregroundColor(.gray)
                         Text(String(daysLeft))
                             .font(.system(size: 46, weight: .bold, design: .default))
+                            
                     }
                 }
                     .padding(.leading, 0)
@@ -190,59 +192,59 @@ struct CourseCardView: View {
     }
 }
 
-struct AddNewCourseSubView: View {
-    var body: some View {
-        ZStack {
-            MedicationTimeView(headerColor: .gray)
-            VStack(alignment: .center, spacing: 0){
-                Text("Новый курс")
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .padding(5)
-                    .foregroundColor(.white)
-                Spacer()
-                HStack{
-                    ZStack{
-                        Circle()
-                            .fill(
-                                .shadow(.inner(color: .black.opacity(0.24),radius: 2, x:3, y: 3))
-                                .shadow(.inner(color: .white, radius:2, x: -3, y: -3))
-                            )
-                            .overlay {
-                                Circle()
-                                    .frame(height: 55)
-                                    .foregroundColor(CustomColor.backGroundColor)
-                            }
-                            .foregroundColor(CustomColor.backGroundColor)
-                            .frame(width: 75)
-                        
-                        
-                        RoundedRectangle(cornerRadius: 30)
-                            .frame(width: 46, height: 46)
-                            .foregroundColor(CustomColor.backGroundColor)
-                            .shadow(color: .black.opacity(0.4), radius: 1, x:2, y: 2)
-                            .shadow(color: .white.opacity(0.95),  radius: 1, x: -2, y: -2)
-                            .overlay {
-                                Circle()
-                                    .frame(width: 42)
-                                    .foregroundColor(.gray)
-                                
-                                Image(systemName: "plus")
-                                    .foregroundColor(.white)
-                            }
-                        Circle()
-                            .trim(from: 0, to: 1.0)                                          .stroke(
-                                .gray,
-                                lineWidth: 12)
-                            .frame(width: 59)
-                            .rotationEffect(.degrees(-90))
-                        
-                    }
-                    Spacer()
-                }
-                .padding(.leading, 34.0)
-                Spacer()
-            }
-            
-        }
-    }
-}
+//struct AddNewCourseSubView: View {
+//    var body: some View {
+//        ZStack {
+//            MedicationTimeView(headerColor: .gray)
+//            VStack(alignment: .center, spacing: 0){
+//                Text("New Course")
+//                    .font(.system(size: 16, weight: .bold, design: .default))
+//                    .padding(5)
+//                    .foregroundColor(.white)
+//                Spacer()
+//                HStack{
+//                    ZStack{
+//                        Circle()
+//                            .fill(
+//                                .shadow(.inner(color: .black.opacity(0.24),radius: 2, x:3, y: 3))
+//                                .shadow(.inner(color: .white, radius:2, x: -3, y: -3))
+//                            )
+//                            .overlay {
+//                                Circle()
+//                                    .frame(height: 55)
+//                                    .foregroundColor(CustomColor.backGroundColor)
+//                            }
+//                            .foregroundColor(CustomColor.backGroundColor)
+//                            .frame(width: 75)
+//
+//
+//                        RoundedRectangle(cornerRadius: 30)
+//                            .frame(width: 46, height: 46)
+//                            .foregroundColor(CustomColor.backGroundColor)
+//                            .shadow(color: .black.opacity(0.4), radius: 1, x:2, y: 2)
+//                            .shadow(color: .white.opacity(0.95),  radius: 1, x: -2, y: -2)
+//                            .overlay {
+//                                Circle()
+//                                    .frame(width: 42)
+//                                    .foregroundColor(.gray)
+//
+//                                Image(systemName: "plus")
+//                                    .foregroundColor(.white)
+//                            }
+//                        Circle()
+//                            .trim(from: 0, to: 1.0)                                          .stroke(
+//                                .gray,
+//                                lineWidth: 12)
+//                            .frame(width: 59)
+//                            .rotationEffect(.degrees(-90))
+//
+//                    }
+//                    Spacer()
+//                }
+//                .padding(.leading, 34.0)
+//                Spacer()
+//            }
+//
+//        }
+//    }
+//}

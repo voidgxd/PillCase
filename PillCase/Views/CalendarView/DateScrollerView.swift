@@ -39,16 +39,16 @@ struct DateScrollerView: View
                     .overlay {
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
                             .fill (
-                                .shadow(.inner(color:.black.opacity(0.45),radius: 4, x: 4, y: 4))
-                                .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -6, y: -6))
+                                .shadow(.inner(color:.black.opacity(0.45),radius: 2, x: 2, y: 2))
+                                .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -4, y: -4))
                             )
                             .foregroundColor(CustomColor.backGroundColor)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             
                     }
                 Text(CalendarHelper().monthYearString(dateHolder.date))
-                    .font(.title)
-                    .bold()
+                    .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
+                    .foregroundColor(.gray)
                     .animation(.none)
                     .frame(maxWidth: .infinity)
                     

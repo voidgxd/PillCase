@@ -10,7 +10,7 @@ import SwiftUI
 struct CoursesView: View {
     
     @EnvironmentObject var todayViewModel: TodayViewModel
-    @ObservedObject var courseViewModel = CourseViewModel()
+    @EnvironmentObject var courseViewModel: CourseViewModel
     
     
     var body: some View {
@@ -33,7 +33,7 @@ struct CoursesView: View {
             }
             .background(CustomColor.backGroundColor)
                     .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(CustomColor.morning, for: .navigationBar)
+                    .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
                     .toolbarBackground(.visible, for: .navigationBar)
                 
                     .toolbar {

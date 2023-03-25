@@ -68,6 +68,8 @@ struct CalendarCell: View
                             
                             Text(monthStruct().day())
                                 .foregroundColor(textColor(type: monthStruct().monthType))
+                                .font(.system(size: 18, weight: .light, design: .rounded))
+                                
                             
                                                         }
                         if calendarViewModel.isShowingCourses {

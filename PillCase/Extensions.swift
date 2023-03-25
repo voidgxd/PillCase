@@ -21,6 +21,15 @@ extension Date {
     }
 }
 
+extension Date {
+    //for notifications
+    func string() -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: self)
+    }
+}
+
 //extension UISegmentedControl {
 //    override open func didMoveToSuperview() {
 //        super.didMoveToSuperview()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomColor {
     static let backGroundColor = Color("backgroundColor")
+    static let navigationBarColor = Color("navigationBar")
     
     
     static let morning = Color("morning")

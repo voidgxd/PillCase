@@ -12,6 +12,7 @@ import CoreData
 
 class CourseViewModel: ObservableObject {
     
+    private let notificationManager = NotificationManager.shared
     
     @Published var pills: [Pill] = []
     
@@ -116,6 +117,7 @@ class CourseViewModel: ObservableObject {
 //                courses.removeAll()
                 courses = coursesArray
                 objectWillChange.send()
+            
             print(courses)
             print(pills)
         }
@@ -165,6 +167,7 @@ class CourseViewModel: ObservableObject {
             }
         }
         fetchData()
+        notificationManager.scheduleNotification(for: pills)
         createCourses(from: pills)
         print(courses)
     }

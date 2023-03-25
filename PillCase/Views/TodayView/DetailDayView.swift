@@ -117,14 +117,17 @@ struct DetalTimeOfTheDayView: View {
                                 }
                                 Text(pill.courseName ?? "")
                                     .font(.system(size: 18, weight: .semibold, design: .default))
+                                    
                                 Spacer()
                                 Text(String(pill.dose ?? ""))
                                     .font(.system(size: 16, weight: .light, design: .default))
                                     .frame(alignment: .trailing)
+                                    
                                 
                                 Text(pill.unit ?? "")
                                     .font(.system(size: 16, weight: .light, design: .default))
                                     .frame(alignment: .trailing)
+                                    
                                 
                                 
                                 

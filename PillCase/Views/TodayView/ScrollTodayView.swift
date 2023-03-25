@@ -56,10 +56,10 @@ struct ScrollTodayView: View {
             // all empty
             if viewModel.morning.isEmpty && viewModel.day.isEmpty && viewModel.evening.isEmpty && viewModel.night.isEmpty {
                 
-                Text("Нет приемов")
-                    .font(.system(size: 28, weight: .medium, design: .monospaced))
-                
-                   
+                Text("No medications")
+                    .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
+                    .foregroundColor(.gray)
+                    
                 
                     
                     
@@ -134,6 +134,7 @@ struct TodayCardView: View {
                                 .padding(0)
                             Text(String(dateDay))
                                 .font(.system(size: 36, weight: .medium, design: .default))
+                                
                             
                         }
                         .frame(width: 60)
@@ -165,14 +166,17 @@ struct TodayCardView: View {
                             }
                             Text(pill.courseName ?? "")
                                 .font(.system(size: 10, weight: .semibold, design: .default))
+                                
                             Spacer()
                             Text(String(pill.dose ?? ""))
                                 .font(.system(size: 8, weight: .light, design: .default))
                                 .frame(alignment: .trailing)
+                                
                             
                             Text(pill.unit ?? "")
                                 .font(.system(size: 8, weight: .light, design: .default))
                                 .frame(alignment: .trailing)
+                                
                             
                             
                             

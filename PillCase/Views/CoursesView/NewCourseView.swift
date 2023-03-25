@@ -60,7 +60,7 @@ struct NewCourseView: View {
                     HStack (alignment: .center, spacing:5){
                         HStack{
                             TextField(text: $name) {
-                                Text("Витамин Д")
+                                Text("Vitamin D")
                             }
                         }
                         
@@ -144,7 +144,7 @@ struct NewCourseView: View {
                
                 
                 
-                Section(header : Text("Дозировка")){
+                Section(header : Text("Dose")){
                     
                     VStack{
                         HStack {
@@ -176,7 +176,7 @@ struct NewCourseView: View {
                     }
                 }
                 .tint(.black)
-                Section(header: Text("Время приема")) {
+                Section(header: Text("Medication time")) {
 
                     Toggle(isOn: $morning) {
                         Text("Утро")
@@ -201,9 +201,9 @@ struct NewCourseView: View {
                 
                 
                 
-                Section(header: Text("Длительность курса и режим приема")) {
+                Section(header: Text("Course duration and medication regimen")) {
                     HStack{
-                        Picker("Дней:", selection: $selectedCourseDuration) {
+                        Picker("Days:", selection: $selectedCourseDuration) {
                             ForEach(1..<91) { number in
                                 Text("\(number)")
                             }
@@ -222,15 +222,15 @@ struct NewCourseView: View {
                     .pickerStyle(.menu)
                 }
                 .tint(.black)
-                Section(header: Text("Дата начала курса")) {
+                Section(header: Text("Course start date")) {
                     HStack{
-                        DatePicker("Первый день:", selection: $startDate, displayedComponents: [.date])
+                        DatePicker("First day:", selection: $startDate, displayedComponents: [.date])
                             .datePickerStyle(.automatic)
                     }
                 }
                 HStack{
                     Spacer()
-                    Button("Создать курс") {
+                    Button("Create course") {
                         DispatchQueue.main.async {
                             
                             
@@ -245,7 +245,7 @@ struct NewCourseView: View {
                 }
             }
             .tint(selectedColor)
-            .navigationBarTitle("Новый курс")
+            .navigationBarTitle("New course")
             .navigationBarTitleDisplayMode(.inline)
         }
 //        .tint(selectedColor)

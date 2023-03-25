@@ -24,7 +24,7 @@ struct MainTabView: View {
                     Image(systemName: "hockey.puck.fill")
                     Text("Today")
                 }
-            CoursesView().environmentObject(mainViewModel.todayViewModel)
+            CoursesView().environmentObject(mainViewModel.courseViewModel)
                 .tabItem {
                     Image(systemName: "pills.fill")
                     Text("Courses")
