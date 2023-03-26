@@ -28,7 +28,9 @@ extension PillCaseApp {
     
     func deleteExpiredPills(context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
-        let predicate = NSPredicate(format: "date < %@", Date() as NSDate)
+        let calendar = Calendar.current
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())!
+        let predicate = NSPredicate(format: "date < %@", yesterday as NSDate)
         fetchRequest.predicate = predicate
         
         let expiredPills = try? context.fetch(fetchRequest)
@@ -38,8 +40,7 @@ extension PillCaseApp {
         }
         print("Called")
         try? context.save()
-            mainViewModel.todayViewModel.fetchTodayPills()
+        mainViewModel.todayViewModel.fetchTodayPills()
         mainViewModel.deletingReload()
-        
     }
 }
