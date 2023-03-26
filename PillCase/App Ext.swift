@@ -39,6 +39,7 @@ extension PillCaseApp {
         print("Called")
         try? context.save()
             mainViewModel.todayViewModel.fetchTodayPills()
+        mainViewModel.deletingReload()
         
     }
 }

@@ -144,22 +144,22 @@ class CourseViewModel: ObservableObject {
         var date = startDate
         for i in 0..<selectedCourseDuration+1 {
             switch selectedRegimen {
-            case "каждый день":
-                createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "каждый день", douration: selectedCourseDuration)
+            case "every day":
+                createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every day", douration: selectedCourseDuration)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "через день":
+            case "every other day":
                 if i % 2 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "через день", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every other day", douration: selectedCourseDuration)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "раз в 3 дня":
+            case "every 3 days":
                 if i % 3 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "раз в 3 дня", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every 3 days", douration: selectedCourseDuration)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "раз в неделю":
+            case "once a week":
                 if i % 7 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "раз в неделю", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "once a week", douration: selectedCourseDuration)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             default:

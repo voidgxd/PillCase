@@ -167,7 +167,7 @@ struct CourseCardView: View {
                             
                             VStack(alignment: .leading, spacing: 1) {
                                 Text("\(dose) \(unitOfMeasurement)")
-                                Text("\(sumNumberOfPills) р.")
+                                Text("\(sumNumberOfPills) t.")
                                 Text(intervalOfMedication)
                             }
                             .font(.system(size: 12))

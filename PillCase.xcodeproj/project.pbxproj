@@ -23,6 +23,7 @@
 		AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1229C49D7A0092F560 /* CalendarViewModel.swift */; };
 		AB4EFF1529C4A2E70092F560 /* CourseDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */; };
 		AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */; };
+		AB53AB4929D0B0E60025839E /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53AB4829D0B0E60025839E /* SideMenuView.swift */; };
 		AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		AB4EFF1229C49D7A0092F560 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayCalendarView.swift; sourceTree = "<group>"; };
 		AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayModel.swift; sourceTree = "<group>"; };
+		AB53AB4829D0B0E60025839E /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoursesView.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				ABF987B329B65C04004362F2 /* CalendarView */,
 				AB4BAD35297C53EE0019D7AF /* TodayView */,
 				AB68CBB7297FE3D5007AF62C /* CoursesView */,
+				AB53AB4829D0B0E60025839E /* SideMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				AB2EE547298845A900970390 /* CourseDayView.swift in Sources */,
 				ABE7C93529C3BA7400146AA9 /* App Ext.swift in Sources */,
 				AB2D0A36298C08DE00718E8A /* NewCourseView.swift in Sources */,
+				AB53AB4929D0B0E60025839E /* SideMenuView.swift in Sources */,
 				AB4BAD37297C54780019D7AF /* DetailDayCardView.swift in Sources */,
 				ABF987BF29B65D3C004362F2 /* MonthStruct.swift in Sources */,
 				AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */,

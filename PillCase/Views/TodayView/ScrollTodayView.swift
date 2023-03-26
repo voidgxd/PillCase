@@ -25,7 +25,7 @@ struct ScrollTodayView: View {
                     // morning
                     
                     if !viewModel.morning.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: "Утро", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: "Morning", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
                             .onChange(of: viewModel.morning, perform: { _ in
                                 
                                 print("On receive")
@@ -35,15 +35,15 @@ struct ScrollTodayView: View {
                     }
                     // day
                     if !viewModel.day.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.day, timeOfDay: "День", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: viewModel.day.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.day, timeOfDay: "Day", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: viewModel.day.count)
                     }
                     //                // evening
                     if !viewModel.evening.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.evening, timeOfDay: "Вечер", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: viewModel.evening.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.evening, timeOfDay: "Evening", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: viewModel.evening.count)
                     }
                     //                // night
                     if !viewModel.night.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: "Ночь", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: "Night", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
                     }
                     
                     Spacer()

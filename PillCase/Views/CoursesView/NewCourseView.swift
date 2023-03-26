@@ -26,8 +26,8 @@ struct NewCourseView: View {
     
     @State var dose: String = ""
     
-    let units = ["г","мг", "мл", "МЕ"]
-    @State var selectedUnit = "мг"
+    let units = ["g","mg", "ml", "IU"]
+    @State var selectedUnit = "mg"
     
     
     @State var id = UUID()
@@ -42,8 +42,8 @@ struct NewCourseView: View {
    
     @State var selectedCourseDuration: Int = 14
     
-    let regimen = ["каждый день", "через день", "раз в 3 дня", "раз в неделю"]
-    @State var selectedRegimen = "каждый день"
+    let regimen = ["every day", "every other day", "every 3 days", "once a week"]
+    @State var selectedRegimen = "every day"
     
     @State var startDate: Date = .now
     
@@ -179,22 +179,22 @@ struct NewCourseView: View {
                 Section(header: Text("Medication time")) {
 
                     Toggle(isOn: $morning) {
-                        Text("Утро")
+                        Text("Morning")
                     }
                     .tint(CustomColor.morning)
 
                     Toggle(isOn: $day) {
-                        Text("День")
+                        Text("Day")
                     }
                     .tint(CustomColor.day)
 
                     Toggle(isOn: $evening) {
-                        Text("Вечер")
+                        Text("Evening")
                     }
                     .tint(CustomColor.evening)
 
                     Toggle(isOn: $night) {
-                        Text("Ночь")
+                        Text("Night")
                     }
                     .tint(CustomColor.night)
                 }

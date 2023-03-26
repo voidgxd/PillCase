@@ -28,7 +28,7 @@ struct DateScrollerView: View
                     Image(systemName: "arrow.left")
                         .imageScale(.large)
                         .font(Font.title.weight(.bold))
-                        .foregroundColor(CustomColor.morning)
+                        .foregroundColor(CustomColor.navigationBarColor)
                 }
             }
             ZStack {
@@ -66,7 +66,7 @@ struct DateScrollerView: View
                     Image(systemName: "arrow.right")
                         .imageScale(.large)
                         .font(Font.title.weight(.bold))
-                        .foregroundColor(CustomColor.morning)
+                        .foregroundColor(CustomColor.navigationBarColor)
                 }
             }
             Spacer()

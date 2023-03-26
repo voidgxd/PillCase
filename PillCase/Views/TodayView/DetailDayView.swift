@@ -45,19 +45,19 @@ struct DetailDayView: View {
                 
                 ScrollView(showsIndicators: false){
                     if !morningArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Утро", headerColor: CustomColor.morning, pillListOfSegment: morningArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: "Morning", headerColor: CustomColor.morning, pillListOfSegment: morningArray)
                         Divider()
                     }
                     if !dayArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "День", headerColor: CustomColor.day, pillListOfSegment: dayArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: "Day", headerColor: CustomColor.day, pillListOfSegment: dayArray)
                         Divider()
                     }
                     if !eveningArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Вечер", headerColor: CustomColor.evening, pillListOfSegment: eveningArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: "Evening", headerColor: CustomColor.evening, pillListOfSegment: eveningArray)
                         Divider()
                     }
                     if !nightArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Ночь", headerColor: CustomColor.night, pillListOfSegment: nightArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: "Night", headerColor: CustomColor.night, pillListOfSegment: nightArray)
                     }
                     
                 }
