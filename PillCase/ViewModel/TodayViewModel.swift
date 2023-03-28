@@ -70,6 +70,10 @@ class TodayViewModel: ObservableObject {
      }
 
     func fetchTodayPills() {
+        morning.removeAll()
+        day.removeAll()
+        evening.removeAll()
+        night.removeAll()
         do {
             let pills = try context.fetch(Pill.fetchRequest())
             todayPills = pills.filter { Calendar.current.isDate($0.date!, inSameDayAs: Date()) }
@@ -108,10 +112,7 @@ class TodayViewModel: ObservableObject {
        }
     
     func reload() {
-        morning.removeAll()
-        day.removeAll()
-        evening.removeAll()
-        night.removeAll()
+        
         fetchTodayPills()
         sortPillsByTimeOfDay()
     }
