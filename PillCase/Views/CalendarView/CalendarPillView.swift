@@ -12,18 +12,19 @@ struct CalendarPillView: View
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var calendarViewModel: CalendarViewModel
     
-    
+    @State private var isShowingSideMenu = false
     
     var body: some View
     {
         NavigationStack {
+            ZStack {
             VStack(spacing: 1)
             {
                 DateScrollerView()
                     .environmentObject(dateHolder)
                     .padding()
                     .frame(height: 84)
-
+                
                 dayOfWeekStack
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
@@ -40,7 +41,7 @@ struct CalendarPillView: View
                                 )
                                 .foregroundColor(CustomColor.backGroundColor)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                                
+                            
                         }
                     
                     calendarGrid
@@ -50,6 +51,23 @@ struct CalendarPillView: View
                 .padding(.horizontal, 1)
                 Divider()
             }
+            .onTapGesture {
+                withAnimation {
+                    isShowingSideMenu = false
+                }
+            }
+                GeometryReader { _ in
+                    HStack{
+                        SideMenuView()
+                            .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
+                            .animation(.easeInOut(duration: 0.3), value: isShowingSideMenu)
+                            .frame(width: 200)
+                            
+                    }
+                }
+            
+            
+            }
             .background(CustomColor.backGroundColor)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
@@ -58,7 +76,7 @@ struct CalendarPillView: View
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        
+                        isShowingSideMenu.toggle()
                     } label: {
                         Image(systemName: "list.bullet").foregroundColor(.white
                         )

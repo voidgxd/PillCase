@@ -12,13 +12,30 @@ struct SideMenuView: View {
 
         var body: some View {
             NavigationView {
-                List(menuItems, id: \.self) { item in
-                    Text(item)
+                VStack(alignment: .leading) {
+                                    HStack {
+                                        Image("sideMenuIcon")
+                                            .resizable()
+                                            .frame(width: 30, height: 30)
+                                        Text("PillCase")
+                                    }
+                                    .padding([.top, .leading], 10)
+                    Divider()
+                    VStack(alignment: .leading) {
+                        Text("FOR FEEDBACK")
+                            .font(.system(size: 12, weight: .thin, design: .monospaced))
+                        HStack {
+                            Image(systemName: "envelope.fill")
+                                .foregroundColor(CustomColor.navigationBarColor)
+                            Text("email@email.com")}
+                    }
+                    .padding(10)
+                    Spacer()
                 }
-                .listStyle(SidebarListStyle())
+                .background(CustomColor.backGroundColor)
             }
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            
+            .edgesIgnoringSafeArea(.bottom)
         }
 }
 

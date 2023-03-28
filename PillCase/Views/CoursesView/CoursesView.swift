@@ -12,15 +12,18 @@ struct CoursesView: View {
     @EnvironmentObject var todayViewModel: TodayViewModel
     @EnvironmentObject var courseViewModel: CourseViewModel
     
+    @State private var isShowingSideMenu = false
+    
     
     var body: some View {
         NavigationStack {
+            
             ZStack{
-//                Divider()
-//                    .padding(.top, 20)
-//                ScrollCurseView()
-//                Spacer()
-//                Divider()
+                //                Divider()
+                //                    .padding(.top, 20)
+                //                ScrollCurseView()
+                //                Spacer()
+                //                Divider()
                 
                 VStack(spacing: 0) {
                     VStack{
@@ -29,8 +32,23 @@ struct CoursesView: View {
                     Spacer()
                     Divider()
                 }
-                
+                .onTapGesture {
+                    withAnimation {
+                        isShowingSideMenu = false
+                    }
+                }
+                GeometryReader { _ in
+                    HStack{
+                        SideMenuView()
+                            .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
+                            .animation(.easeInOut(duration: 0.3), value: isShowingSideMenu)
+                            .frame(width: 200)
+                            
+                    }
+                }
             }
+                
+        
             .background(CustomColor.backGroundColor)
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
@@ -39,7 +57,7 @@ struct CoursesView: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button {
-                                
+                                isShowingSideMenu.toggle()
                             } label: {
                                 Image(systemName: "list.bullet").foregroundColor(.white
                                 )

@@ -12,10 +12,13 @@ struct TodayView: View {
     @EnvironmentObject var todayViewModel: TodayViewModel
     @StateObject private var detailViewModel = DetailDayViewModel(date: Date())
     
+    @State private var isShowingSideMenu = false
     @State private var isShowingDetail = false
+    
 
     var body: some View {
         NavigationStack {
+            ZStack {
             VStack {
                 Divider()
                     .padding(.top, 20)
@@ -70,14 +73,34 @@ struct TodayView: View {
                         }
                     }
                 }
-//                .padding(.top)
+                //                .padding(.top)
                 .fixedSize(horizontal: false, vertical: false)
-              
+                
                 Spacer()
                 Spacer()
                 Divider()
             }
-            
+            .onTapGesture {
+                withAnimation {
+                    isShowingSideMenu = false
+                }
+            }
+                GeometryReader { _ in
+                    ZStack{
+                        
+                        
+                        HStack {
+                            SideMenuView()
+                                .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
+                                .animation(.easeInOut(duration: 0.3), value: isShowingSideMenu)
+                                .frame(width: 200)
+                            
+                            
+                        }
+//
+                    }
+                }
+        }
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
@@ -85,7 +108,7 @@ struct TodayView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        
+                        isShowingSideMenu.toggle()
                     } label: {
                         Image(systemName: "list.bullet").foregroundColor(.white
                         )
