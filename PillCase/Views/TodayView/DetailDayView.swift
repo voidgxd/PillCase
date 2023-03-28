@@ -84,7 +84,7 @@ struct DetalTimeOfTheDayView: View {
     var headerColor: Color = CustomColor.morning
     var pillListOfSegment: [Pill]
     
-    var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
+//    var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
         VStack {
@@ -110,7 +110,7 @@ struct DetalTimeOfTheDayView: View {
                                 ZStack{
                                     Circle()
                                         .frame(width: 22, height: 22)
-                                        .foregroundColor(colors[Int(pill.courseColor)])
+                                        .foregroundColor(getColor(colorInt: Int(pill.courseColor)))
                                     Image(pill.type ?? "Pill1")
                                         .resizable()
                                         .frame(width: 19, height: 19)

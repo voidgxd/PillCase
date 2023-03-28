@@ -19,3 +19,13 @@ public func roundWhichCorner(position: Int) -> UIRectCorner {
     }
     
 }
+
+public func getColor(colorInt :Int) -> Color {
+    switch colorInt {
+    case 0: return CustomColor.firstCourse
+    case 1: return CustomColor.secondCourse
+    case 2: return CustomColor.thirdCourse
+    case 3: return CustomColor.fourthCourse
+    default: return CustomColor.firstCourse
+    }
+}

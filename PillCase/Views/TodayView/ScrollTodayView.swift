@@ -82,7 +82,7 @@ struct TodayCardView: View {
     
     var viewModel: TodayViewModel
     
-    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
+//    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var pillListOfSegment: [Pill]
 //    var pillListOfSegment: [TestPill]
@@ -159,7 +159,7 @@ struct TodayCardView: View {
                             ZStack{
                                 Circle()
                                     .frame(width: 16, height: 16)
-                                    .foregroundColor(colors[Int(pill.courseColor)])
+                                    .foregroundColor(getColor(colorInt: Int(pill.courseColor)))
                                 Image(pill.type ?? "Pill1")
                                     .resizable()
                                     .frame(width: 13, height: 13)

@@ -27,7 +27,7 @@ struct ListCoursesView: View {
         } else {
             
             List {
-                ForEach(viewModel.courses) { course in
+                ForEach(Array(viewModel.courses.enumerated()), id: \.element.id) { index, course in
                     CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: course.dose, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
                         .background(CustomColor.backGroundColor)
                         .listRowBackground(CustomColor.backGroundColor)
