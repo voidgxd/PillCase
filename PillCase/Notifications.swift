@@ -67,7 +67,7 @@ class NotificationManager {
             let pillNames = Array(pillNamesSet)
             
             if !pillNames.isEmpty {
-                content.body = "Take your medicine: \(pillNames.joined(separator: ", "))"
+                content.body = "\(pillNames.joined(separator: ", "))"
                 let triggerDates = fireDates.map { UNCalendarNotificationTrigger(dateMatching: $0, repeats: false) }
                 
                 let requestIds = triggerDates.enumerated().map { index, trigger in
