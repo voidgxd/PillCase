@@ -120,8 +120,10 @@ struct TodayView: View {
                 ToolbarItem(placement: .principal) {
                     HStack {
                         Text("PillCase")
-                            .bold()
-                            .foregroundColor(.white)
+                            .font(.custom("Futura", size: 22))
+                            .foregroundColor(Color.white)
+                            .shadow(color: Color.black.opacity(0.5), radius: 4, x: 1, y: 1)
+                            .shadow(color: Color.white.opacity(0.5), radius: 4, x: -1, y: -1)
                     }
                 }
                 

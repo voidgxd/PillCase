@@ -24,6 +24,8 @@
 		AB4EFF1529C4A2E70092F560 /* CourseDayCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */; };
 		AB4EFF1729C4AEC00092F560 /* CalendarDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */; };
 		AB53AB4929D0B0E60025839E /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53AB4829D0B0E60025839E /* SideMenuView.swift */; };
+		AB6259F029D7346B00E4B2C9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6259EF29D7346B00E4B2C9 /* OnboardingView.swift */; };
+		AB6259F229D7373000E4B2C9 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6259F129D7373000E4B2C9 /* OnboardingPage.swift */; };
 		AB68CBB9297FE3FA007AF62C /* ListCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */; };
 		AB6ED29C2968BC0600910504 /* PillCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED29B2968BC0600910504 /* PillCaseApp.swift */; };
 		AB6ED2A02968BC0700910504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6ED29F2968BC0700910504 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDayCalendarView.swift; sourceTree = "<group>"; };
 		AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayModel.swift; sourceTree = "<group>"; };
 		AB53AB4829D0B0E60025839E /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		AB6259EF29D7346B00E4B2C9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AB6259F129D7373000E4B2C9 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		AB68CBB8297FE3FA007AF62C /* ListCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoursesView.swift; sourceTree = "<group>"; };
 		AB6ED2982968BC0600910504 /* PillCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED29B2968BC0600910504 /* PillCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillCaseApp.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				AB4BAD35297C53EE0019D7AF /* TodayView */,
 				AB68CBB7297FE3D5007AF62C /* CoursesView */,
 				AB53AB4829D0B0E60025839E /* SideMenuView.swift */,
+				AB6259F129D7373000E4B2C9 /* OnboardingPage.swift */,
+				AB6259EF29D7346B00E4B2C9 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				AB9AB525296E030700A0E527 /* TimeOfDay.swift in Sources */,
 				AB4BAD31297C4DBF0019D7AF /* PillView.swift in Sources */,
 				ABFA9DCB29CCCB680069F136 /* Notifications.swift in Sources */,
+				AB6259F029D7346B00E4B2C9 /* OnboardingView.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
 				AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */,
 				AB3E5E65299C060D0043042C /* TestArray.swift in Sources */,
@@ -333,6 +340,7 @@
 				ABF987B529B65C68004362F2 /* CalendarCell.swift in Sources */,
 				AB77BE412990049F005927A2 /* CalendarView.swift in Sources */,
 				ABF987B729B65C95004362F2 /* CalendarHelper.swift in Sources */,
+				AB6259F229D7373000E4B2C9 /* OnboardingPage.swift in Sources */,
 				AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */,
 				ABF987BB29B65CEF004362F2 /* DateHolder.swift in Sources */,
 				ABDB563A299543C400D5D220 /* CourseViewModel.swift in Sources */,
