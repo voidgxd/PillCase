@@ -99,5 +99,6 @@ struct CoursesView: View {
 struct CoursesView_Previews: PreviewProvider {
     static var previews: some View {
         CoursesView()
+            .environmentObject(CourseViewModel())
     }
 }

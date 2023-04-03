@@ -15,6 +15,8 @@ struct TodayView: View {
     @State private var isShowingSideMenu = false
     @State private var isShowingDetail = false
     
+   
+    
 
     var body: some View {
         NavigationStack {
@@ -162,6 +164,7 @@ struct TodayView: View {
 struct Case_Previews: PreviewProvider {
     static var previews: some View {
         TodayView()
+            .environmentObject(TodayViewModel())
 //            .previewDevice("iPhone SE (3nd generation)")
     }
 }
