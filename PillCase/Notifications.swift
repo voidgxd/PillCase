@@ -37,8 +37,11 @@ class NotificationManager {
         // Group pills by course name
         let coursePills = Dictionary(grouping: pills, by: { $0.courseName })
         
-        for (courseName, coursePills) in coursePills {
-            // Create pill names and fire dates arrays for each course name
+        for courseName in coursePills.keys {
+            // Filter pills by course name
+            let coursePills = coursePills[courseName]!
+            
+            // Create pill names and fire dates arrays for the course
             var pillNames = [String]()
             var fireDates = [DateComponents]()
             
@@ -46,21 +49,21 @@ class NotificationManager {
                 let startDateComponents = calendar.dateComponents([.year, .month, .day], from: pill.date!)
                 let doseComponents = pill.timeOfDay == "morning" ? DateComponents(hour: 9) :
                                       pill.timeOfDay == "day" ? DateComponents(hour: 13) :
-                                      pill.timeOfDay == "evening" ? DateComponents(hour: 16) :
-                                      DateComponents(hour: 20)
+                                      pill.timeOfDay == "evening" ? DateComponents(hour: 17) :
+                                      DateComponents(hour: 21)
                 
                 let fireDateComponents = DateComponents(calendar: calendar, timeZone: .current,
                                                          year: startDateComponents.year, month: startDateComponents.month, day: startDateComponents.day,
                                                          hour: doseComponents.hour, minute: doseComponents.minute)
                 
                 if let fireDate = fireDateComponents.date {
-                    pillNames.append(pill.courseName!)
                     fireDates.append(fireDateComponents)
                 }
             }
             
-            // Create notification request for each unique course name
-            if !pillNames.isEmpty {
+            // Create notification request for the course
+            if !fireDates.isEmpty {
+                pillNames.append(courseName!)
                 content.body = "\(pillNames.joined(separator: ", "))"
                 let triggerDates = fireDates.map { UNCalendarNotificationTrigger(dateMatching: $0, repeats: false) }
                 

@@ -63,7 +63,23 @@ class CourseViewModel: ObservableObject {
                 }
                 
                 // Calculate remaining number of days
-                let remainingDays = Calendar.current.dateComponents([.day], from: .now, to: lastPill.date!).day! + 1 ?? 0
+                
+                func calculateRemainingDays(lastPillDate: Date) -> Int {
+                    let today = Date()
+                    let calendar = Calendar.current
+                    
+                    if calendar.isDate(today, inSameDayAs: lastPillDate) {
+                        // If today is the same as the last pill date, return 0 days remaining
+                        return 1
+                    } else {
+                        // Otherwise, calculate the number of days between today and the last pill date
+                        let remainingDays = calendar.dateComponents([.day], from: today, to: lastPillDate).day! + 2
+                        return remainingDays
+                    }
+                }
+        
+                let remainingDays = calculateRemainingDays(lastPillDate: lastPill.date!)
+//                let remainingDays = Calendar.current.dateComponents([.day], from: lastPill.date!, to: lastPill.date!.addingTimeInterval(Double(firstPill.douration)*24*60*60)).day! + 1
                 
                 //courseDouration here
                 

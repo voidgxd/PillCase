@@ -128,7 +128,7 @@ struct CourseCardView: View {
                                     
                             }
                         Circle()
-                            .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration))                                          .stroke(
+                            .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration+1))                                          .stroke(
                                 color,
                                 lineWidth: 13)
                             .frame(width: 59)
