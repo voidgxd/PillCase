@@ -82,7 +82,7 @@ struct SinglePillView: View {
                             self.isAnimating = true
                         }
                         .gesture(
-                                           LongPressGesture(minimumDuration: 1)
+                            LongPressGesture(minimumDuration: 0.6)
                                                .updating($isLongPressed) { value, state, _ in
                                                    state = value
                                                }
@@ -92,6 +92,9 @@ struct SinglePillView: View {
                                                    }
                                                    self.viewModel.delete(pillsTimeOfDay[i].id!)
                                                    self.mainViewModel.creationReload()
+                                                   // Add a short haptic feedback
+                                                   let generator = UIImpactFeedbackGenerator(style: .medium)
+                                                               generator.impactOccurred()
                                                }
                                        )
                 } else {

@@ -34,6 +34,6 @@ struct OnboardingPage: View {
 
 struct OnboardingPage_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingPage(imageName: "sideMenuIcon", color: CustomColor.morning, title: "Add your medication courses", description: "Choose the duration of the course, the time of admission, the dose, etc.")
+        OnboardingPage(imageName: "OScourses", color: CustomColor.morning, title: "Add your medication courses", description: "Choose the duration of the course, the time of admission, the dose, etc.")
     }
 }

@@ -13,12 +13,14 @@ struct OnboardingView: View {
     
     var body: some View {
         TabView(selection: $currentPageIndex) {
-            OnboardingPage(imageName: "onboarding-image-1", color: CustomColor.day, title: "Welcome to MyApp", description: "Get started with MyApp by creating an account today.")
+            OnboardingPage(imageName: "OScourses", color: CustomColor.day, title: "Welcome to PillCase", description: "Start by adding a new course of medication.To do this, use the + button in the Courses tab")
                 .tag(0)
-            OnboardingPage(imageName: "onboarding-image-2", color: CustomColor.evening, title: "Find Your Dream Job", description: "With MyApp, you can easily search and apply for jobs that match your skills and experience.")
+            OnboardingPage(imageName: "OSnewCourse", color: CustomColor.evening, title: "Set Up Your Course", description: "Customize your medication time, dosage, course duration, and more. Choose colors and icons for easy tracking.")
                 .tag(1)
-            OnboardingPage(imageName: "onboarding-image-3", color: CustomColor.night, title: "Stay Connected", description: "Stay in touch with your coworkers and get updates on job postings with MyApp's built-in messaging feature.")
+            OnboardingPage(imageName: "OScalendar", color: CustomColor.night, title: "Track with a Сalendar", description: "Convenient tracking of your medications. Switch the calendar to track your courses progress or time of day.")
                 .tag(2)
+            OnboardingPage(imageName: "OStoday", color: CustomColor.night, title: "Take Your Medicine for Today", description: "Mark the taken medications by holding it.")
+                .tag(3)
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
@@ -30,17 +32,18 @@ struct OnboardingView: View {
             Button(action: {
                 self.showOnboarding = false
             }) {
-                Text("X")
-                    .font(.title2)
+                Image(systemName: "xmark.circle.fill")
+                    .font(.title)
                     .fontWeight(.semibold)
             }
             .foregroundColor(.white)
-            .padding()
-            .background(CustomColor.night)
+            .padding(10)
+            .background(CustomColor.morning)
             .clipShape(Circle())
             .padding(.trailing, 20)
             .padding(.top, 50),
             alignment: .topTrailing
+            
         )
     }
 }
