@@ -134,6 +134,8 @@ class CourseViewModel: ObservableObject {
                 courses = coursesArray
                 objectWillChange.send()
             
+            notificationManager.scheduleNotification(for: pills)
+            
             print(courses)
             print(pills)
         }
@@ -183,7 +185,6 @@ class CourseViewModel: ObservableObject {
             }
         }
         fetchData()
-        notificationManager.scheduleNotification(for: pills)
         createCourses(from: pills)
         print(courses)
     }

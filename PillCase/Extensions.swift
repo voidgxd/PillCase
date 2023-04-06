@@ -30,6 +30,18 @@ extension Date {
     }
 }
 
+extension DateComponents: Comparable {
+    
+    public static func < (lhs: DateComponents, rhs: DateComponents) -> Bool {
+        let calendar = Calendar.current
+        guard let lhsDate = calendar.date(from: lhs),
+              let rhsDate = calendar.date(from: rhs) else {
+            fatalError("Invalid date components")
+        }
+        return lhsDate < rhsDate
+    }
+}
+
 //extension UISegmentedControl {
 //    override open func didMoveToSuperview() {
 //        super.didMoveToSuperview()
