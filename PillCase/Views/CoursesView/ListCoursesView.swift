@@ -25,7 +25,7 @@ struct ListCoursesView: View {
         } else {
             List {
                 ForEach(Array(viewModel.courses.enumerated()), id: \.element.id) { index, course in
-                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: course.dose, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
+                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: stringToInt(course.dose) ?? 0, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
                         .background(CustomColor.backGroundColor)
                         .listRowBackground(CustomColor.backGroundColor)
                         .listRowSeparator(.hidden)
@@ -60,7 +60,8 @@ struct CourseCardView: View {
     var duration: Int
     var daysLeft: Int
     var pillType: Image
-    var dose: String
+    @State var dose: Int
+//    @State var dose: String
     var unitOfMeasurement: String
     var sumNumberOfPills: Int
     var intervalOfMedication: String
@@ -143,7 +144,7 @@ struct CourseCardView: View {
                             .foregroundColor(color)
                             
                             VStack(alignment: .leading, spacing: 1) {
-                                Text("\(dose) \(unitOfMeasurement)")
+                                Text("^[\(dose) \(unitOfMeasurement)](inflect: true)")
                                 Text("\(sumNumberOfPills) t.")
                                 Text(intervalOfMedication)
                             }

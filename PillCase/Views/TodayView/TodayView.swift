@@ -140,8 +140,19 @@ struct TodayView: View {
                     }
             .background(CustomColor.backGroundColor)
         }
+        // #warning("check this")
+        .onReceive(todayViewModel.$todayPills) { _ in
+                        updateBadge()
+                    }
     }
+    // and this
+    func updateBadge() {
+            UIApplication.shared.applicationIconBadgeNumber = todayViewModel.todayPills.count
+        }
 }
+
+
+
 
 struct Case_Previews: PreviewProvider {
     static var previews: some View {

@@ -13,13 +13,13 @@ struct OnboardingView: View {
     
     var body: some View {
         TabView(selection: $currentPageIndex) {
-            OnboardingPage(imageName: "OScourses", color: CustomColor.day, title: "Welcome to PillCase", description: "Start by adding a new course of medication.To do this, use the + button in the Courses tab")
+            OnboardingPage(imageName: "OScourses", color: CustomColor.day, title: NSLocalizedString("onboardingPage1-title", comment: ""), description: NSLocalizedString("onboardingPage1-description", comment: ""))
                 .tag(0)
-            OnboardingPage(imageName: "OSnewCourse", color: CustomColor.evening, title: "Set Up Your Course", description: "Customize your medication time, dosage, course duration, and more. Choose colors and icons for easy tracking.")
+            OnboardingPage(imageName: "OSnewCourse", color: CustomColor.evening, title: NSLocalizedString("onboardingPage2-title", comment: ""), description: NSLocalizedString("onboardingPage2-description", comment: ""))
                 .tag(1)
-            OnboardingPage(imageName: "OScalendar", color: CustomColor.night, title: "Track with a Сalendar", description: "Convenient tracking of your medications. Switch the calendar to track your courses progress or time of day.")
+            OnboardingPage(imageName: "OScalendar", color: CustomColor.night, title: NSLocalizedString("onboardingPage3-title", comment: ""), description: NSLocalizedString("onboardingPage3-description", comment: ""))
                 .tag(2)
-            OnboardingPage(imageName: "OStoday", color: CustomColor.night, title: "Take Your Medicine for Today", description: "Mark the taken medications by holding it.")
+            OnboardingPage(imageName: "OStoday", color: CustomColor.night, title: NSLocalizedString("onboardingPage4-title", comment: ""), description: NSLocalizedString("onboardingPage4-description", comment: ""))
                 .tag(3)
         }
         .tabViewStyle(PageTabViewStyle())

@@ -24,7 +24,20 @@ struct NewCourseView: View {
     
     @State var dose: String = ""
     
-    let units = ["g", "mg", "mcg", "L", "ml", "oz", "IU", "tbsp", "tsp", "drops", "sprays", "pcs"]
+    let units = [
+        NSLocalizedString("g", comment: ""),
+        NSLocalizedString("mg", comment: ""),
+        NSLocalizedString("mcg", comment: ""),
+        NSLocalizedString("L", comment: ""),
+        NSLocalizedString("ml", comment: ""),
+        NSLocalizedString("oz", comment: ""),
+        NSLocalizedString("IU", comment: ""),
+        NSLocalizedString("tbsp", comment: ""),
+        NSLocalizedString("tsp", comment: ""),
+        NSLocalizedString("drop", comment: ""),
+        NSLocalizedString("sprays", comment: ""),
+        NSLocalizedString("pcs", comment: "")
+    ]
     @State var selectedUnit = "mg"
     
     
@@ -126,7 +139,7 @@ struct NewCourseView: View {
                                 }
                             Picker("", selection: $selectedUnit) {
                                 ForEach(units, id: \.self) {
-                                    Text(LocalizedStringKey($0))
+                                    Text($0)
                                         .foregroundColor(.black)
                                 }
                             }

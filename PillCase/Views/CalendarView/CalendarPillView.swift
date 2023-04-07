@@ -12,6 +12,7 @@ struct CalendarPillView: View {
     @EnvironmentObject var calendarViewModel: CalendarViewModel
     
     @State private var isShowingSideMenu = false
+    @State private var isRotated = false
     
     var body: some View {
         NavigationStack {
@@ -94,10 +95,14 @@ struct CalendarPillView: View {
                     
                     Button(action: {
                         calendarViewModel.isShowingCourses.toggle()
+                        withAnimation(.linear(duration: 1.0)) {
+                            isRotated.toggle()
+                        }
                     }) {
-                        Image(systemName: "pills.circle")
-                            .foregroundColor(.white)
+                        Image(systemName: calendarViewModel.isShowingCourses ? "calendar.circle" : "calendar.circle.fill")
                             .font(.system(size: 22, weight: .bold))
+                            .foregroundColor(.white)
+                            .rotationEffect(.degrees(isRotated ? 360 : 0))
                     }
                 }
             }

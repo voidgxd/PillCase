@@ -10,8 +10,10 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var mainViewModel: MainViewModel
+    
     let dateHolder = DateHolder()
     @State private var showOnboarding = !UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+    
     
     var body: some View {
         if showOnboarding {
@@ -20,22 +22,29 @@ struct MainTabView: View {
             TabView {
                 TodayView().environmentObject(mainViewModel.todayViewModel)
                     .tabItem {
-                        Image(systemName: "hockey.puck.fill")
+                        Image(systemName: "pills.fill")
                         Text("Today")
                     }
+                    .badge(mainViewModel.todayPillsCount)
+                    
                 CoursesView().environmentObject(mainViewModel.courseViewModel)
                     .tabItem {
-                        Image(systemName: "pills.fill")
+                        Image(systemName: "cross.case.fill")
                         Text("Courses")
                     }
                 CalendarPillView()
                     .environmentObject(dateHolder)
                     .environmentObject(mainViewModel.calendarViewModel)
                     .tabItem {
-                        Image(systemName: "calendar.badge.minus")
+                        Image(systemName: "calendar")
+                        
                         Text("Calendar")
                     }
             }
+            .onAppear {
+                            UIApplication.shared.applicationIconBadgeNumber = mainViewModel.todayViewModel.todayPills.count
+                mainViewModel.todayViewModel.fetchTodayPills()
+                        }
             .tint(CustomColor.nightShadow)
         }
     }
@@ -43,7 +52,7 @@ struct MainTabView: View {
     
     struct MainTabView_Previews: PreviewProvider {
         static var previews: some View {
-            MainTabView()
+            MainTabView().environmentObject(MainViewModel())
             
             
         }

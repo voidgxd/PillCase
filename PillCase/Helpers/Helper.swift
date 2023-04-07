@@ -29,3 +29,7 @@ public func getColor(colorInt :Int) -> Color {
     default: return CustomColor.firstCourse
     }
 }
+
+public func stringToInt(_ string: String) -> Int? {
+    return Int(string)
+}

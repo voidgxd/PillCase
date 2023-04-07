@@ -16,14 +16,22 @@ class MainViewModel: ObservableObject {
     @Published var calendarViewModel = CalendarViewModel()
     
     @Published var pills: [Pill] = []
+    @Published var todayPillsCount =  0
     
     func deletingReload() {
         todayViewModel.reload()
         calendarViewModel.fetchData()
+        getTodayPillsCount()
     }
     
     func creationReload() {
         calendarViewModel.fetchData()
+        todayViewModel.reload()
+        getTodayPillsCount()
+    }
+    
+    func getTodayPillsCount() {
+        todayPillsCount = todayViewModel.todayPills.count
     }
     
 }
