@@ -16,17 +16,6 @@ struct CalendarDay {
     let eveningPills: Int
     let nightPills: Int
     
-    
-//    let firstCourseColor: Color?
-//    let secondCourseColor: Color?
-//    let thirdCourseColor: Color?
-//    let fourthCourseColor: Color?
-//
-//    let firstCoursePillType: String?
-//    let secondCoursePillType: String?
-//    let thirdCoursePilltype: String?
-//    let fourthCoursePillType: String?
-    
     let courses: [CalendarCourse]
     
     struct CalendarCourse: Identifiable {

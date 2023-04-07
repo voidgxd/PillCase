@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 extension String {
     func capitalizingFirstLetter() -> String {
@@ -21,17 +22,15 @@ extension Date {
     }
 }
 
+//for notifications
 extension Date {
-    //for notifications
     func string() -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: self)
     }
 }
-
 extension DateComponents: Comparable {
-    
     public static func < (lhs: DateComponents, rhs: DateComponents) -> Bool {
         let calendar = Calendar.current
         guard let lhsDate = calendar.date(from: lhs),
@@ -42,9 +41,23 @@ extension DateComponents: Comparable {
     }
 }
 
-//extension UISegmentedControl {
-//    override open func didMoveToSuperview() {
-//        super.didMoveToSuperview()
-//        self.setContentHuggingPriority(.defaultLow, for: .vertical)  // << here !!
-//    }
-//}
+extension PillCaseApp {
+    func deleteExpiredPills(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
+        let calendar = Calendar.current
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())!
+        let predicate = NSPredicate(format: "date < %@", yesterday as NSDate)
+        fetchRequest.predicate = predicate
+        
+        let expiredPills = try? context.fetch(fetchRequest)
+        
+        for pill in expiredPills ?? [] {
+            context.delete(pill)
+        }
+        print("Called")
+        try? context.save()
+        mainViewModel.todayViewModel.fetchTodayPills()
+        mainViewModel.deletingReload()
+    }
+}
+

@@ -10,7 +10,7 @@ import SwiftUI
 struct ScrollTodayView: View {
     
     @ObservedObject var viewModel: TodayViewModel
-
+    
     var dateDay: Int
     var dateMonth : String
     
@@ -19,11 +19,7 @@ struct ScrollTodayView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20){
                     Spacer()
-                    
-                    
-                    
                     // morning
-                    
                     if !viewModel.morning.isEmpty {
                         TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: "Morning", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
                             .onChange(of: viewModel.morning, perform: { _ in
@@ -45,9 +41,7 @@ struct ScrollTodayView: View {
                     if !viewModel.night.isEmpty {
                         TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: "Night", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
                     }
-                    
                     Spacer()
-                    
                 }
             }
             .frame(height: 180)
@@ -55,21 +49,12 @@ struct ScrollTodayView: View {
             
             // all empty
             if viewModel.morning.isEmpty && viewModel.day.isEmpty && viewModel.evening.isEmpty && viewModel.night.isEmpty {
-                
                 Text("No medications")
                     .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
                     .foregroundColor(.gray)
-                    
-                
-                    
-                    
             }
         }
-        
-        }
-
-        
-    
+    }
 }
 
 struct ScrollTodayView_Previews: PreviewProvider {
@@ -81,11 +66,7 @@ struct ScrollTodayView_Previews: PreviewProvider {
 struct TodayCardView: View {
     
     var viewModel: TodayViewModel
-    
-//    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
-    
     var pillListOfSegment: [Pill]
-//    var pillListOfSegment: [TestPill]
     var timeOfDay: String
     var headersColor: Color
     var dateDay: Int
@@ -121,11 +102,11 @@ struct TodayCardView: View {
                 
                 VStack(spacing: 0) {
                     Spacer()
-                Text(timeOfDay)
-                    .font(.system(size: 12, weight: .semibold, design: .default))
-                    .foregroundColor(.white)
-                    .padding(.top, 4)
-                    .frame(height: 20, alignment: .center)
+                    Text(timeOfDay)
+                        .font(.system(size: 12, weight: .semibold, design: .default))
+                        .foregroundColor(.white)
+                        .padding(.top, 4)
+                        .frame(height: 20, alignment: .center)
                     HStack(spacing: 0) {
                         VStack(spacing: 0) {
                             Text(dateMonth)
@@ -134,25 +115,21 @@ struct TodayCardView: View {
                                 .padding(0)
                             Text(String(dateDay))
                                 .font(.system(size: 36, weight: .medium, design: .default))
-                                
-                            
                         }
                         .frame(width: 60)
                         
                         PillsDayView(morningNumberOfPills: morningNumberOfPills, dayNumberofPills: dayNumberOfPills, eveningNumberOfPills: eveningNumberOfPills, nightNumberOfPills: nightNumberOfPIlls)
                             .frame(width: 60)
-                        
                     }
                     .frame(height: 60)
                     Spacer()
-                    
-            }
+                }
                 .padding(.top, 4)
                 .frame(height: 80)
                 .layoutPriority(1)
                 
                 VStack(spacing: 0) {
-                Divider()
+                    Divider()
                     
                     ForEach(pillListOfSegment, id: \.id) { pill in
                         HStack(spacing: 2) {
@@ -166,46 +143,30 @@ struct TodayCardView: View {
                             }
                             Text(pill.courseName ?? "")
                                 .font(.system(size: 10, weight: .semibold, design: .default))
-                                
+                            
                             Spacer()
                             Text(String(pill.dose ?? ""))
                                 .font(.system(size: 8, weight: .light, design: .default))
                                 .frame(alignment: .trailing)
-                                
+                            
                             
                             Text(pill.unit ?? "")
                                 .font(.system(size: 8, weight: .light, design: .default))
                                 .frame(alignment: .trailing)
-                                
-                            
-                            
-                            
-                            
-                            
-                            
                         }
                         .font(.system(size: 14, weight: .light))
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                         .padding([.leading, .trailing], 4)
-                        
-                        
                     }
                     .padding(.top, 2)
                     Spacer()
                 }
-                
-                
                 .frame(maxWidth: 120, minHeight: 80, maxHeight: 80)
-                
                 
             }
             .frame(width: 120, height: 160)
             
-            
         }
-            
-                
-        }
-    
+    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailDayCardView: View {
     
-
+    
     
     var morningArray: [Pill]
     var dayArray: [Pill]
@@ -41,7 +41,6 @@ struct DetailDayCardView: View {
                             .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                             .foregroundColor(.pink)
                             .position(x: 70, y: 107)
-                            
                     }
                 VStack{
                     
@@ -54,9 +53,6 @@ struct DetailDayCardView: View {
                                 .foregroundColor(.gray)
                             Text(String(dateDay))
                                 .font(.system(size: 56, weight: .medium, design: .default))
-                                
-                            
-                            
                         }
                         HStack{
                             
@@ -69,19 +65,12 @@ struct DetailDayCardView: View {
                         }
                     }
                     Spacer()
-                    
-                    
-                        Text(dayOfTheWeek)
-                            .font(.system(size: 14, weight: .bold, design: .default))
-                            .foregroundColor(.white)
-                        Spacer()
-                        Spacer()
-                            
-                    
-                    
+                    Text(dayOfTheWeek)
+                        .font(.system(size: 14, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                    Spacer()
+                    Spacer()
                 }
-                
-                
             }
             Spacer()
         }

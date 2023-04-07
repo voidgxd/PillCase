@@ -12,9 +12,6 @@ import Combine
 
 class TodayViewModel: ObservableObject {
     
-    
-//    private let notificationManager = NotificationManager.shared
-    // зарефакторить и убрать булианы
     @Published var todayPills: [Pill] = []
 
     @Published var morning: [Pill] = [] {
@@ -42,9 +39,6 @@ class TodayViewModel: ObservableObject {
     @Published var isEveningEmpty = true
     @Published var isNightEmpty = true
     
-    
-    let colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
-    
     private let calendar = Calendar.current
 
     func dateToInt(_ date: Date) -> Int {
@@ -58,7 +52,6 @@ class TodayViewModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
 
-
 //     CoreData
     private let context: NSManagedObjectContext
 
@@ -66,7 +59,6 @@ class TodayViewModel: ObservableObject {
          self.context = CoreDataManager.shared.context
          fetchTodayPills()
          sortPillsByTimeOfDay()
-         
      }
 
     func fetchTodayPills() {
@@ -82,10 +74,8 @@ class TodayViewModel: ObservableObject {
             print("Failed to fetch today's pills: \(error)")
         }
     }
-    
 
     // Sorting by time of day.
-
     func sortPillsByTimeOfDay() {
         for pill in todayPills {
                switch pill.timeOfDay {
@@ -117,13 +107,6 @@ class TodayViewModel: ObservableObject {
         sortPillsByTimeOfDay()
     }
 
-    
-    
-  
-    
-    
-    
-    
     public func delete(_ pillId: UUID) {
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", pillId.uuidString)
@@ -132,11 +115,8 @@ class TodayViewModel: ObservableObject {
             if let pillToDelete = pill {
                 context.delete(pillToDelete)
                 try context.save()
-                
                 // Update the data and refresh UI after deletion
-                // Передалать под менее костыльную функцию
-                reload()
-                
+                reload() 
             }
         } catch {
             print("Failed to delete pill: \(error)")

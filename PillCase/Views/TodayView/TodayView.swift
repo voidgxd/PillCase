@@ -15,9 +15,6 @@ struct TodayView: View {
     @State private var isShowingSideMenu = false
     @State private var isShowingDetail = false
     
-   
-    
-
     var body: some View {
         NavigationStack {
             ZStack {
@@ -75,7 +72,6 @@ struct TodayView: View {
                         }
                     }
                 }
-                //                .padding(.top)
                 .fixedSize(horizontal: false, vertical: false)
                 
                 Spacer()
@@ -96,10 +92,7 @@ struct TodayView: View {
                                 .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
                                 .animation(.easeInOut(duration: 0.3), value: isShowingSideMenu)
                                 .frame(width: 200)
-                            
-                            
                         }
-//
                     }
                 }
         }
@@ -116,8 +109,6 @@ struct TodayView: View {
                         )
                         .font(.system(size: 22, weight: .bold))
                     }
-                    
-                    
                 }
                 ToolbarItem(placement: .principal) {
                     HStack {
@@ -128,7 +119,6 @@ struct TodayView: View {
                             .shadow(color: Color.white.opacity(0.5), radius: 4, x: -1, y: -1)
                     }
                 }
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     
                     Button {
@@ -141,23 +131,15 @@ struct TodayView: View {
                         }
                     .sheet(isPresented: $isShowingDetail) {
                         DetailDayView(date: .now, viewModel: DetailDayViewModel(date: .now))
-                        
                                     }
-                    
                 }
-                
-                
-                
             }
             .onAppear {
                         todayViewModel.fetchTodayPills()
                         todayViewModel.sortPillsByTimeOfDay()
                     }
             .background(CustomColor.backGroundColor)
-            
         }
-        
-        
     }
 }
 
@@ -165,6 +147,5 @@ struct Case_Previews: PreviewProvider {
     static var previews: some View {
         TodayView()
             .environmentObject(TodayViewModel())
-//            .previewDevice("iPhone SE (3nd generation)")
     }
 }

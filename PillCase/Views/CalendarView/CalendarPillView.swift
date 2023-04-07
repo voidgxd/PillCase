@@ -7,19 +7,16 @@
 
 import SwiftUI
 
-struct CalendarPillView: View
-{
+struct CalendarPillView: View {
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var calendarViewModel: CalendarViewModel
     
     @State private var isShowingSideMenu = false
     
-    var body: some View
-    {
+    var body: some View {
         NavigationStack {
             ZStack {
-            VStack(spacing: 1)
-            {
+            VStack(spacing: 1) {
                 DateScrollerView()
                     .environmentObject(dateHolder)
                     .padding()
@@ -31,8 +28,6 @@ struct CalendarPillView: View
                     
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(CustomColor.backGroundColor)
-                    //                .shadow(color: .black.opacity(0.30), radius: 5, x: 9, y: 9)
-                    //                .shadow(color: .white.opacity(1),  radius: 4, x: -9, y: -9)
                         .overlay {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                 .fill (
@@ -108,10 +103,8 @@ struct CalendarPillView: View
             }
         }
     }
-    var dayOfWeekStack: some View
-    {
-        HStack(spacing: 1)
-        {
+    var dayOfWeekStack: some View {
+        HStack(spacing: 1) {
             Text("MON").dayOfWeek()
             Text("TUR").dayOfWeek()
             Text("WED").dayOfWeek()
@@ -126,10 +119,8 @@ struct CalendarPillView: View
         
     }
     
-    var calendarGrid: some View
-    {
-        VStack(spacing: 1)
-        {
+    var calendarGrid: some View {
+        VStack(spacing: 1) {
             
             let daysInMonth = CalendarHelper().daysInMonth(dateHolder.date)
             let firstDayOfMonth = CalendarHelper().firstOfMonth(dateHolder.date)
@@ -137,28 +128,17 @@ struct CalendarPillView: View
             let prevMonth = CalendarHelper().minusMonth(dateHolder.date)
             let daysInPrevMonth = CalendarHelper().daysInMonth(prevMonth)
             
-            ForEach(0..<6)
-            {
+            ForEach(0..<6) {
                 row in
-                
-                    HStack(spacing: 1)
-                    {
-                        
-                       
-                        
-                        ForEach(1..<8)
-                        {
+                    HStack(spacing: 1) {
+                        ForEach(1..<8) {
                             column in
                             let count = column + (row * 7)
-                            
                             CalendarCell(count: count, startingSpaces:startingSpaces, daysInMonth: daysInMonth, daysInPrevMonth: daysInPrevMonth)
                                 .environmentObject(dateHolder)
-                                
                             
                         }
-                        
                     }
-                
             }
         }
         .frame(maxHeight: .infinity)
@@ -172,10 +152,8 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-extension Text
-{
-    func dayOfWeek() -> some View
-    {
+extension Text {
+    func dayOfWeek() -> some View {
         self.frame(maxWidth: .infinity)
             .padding(.top, 1)
             .lineLimit(1)

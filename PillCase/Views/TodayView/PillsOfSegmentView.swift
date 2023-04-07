@@ -10,14 +10,12 @@ import SwiftUI
 struct PillsOfSegmentView: View {
     
     var viewModel: TodayViewModel
-    
     var pillsTimeOfDay: [Pill] = []
         
     var body: some View {
         
         ZStack {
-            
-            
+
             if pillsTimeOfDay.isEmpty {
                 
             } else if pillsTimeOfDay.count == 1 {
@@ -65,44 +63,42 @@ struct SinglePillView: View {
     var frameHeight: CGFloat
     var positionX: CGFloat
     var positionY: CGFloat
-
+    
     var body: some View {
-            VStack {
-                if let pillType = pillsTimeOfDay[i].type {
-                    Image(pillsTimeOfDay[i].type!)
-                        .resizable()
-                        .frame(width: frameWidth, height: frameHeight)
-                        .position(x: positionX, y: positionY)
-                        .scaleEffect(isAnimating ? 1.0 : 0.97)
-                        .shadow(radius: 12)
-                        .animation(Animation.easeInOut(duration: Double.random(in: 0.5...0.8))
-                                    .repeatForever(autoreverses: true)
-                                    .delay(Double.random(in: 0.01...0.1)), value: isAnimating)
-                        .onAppear {
-                            self.isAnimating = true
-                        }
-                        .gesture(
-                            LongPressGesture(minimumDuration: 0.6)
-                                               .updating($isLongPressed) { value, state, _ in
-                                                   state = value
-                                               }
-                                               .onEnded { _ in
-                                                   withAnimation(.easeInOut) {
-                                                       self.isAnimating = false
-                                                   }
-                                                   self.viewModel.delete(pillsTimeOfDay[i].id!)
-                                                   self.mainViewModel.creationReload()
-                                                   // Add a short haptic feedback
-                                                   let generator = UIImpactFeedbackGenerator(style: .medium)
-                                                               generator.impactOccurred()
-                                               }
-                                       )
-                } else {
-                    // handle the case where the pill type is nil
-                }
-               
-            }
+        VStack {
+            if pillsTimeOfDay[i].type != nil {
+                Image(pillsTimeOfDay[i].type!)
+                    .resizable()
+                    .frame(width: frameWidth, height: frameHeight)
+                    .position(x: positionX, y: positionY)
+                    .scaleEffect(isAnimating ? 1.0 : 0.97)
+                    .shadow(radius: 12)
+                    .animation(Animation.easeInOut(duration: Double.random(in: 0.5...0.8))
+                        .repeatForever(autoreverses: true)
+                        .delay(Double.random(in: 0.01...0.1)), value: isAnimating)
+                    .onAppear {
+                        self.isAnimating = true
+                    }
+                    .gesture(
+                        LongPressGesture(minimumDuration: 0.6)
+                            .updating($isLongPressed) { value, state, _ in
+                                state = value
+                            }
+                            .onEnded { _ in
+                                withAnimation(.easeInOut) {
+                                    self.isAnimating = false
+                                }
+                                self.viewModel.delete(pillsTimeOfDay[i].id!)
+                                self.mainViewModel.creationReload()
+                                // Add a short haptic feedback
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.impactOccurred()
+                            }
+                    )
+            } else {
+            } 
         }
     }
+}
 
 

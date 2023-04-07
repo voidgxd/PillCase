@@ -33,16 +33,11 @@ struct DetailDayView: View {
     var body: some View {
         VStack(spacing: 0){
             VStack {
-                
                 Divider()
                 DetailDayCardView(morningArray: morningArray, dayArray: dayArray, eveningArray: eveningArray, nightArray: nightArray, dateDay: viewModel.dateToInt(date), dateMonth: viewModel.getMonthName(from: date), dayOfTheWeek: viewModel.getDayOfWeek(from: date))
                 Divider()
-                
             }
             ZStack{
-           
-                
-                
                 ScrollView(showsIndicators: false){
                     if !morningArray.isEmpty {
                         DetalTimeOfTheDayView(timeOfTheDay: "Morning", headerColor: CustomColor.morning, pillListOfSegment: morningArray)
@@ -59,13 +54,9 @@ struct DetailDayView: View {
                     if !nightArray.isEmpty {
                         DetalTimeOfTheDayView(timeOfTheDay: "Night", headerColor: CustomColor.night, pillListOfSegment: nightArray)
                     }
-                    
                 }
-                
-
             }
             Divider()
-
             Spacer()
         }
         .background(CustomColor.backGroundColor)
@@ -83,8 +74,6 @@ struct DetalTimeOfTheDayView: View {
     var timeOfTheDay: String = " "
     var headerColor: Color = CustomColor.morning
     var pillListOfSegment: [Pill]
-    
-//    var colors: [Color] = [CustomColor.firstCourse, CustomColor.secondCourse, CustomColor.thirdCourse, CustomColor.fourthCourse]
     
     var body: some View {
         VStack {
@@ -117,39 +106,28 @@ struct DetalTimeOfTheDayView: View {
                                 }
                                 Text(pill.courseName ?? "")
                                     .font(.system(size: 18, weight: .semibold, design: .default))
-                                    
                                 Spacer()
                                 Text(String(pill.dose ?? ""))
                                     .font(.system(size: 16, weight: .light, design: .default))
                                     .frame(alignment: .trailing)
-                                    
+                                
                                 
                                 Text(pill.unit ?? "")
                                     .font(.system(size: 16, weight: .light, design: .default))
                                     .frame(alignment: .trailing)
-                                    
-                                
-                                
-                                
-                                
                             }
-                                
-                            }
-                            .font(.system(size: 14, weight: .light))
-                            .minimumScaleFactor(0.5)
-                            .lineLimit(1)
-                            .padding([.leading, .trailing], 4)
-                            
-                            
                         }
+                        .font(.system(size: 14, weight: .light))
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                        .padding([.leading, .trailing], 4)
+                    }
                     .padding(.top, 5.0)
                     .padding([.trailing, .leading],  8)
                 }
-                
             }
             .frame(width: 320, height: 165)
             .padding(15)
-            
         }
     }
 }

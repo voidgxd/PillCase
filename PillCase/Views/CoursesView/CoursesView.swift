@@ -9,25 +9,17 @@ import SwiftUI
 
 struct CoursesView: View {
     
-    @EnvironmentObject var todayViewModel: TodayViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     @EnvironmentObject var courseViewModel: CourseViewModel
     
     @State private var isShowingSideMenu = false
-    
-    
+
     var body: some View {
         NavigationStack {
-            
             ZStack{
-                //                Divider()
-                //                    .padding(.top, 20)
-                //                ScrollCurseView()
-                //                Spacer()
-                //                Divider()
-                
                 VStack(spacing: 0) {
                     VStack{
-                        ListCoursesView(viewModel: courseViewModel)
+                        ListCoursesView(viewModel: mainViewModel.courseViewModel)
                     }
                     Spacer()
                     Divider()
@@ -43,57 +35,51 @@ struct CoursesView: View {
                             .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
                             .animation(.easeInOut(duration: 0.3), value: isShowingSideMenu)
                             .frame(width: 200)
-                            
                     }
                 }
             }
-                
-        
             .background(CustomColor.backGroundColor)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
-                    .toolbarBackground(.visible, for: .navigationBar)
-                
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                isShowingSideMenu.toggle()
-                            } label: {
-                                Image(systemName: "list.bullet").foregroundColor(.white
-                                )
-                                .font(.system(size: 22, weight: .bold))
-                            }
-                        }
-                        ToolbarItem(placement: .principal) {
-                            HStack {
-                                
-                                Text("PillCase")
-                                  .font(.custom("Futura", size: 22))
-                                  .foregroundColor(Color.white)
-                                  .shadow(color: Color.black.opacity(0.5), radius: 4, x: 1, y: 1)
-                                  .shadow(color: Color.white.opacity(0.5), radius: 4, x: -1, y: -1)
-                            }
-                        }
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            NavigationLink(destination: NewCourseView(courseViewModel: courseViewModel)) {
-                                                        Image(systemName: "plus").foregroundColor(.white
-                                                        )
-                                                        .font(.system(size: 22, weight: .bold))
-                                                        .opacity(courseViewModel.isCoursesFull ? 0.2 : 1.0)
-                                                    }
-                            .disabled(courseViewModel.isCoursesFull)
-                        }
-                        
-                    }
-                    .onAppear{
-                        self.courseViewModel.objectWillChange.send()
-                    }
-                    .background(CustomColor.backGroundColor)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        isShowingSideMenu.toggle()
+                    } label: {
+                        Image(systemName: "list.bullet").foregroundColor(.white
+                        )
+                        .font(.system(size: 22, weight: .bold))
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        
+                        Text("PillCase")
+                            .font(.custom("Futura", size: 22))
+                            .foregroundColor(Color.white)
+                            .shadow(color: Color.black.opacity(0.5), radius: 4, x: 1, y: 1)
+                            .shadow(color: Color.white.opacity(0.5), radius: 4, x: -1, y: -1)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: NewCourseView(courseViewModel: mainViewModel.courseViewModel)) {
+                        Image(systemName: "plus").foregroundColor(.white
+                        )
+                        .font(.system(size: 22, weight: .bold))
+                        .opacity(courseViewModel.isCoursesFull ? 0.2 : 1.0)
+                    }
+                    .disabled(courseViewModel.isCoursesFull)
+                }
+            }
+            .onAppear{
+                self.mainViewModel.courseViewModel.objectWillChange.send()
+            }
+            .background(CustomColor.backGroundColor)
         }
         
     }
-    
 }
 
 struct CoursesView_Previews: PreviewProvider {

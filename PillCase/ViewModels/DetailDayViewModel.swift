@@ -10,9 +10,9 @@ import CoreData
 import SwiftUI
 
 class DetailDayViewModel: ObservableObject {
-
+    
     @Published var todayPills: [Pill] = []
-
+    
     @Published var morning: [Pill] = []
     @Published var day: [Pill] = []
     @Published var evening: [Pill] = []
@@ -39,8 +39,6 @@ class DetailDayViewModel: ObservableObject {
         return dateFormatter.string(from: date).capitalizingFirstLetter()
     }
     
-    
-    
     private let context: NSManagedObjectContext
     
     init(date: Date) {
@@ -48,7 +46,7 @@ class DetailDayViewModel: ObservableObject {
         fetchPills(for: date)
         sortPillsByTimeOfDay()
     }
-
+    
     func fetchPills(for date: Date) {
         do {
             let pills = try context.fetch(Pill.fetchRequest())
@@ -57,9 +55,8 @@ class DetailDayViewModel: ObservableObject {
             print("Failed to fetch pills: \(error)")
         }
     }
-
+    
     // Sorting by time of day.
-
     func sortPillsByTimeOfDay() {
         for pill in todayPills {
             switch pill.timeOfDay {

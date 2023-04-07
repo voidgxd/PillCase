@@ -11,27 +11,14 @@ import SwiftUI
 
 struct SegmentView: View {
     
-    
-    
     @State var color: Color
     @State var secondColor: Color
     @State var shadowColor: Color
     @State var degrees: Double
-    
-    enum timeOfday: Double {
-        case morning = 0.0
-        case day = 90.0
-        case evening = 180.0
-        case night = -90.0
-    }
 
-     
-    
     let letter: String
     var isEmpty: Bool
-    
-    
-    
+
     var body: some View {
         ZStack{
             Rectangle()
@@ -39,32 +26,18 @@ struct SegmentView: View {
                 .cornerRadius(40, corners: .topLeft)
                 .foregroundColor(color)
                 .overlay {
-//                    LetterView(color: color, shadowColor: shadowColor, letter: letter, degrees: degrees)
-                        
                 }
                 .rotationEffect(.degrees(degrees))
-                
-            
                 if isEmpty {
                     EmptyContainerView(secondColor: secondColor, shadowColor: shadowColor)
                 } else {
                     FilledContainerView(color: color,secondColor: secondColor, shadowColor: shadowColor)
                 }
-            
-            
         }
-        
     }
-    
-    // MARK: Subview for empty container
-    
-
-    
-
 }
 
 // MARK: Subview for not empty container
-// Решить какие цвета использовать и настроить тени
 struct FilledContainerView: View {
     let color: Color
     let secondColor: Color
@@ -85,7 +58,7 @@ struct FilledContainerView: View {
             }
     }
 }
-
+// MARK: Subview for empty container
 struct EmptyContainerView: View {
     let secondColor: Color
     let shadowColor: Color
@@ -103,14 +76,10 @@ struct EmptyContainerView: View {
                     .foregroundColor(secondColor)
                     .clipShape(RoundedRectangle(cornerRadius: 35))
             }
-            
     }
 }
 
-
-
-
-// MARK: Ext для закругленния отдельных углов
+// MARK: Extension для закругленния отдельных углов
 
 struct RoundedCorner: Shape {
     
@@ -130,7 +99,7 @@ extension View {
     }
 }
 
-// Extension для внутренних теней текста
+// MARK: Extension для внутренних теней текста
 
 extension Text {
     func innerShadow<V: View>(_ background: V, radius: CGFloat = 5, offsetX: CGFloat = 5, offsetY: CGFloat = 5, opacity: Double = 0.7) -> some View {

@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct CalendarCell: View
-{
+struct CalendarCell: View {
     @EnvironmentObject var dateHolder: DateHolder
     @EnvironmentObject var calendarViewModel: CalendarViewModel
     
@@ -16,9 +15,6 @@ struct CalendarCell: View
     let startingSpaces : Int
     let daysInMonth : Int
     let daysInPrevMonth : Int
-    
-    
-   
     
     var date: Date? {
         let monthStruct = self.monthStruct()
@@ -36,7 +32,6 @@ struct CalendarCell: View
         }
     }
     
-//    @State var calendarDay = CalendarDay(date: .now, morningPills: 0, dayPills: 0, eveningPills: 0, nightPills: 0, courses: [])
     
     var body: some View {
         
@@ -51,8 +46,6 @@ struct CalendarCell: View
                     
                         .frame(maxWidth: .infinity, maxHeight: 72)
                         .foregroundColor(CustomColor.backGroundColor)
-                    //                .shadow(color: .black.opacity(0.30), radius: 5, x: 9, y: 9)
-                    //                .shadow(color: .white.opacity(1),  radius: 4, x: -9, y: -9)
                         .overlay {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                 .fill (
@@ -69,33 +62,25 @@ struct CalendarCell: View
                             Text(monthStruct().day())
                                 .foregroundColor(textColor(type: monthStruct().monthType))
                                 .font(.system(size: 18, weight: .light, design: .rounded))
-                                
-                            
                                                         }
                         if calendarViewModel.isShowingCourses {
                          CourseDayCalendarView(calendarDay: calendarDay)
                         } else {
                             PillsDayView(morningNumberOfPills: calendarDay.morningPills, dayNumberofPills: calendarDay.dayPills, eveningNumberOfPills: calendarDay.eveningPills, nightNumberOfPills: calendarDay.nightPills)
-                            
                             }
-                        
                     }
                 }
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
         }
-     
-        
     }
-    func textColor(type: MonthType) -> Color
-    {
+    
+    func textColor(type: MonthType) -> Color {
         return type == MonthType.Current ? Color.black : Color.gray
     }
     
-    func monthStruct() -> MonthStruct
-    {
+    func monthStruct() -> MonthStruct {
         let start = startingSpaces == 0 ? startingSpaces + 7 : startingSpaces
         if(count <= start)
         {

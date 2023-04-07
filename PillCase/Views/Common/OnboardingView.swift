@@ -36,18 +36,17 @@ struct OnboardingView: View {
                     .font(.title)
                     .fontWeight(.semibold)
             }
-            .foregroundColor(.white)
-            .padding(10)
-            .background(CustomColor.morning)
-            .clipShape(Circle())
-            .padding(.trailing, 20)
-            .padding(.top, 50),
+                .foregroundColor(.white)
+                .padding(10)
+                .background(CustomColor.morning)
+                .clipShape(Circle())
+                .padding(.trailing, 20)
+                .padding(.top, 50),
             alignment: .topTrailing
             
         )
     }
 }
-
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
@@ -55,11 +54,29 @@ struct OnboardingView_Previews: PreviewProvider {
     }
 }
 
-struct OnboardingCardView: View {
+struct OnboardingPage: View {
+    let imageName: String
+    let color: Color
+    let title: String
+    let description: String
+    
     var body: some View {
-        ZStack {
+        VStack(spacing: 20) {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .padding()
             
+            Text(title)
+                .font(.title)
+                .fontWeight(.semibold)
+            Text(description)
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 20)
         }
-        .foregroundColor(CustomColor.morning)
     }
 }
+
+

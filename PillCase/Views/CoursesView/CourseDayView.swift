@@ -16,7 +16,6 @@ struct CourseDayView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
-            
                 .frame(width: 46, height: 46)
                 .foregroundColor(CustomColor.backGroundColor)
                 .shadow(color: .black.opacity(0.2), radius: 2, x:3, y: 3)
@@ -31,8 +30,6 @@ struct CourseDayView: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(CustomColor.morning)
                                 .opacity(morning ? 1.0 : 0)
-                                
-                            
                         }
                         HStack{
                             // day
@@ -40,8 +37,6 @@ struct CourseDayView: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(CustomColor.day)
                                 .opacity(day ? 1.0 : 0)
-                                
-                                
                         }
                     }
                     HStack(spacing: 2) {
@@ -61,11 +56,7 @@ struct CourseDayView: View {
                         }
                     }
                 }
-            
             }
-////            .clipShape(RoundedRectangle(cornerRadius: 12))
-//            .frame(width: 50, height: 50)
-            
         }
     }
 }

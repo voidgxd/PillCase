@@ -22,7 +22,6 @@ class CourseViewModel: ObservableObject {
         return courses.count > 3
     }
     
-    
     private let context: NSManagedObjectContext
     
     init() {
@@ -79,9 +78,6 @@ class CourseViewModel: ObservableObject {
                 }
         
                 let remainingDays = calculateRemainingDays(lastPillDate: lastPill.date!)
-//                let remainingDays = Calendar.current.dateComponents([.day], from: lastPill.date!, to: lastPill.date!.addingTimeInterval(Double(firstPill.douration)*24*60*60)).day! + 1
-                
-                //courseDouration here
                 
                 // Determine dose schedule
                 var morning = false
@@ -108,7 +104,6 @@ class CourseViewModel: ObservableObject {
                     night = true
                 }
                 
-                
                 // Create the course
                 let course = Course(courseColor: Int(firstPill.courseColor),
                                     courseName: courseName,
@@ -124,20 +119,18 @@ class CourseViewModel: ObservableObject {
                                     remainingDays: remainingDays,
                                     regimen: firstPill.regimen!,
                                     numberOfPills: numberOfPills,
-                                    douration: Int(firstPill.douration)
+                                    douration: Int(firstPill.duration)
                 )
                 
                 coursesArray.append(course)
             }
-            
-//                courses.removeAll()
                 courses = coursesArray
                 objectWillChange.send()
             
             notificationManager.scheduleNotification(for: pills)
             
-            print(courses)
-            print(pills)
+            debugPrint(courses)
+            debugPrint(pills)
         }
     }
     
@@ -163,21 +156,21 @@ class CourseViewModel: ObservableObject {
         for i in 0..<selectedCourseDuration+1 {
             switch selectedRegimen {
             case "every day":
-                createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every day", douration: selectedCourseDuration)
+                createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every day", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "every other day":
                 if i % 2 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every other day", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every other day", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "every 3 days":
                 if i % 3 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "every 3 days", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every 3 days", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             case "once a week":
                 if i % 7 == 0 {
-                    createPill(courseName: courseName, courseColor: colorInt, date: date, day: day, dose: dose, evening: evening, id: id, morning: morning, night: night, type: type, unit: unit, startDate: startDate, regimen: "once a week", douration: selectedCourseDuration)
+                    createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "once a week", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             default:
@@ -186,97 +179,47 @@ class CourseViewModel: ObservableObject {
         }
         fetchData()
         createCourses(from: pills)
-        print(courses)
+        debugPrint(courses)
     }
     
     
-    #warning("зарефакторить функцию")
-    func createPill(courseName: String, courseColor: Int, date: Date, day: Bool, dose: String, evening: Bool, id: UUID, morning: Bool, night: Bool, type: String, unit: String, startDate: Date, regimen: String, douration: Int) {
+    func createPill(
+        courseName: String,
+        courseColor: Int,
+        date: Date,
+        dose: String,
+        id: UUID = UUID(),
+        type: String,
+        unit: String,
+        startDate: Date,
+        regimen: String,
+        duration: Int,
+        morning: Bool,
+        day: Bool,
+        evening: Bool,
+        night: Bool
+    ) {
+        let timeOfDayOptions: [(String, Bool)] = [
+            ("morning", morning),
+            ("day", day),
+            ("evening", evening),
+            ("night", night)
+        ]
         
-        
-        
-        if morning {
+        for (timeOfDay, isSelected) in timeOfDayOptions where isSelected {
             let pill = Pill(context: context)
             pill.courseName = courseName
             pill.courseColor = Int16(courseColor)
             pill.date = date
-            pill.timeOfDay = "morning"
+            pill.timeOfDay = timeOfDay
             pill.dose = dose
-            pill.id = UUID()
+            pill.id = id
             pill.type = type
             pill.unit = unit
             pill.regimen = regimen
             pill.startDate = startDate
-            pill.douration = Int16(douration)
-            do {
-                try self.context.save()
-                DispatchQueue.main.async {
-                    self.pills.append(pill)
-                }
-            } catch {
-                print("Failed to save pill: \(error)")
-            }
-        }
-        
-        if day {
-            let pill = Pill(context: context)
-            pill.courseName = courseName
-            pill.courseColor = Int16(courseColor)
-            pill.date = date
-            pill.timeOfDay = "day"
-            pill.dose = dose
-            pill.id = UUID()
-            pill.type = type
-            pill.unit = unit
-            pill.regimen = regimen
-            pill.startDate = startDate
-            pill.douration = Int16(douration)
-            do {
-                try self.context.save()
-                DispatchQueue.main.async {
-                    self.pills.append(pill)
-                }
-            } catch {
-                print("Failed to save pill: \(error)")
-            }
-        }
-        
-        if evening {
-            let pill = Pill(context: context)
-            pill.courseName = courseName
-            pill.courseColor = Int16(courseColor)
-            pill.date = date
-            pill.timeOfDay = "evening"
-            pill.dose = dose
-            pill.id = UUID()
-            pill.type = type
-            pill.unit = unit
-            pill.regimen = regimen
-            pill.startDate = startDate
-            pill.douration = Int16(douration)
-            do {
-                try self.context.save()
-                DispatchQueue.main.async {
-                    self.pills.append(pill)
-                }
-            } catch {
-                print("Failed to save pill: \(error)")
-            }
-        }
-        
-        if night {
-            let pill = Pill(context: context)
-            pill.courseName = courseName
-            pill.courseColor = Int16(courseColor)
-            pill.date = date
-            pill.timeOfDay = "night"
-            pill.dose = dose
-            pill.id = UUID()
-            pill.type = type
-            pill.unit = unit
-            pill.regimen = regimen
-            pill.startDate = startDate
-            pill.douration = Int16(douration)
+            pill.duration = Int16(duration)
+            
             do {
                 try self.context.save()
                 DispatchQueue.main.async {
@@ -297,21 +240,10 @@ class CourseViewModel: ObservableObject {
                 context.delete(pillToDelete)
             }
             try context.save()
-            
-            
             courses.removeAll()
-            
-          
-          
-            
         } catch {
             print("Failed to delete pills: \(error)")
         }
-        
         createCourses(from: pills)
-        
-        
     }
-    
-   
 }

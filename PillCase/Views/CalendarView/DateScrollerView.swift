@@ -7,17 +7,13 @@
 
 import SwiftUI
 
-struct DateScrollerView: View
-{
+struct DateScrollerView: View {
     @EnvironmentObject var dateHolder: DateHolder
     
-    var body: some View
-    {
-        HStack
-        {
+    var body: some View {
+        HStack {
             Spacer()
-            Button(action: previousMonth)
-            {
+            Button(action: previousMonth) {
                 ZStack{
                     RoundedRectangle(cornerRadius: 23)
                         
@@ -43,19 +39,16 @@ struct DateScrollerView: View
                                 .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -4, y: -4))
                             )
                             .foregroundColor(CustomColor.backGroundColor)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            
+                            .clipShape(RoundedRectangle(cornerRadius: 16)) 
                     }
                 Text(CalendarHelper().monthYearString(dateHolder.date))
                     .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
                     .foregroundColor(.gray)
                     .animation(.none)
                     .frame(maxWidth: .infinity)
-                    
             }
             
-            Button(action: nextMonth)
-            {
+            Button(action: nextMonth) {
                 ZStack{
                     RoundedRectangle(cornerRadius: 23)
                         
