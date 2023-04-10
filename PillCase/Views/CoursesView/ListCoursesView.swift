@@ -25,7 +25,7 @@ struct ListCoursesView: View {
         } else {
             List {
                 ForEach(Array(viewModel.courses.enumerated()), id: \.element.id) { index, course in
-                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: course.remainingDays, pillType: Image(course.type), dose: stringToInt(course.dose) ?? 0, unitOfMeasurement: course.unit, sumNumberOfPills: course.numberOfPills, intervalOfMedication: course.regimen, morning: course.morning, day: course.day, evening: course.evening, night: course.night)
+                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: daysFromNow(to: course.endDate), pillType: Image(course.type), dose: stringToInt(course.dose) ?? 0, unitOfMeasurement: NSLocalizedString(course.unit, comment: ""), sumNumberOfPills: course.numberOfPills, intervalOfMedication:   NSLocalizedString(course.regimen, comment: ""), morning: course.morning, day: course.day, evening: course.evening, night: course.night)
                         .background(CustomColor.backGroundColor)
                         .listRowBackground(CustomColor.backGroundColor)
                         .listRowSeparator(.hidden)
@@ -60,8 +60,7 @@ struct CourseCardView: View {
     var duration: Int
     var daysLeft: Int
     var pillType: Image
-    @State var dose: Int
-//    @State var dose: String
+    var dose: Int
     var unitOfMeasurement: String
     var sumNumberOfPills: Int
     var intervalOfMedication: String
@@ -112,7 +111,8 @@ struct CourseCardView: View {
                                         .foregroundColor(.white)
                                 }
                             Circle()
-                                .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration+1))                                          .stroke(
+                                .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration))
+                                .stroke(
                                     color,
                                     lineWidth: 13)
                                 .frame(width: 59)
@@ -144,7 +144,7 @@ struct CourseCardView: View {
                             .foregroundColor(color)
                             
                             VStack(alignment: .leading, spacing: 1) {
-                                Text("^[\(dose) \(unitOfMeasurement)](inflect: true)")
+                                Text("\(dose) \(unitOfMeasurement)")
                                 Text("\(sumNumberOfPills) t.")
                                 Text(intervalOfMedication)
                             }

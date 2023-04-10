@@ -21,7 +21,7 @@ class CoreDataManager {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     })
-      print("its ok")
+      print("CoreData successfully loaded.")
     return container
   }()
 

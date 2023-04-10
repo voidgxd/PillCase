@@ -8,21 +8,27 @@
 import Foundation
 import SwiftUI
 
-//struct DoseUnits {
-//
-//    static let g: LocalizedStringKey = "g"
-//    static let mg = LocalizedStringKey("mg")
-//    static let mcg = LocalizedStringKey("mcg")
-//    static let l = LocalizedStringKey("L")
-//    static let ml = LocalizedStringKey("ml")
-//    static let oz = LocalizedStringKey("oz")
-//    static let iu = LocalizedStringKey("IU")
-//    static let tbsp = LocalizedStringKey("tbsp")
-//    static let tsp = LocalizedStringKey("tsp")
-//    static let drops = LocalizedStringKey("drops")
-//    static let sprays = LocalizedStringKey("sprays")
-//    static let pcs = LocalizedStringKey("pcs")
-//
-//}
+enum DoseUnits: String {
+
+    case g = "g"
+    case mg = "mg"
+    case mcg = "mcg"
+    case L = "L"
+    case ml = "ml"
+    case oz = "oz"
+    case IU = "IU"
+    case tbsp = "tbsp"
+    case tsp = "tsp"
+    case drops = "drp"
+    case sprays = "spra"
+    case pcs = "pcs"
+
+}
 
 
+enum RegimenOption: String {
+    case everyDay = "every day"
+    case everyOtherDay = "every other day"
+    case everyThreeDays = "every 3 days"
+    case onceAWeek = "once a week"
+}

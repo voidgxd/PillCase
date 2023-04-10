@@ -52,6 +52,18 @@ struct CalendarPillView: View {
                     isShowingSideMenu = false
                 }
             }
+            .gesture(
+                           DragGesture()
+                               .onEnded { gesture in
+                                   if gesture.translation.width < 0 || gesture.translation.height < 0 {
+                                       // Swiped to the left or down
+                                       self.nextMonth()
+                                   } else if gesture.translation.width > 0 || gesture.translation.height > 0 {
+                                       // Swiped to the left or up
+                                       self.previousMonth()
+                                   }
+                               }
+                       )
                 GeometryReader { _ in
                     HStack{
                         SideMenuView()
@@ -108,10 +120,11 @@ struct CalendarPillView: View {
             }
         }
     }
+    
     var dayOfWeekStack: some View {
         HStack(spacing: 1) {
             Text("MON").dayOfWeek()
-            Text("TUR").dayOfWeek()
+            Text("TUE").dayOfWeek()
             Text("WED").dayOfWeek()
             Text("THU").dayOfWeek()
             Text("FRI").dayOfWeek()
@@ -148,6 +161,16 @@ struct CalendarPillView: View {
         }
         .frame(maxHeight: .infinity)
     }
+    
+    public func previousMonth()
+     {
+         dateHolder.date = CalendarHelper().minusMonth(dateHolder.date)
+     }
+     
+     public func nextMonth()
+     {
+         dateHolder.date = CalendarHelper().plusMonth(dateHolder.date)
+     }
 }
 
 struct ContentView_Previews: PreviewProvider {

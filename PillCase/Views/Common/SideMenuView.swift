@@ -11,25 +11,35 @@ struct SideMenuView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                HStack {
-                    Image("sideMenuIcon")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    Text("PillCase")
-                }
-                .padding([.top, .leading], 10)
-                Divider()
+            VStack{
                 VStack(alignment: .leading) {
-                    Text("FOR FEEDBACK")
-                        .font(.system(size: 12, weight: .thin, design: .monospaced))
                     HStack {
-                        Image(systemName: "envelope.fill")
-                            .foregroundColor(CustomColor.navigationBarColor)
-                        Text("email@email.com")}
+                        Image("sideMenuIcon")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .shadow(radius: 3)
+                        Text("PillCase")
+                    }
+                    .padding([.top, .leading], 10)
+                    Divider()
+                    VStack(alignment: .leading) {
+                        Text("FOR FEEDBACK")
+                            .font(.system(size: 12, weight: .thin, design: .monospaced))
+                        HStack {
+                            Image(systemName: "envelope.fill")
+                                .foregroundColor(CustomColor.navigationBarColor)
+                            Text("email@email.com")}
+                    }
+                    .padding(10)
+                    Spacer()
+                    VStack{
+                        Divider()
+                        Text("Made with 🧡 by Max Mosalev")
+                            .font(.system(size: 10, weight: .thin, design: .monospaced))
+                        
+                    }
+                    .padding(.bottom, 10)
                 }
-                .padding(10)
-                Spacer()
             }
             .background(CustomColor.backGroundColor)
         }

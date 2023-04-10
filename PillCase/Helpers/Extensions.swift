@@ -41,8 +41,21 @@ extension DateComponents: Comparable {
     }
 }
 
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+
+
 extension PillCaseApp {
+//
     func deleteExpiredPills(context: NSManagedObjectContext) {
+        
+        print("deleteExpiredPills called")
+        
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         let calendar = Calendar.current
         let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())!
@@ -54,10 +67,10 @@ extension PillCaseApp {
         for pill in expiredPills ?? [] {
             context.delete(pill)
         }
-        print("Called")
+        
         try? context.save()
-        mainViewModel.todayViewModel.fetchTodayPills()
-        mainViewModel.deletingReload()
+//        mainViewModel.todayViewModel.fetchTodayPills()
+//        mainViewModel.deletingReload()
     }
 }
 

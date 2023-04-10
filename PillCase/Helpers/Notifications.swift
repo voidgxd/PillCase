@@ -15,7 +15,7 @@ class NotificationManager {
     private init() {}
     
     func requestAuthorization() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if let error = error {
                 print("Error requesting notification authorization: \(error.localizedDescription)")
             } else if granted {
@@ -27,6 +27,9 @@ class NotificationManager {
     }
     
     func scheduleNotification(for pills: [Pill]) {
+        
+        print("scheduleNotification called")
+        
         removeAllScheduledNotifications()
         let content = UNMutableNotificationContent()
         content.title = "Take your medicine:"
@@ -93,13 +96,13 @@ class NotificationManager {
                     if let error = error {
                         print("Error scheduling notification: \(error.localizedDescription)")
                     } else {
-                        print(request)
-                        print("Notification scheduled successfully: \(request.identifier)")
+//                        print(request)
+//                        print("Notification scheduled successfully: \(request.identifier)")
                     }
                 }
             }
         }
-        printAllScheduledNotifications()
+//        printAllScheduledNotifications()
     }
     
     func removeAllScheduledNotifications() {

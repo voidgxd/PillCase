@@ -33,3 +33,9 @@ public func getColor(colorInt :Int) -> Color {
 public func stringToInt(_ string: String) -> Int? {
     return Int(string)
 }
+
+public func daysFromNow(to date: Date) -> Int {
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.day], from: Date(), to: date)
+        return components.day ?? 0
+}

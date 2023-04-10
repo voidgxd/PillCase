@@ -25,6 +25,7 @@ class CourseViewModel: ObservableObject {
     private let context: NSManagedObjectContext
     
     init() {
+        print("CourseViewModel init")
         self.context = CoreDataManager.shared.context
         fetchData()
         createCourses(from: pills)
@@ -40,6 +41,7 @@ class CourseViewModel: ObservableObject {
     
     func createCourses(from pills: [Pill]){
         
+        print("createCourses called")
         
         var coursesArray = [Course]()
         var courseDict = [String: [Pill]]()
@@ -129,12 +131,14 @@ class CourseViewModel: ObservableObject {
             
             notificationManager.scheduleNotification(for: pills)
             
-            debugPrint(courses)
-            debugPrint(pills)
+//            debugPrint(courses)
+//            debugPrint(pills)
         }
     }
     
-    func createPillCourse(courseName: String, color: Color, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: String, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
+    func createPillCourse(courseName: String, color: Color, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: RegimenOption, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
+        
+        print("createPillCourse called")
         
         var colorInt = 0
         
@@ -155,20 +159,20 @@ class CourseViewModel: ObservableObject {
         var date = startDate
         for i in 0..<selectedCourseDuration+1 {
             switch selectedRegimen {
-            case "every day":
+            case .everyDay:
                 createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every day", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "every other day":
+            case .everyOtherDay:
                 if i % 2 == 0 {
                     createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every other day", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "every 3 days":
+            case .everyThreeDays:
                 if i % 3 == 0 {
                     createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "every 3 days", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            case "once a week":
+            case .onceAWeek:
                 if i % 7 == 0 {
                     createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "once a week", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
@@ -179,7 +183,7 @@ class CourseViewModel: ObservableObject {
         }
         fetchData()
         createCourses(from: pills)
-        debugPrint(courses)
+//        debugPrint(courses)
     }
     
     
@@ -199,6 +203,9 @@ class CourseViewModel: ObservableObject {
         evening: Bool,
         night: Bool
     ) {
+        
+        print ("createPill called")
+        
         let timeOfDayOptions: [(String, Bool)] = [
             ("morning", morning),
             ("day", day),
@@ -232,6 +239,9 @@ class CourseViewModel: ObservableObject {
     }
     
     func deleteCourse(forCourse courseName: String) {
+        
+        print("deleteCouse called")
+        
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "courseName = %@", courseName)
         do {

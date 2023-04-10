@@ -27,7 +27,6 @@ struct PillCaseApp: App {
                 .environment(\.managedObjectContext, coreDataManager.context)
                 .environmentObject(mainViewModel)
                 .onAppear {
-                    mainViewModel.todayViewModel.reload()
                     deleteExpiredPills(context: coreDataManager.context)
                     notificationManager.requestAuthorization()
                             }

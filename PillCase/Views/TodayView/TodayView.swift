@@ -135,15 +135,15 @@ struct TodayView: View {
                 }
             }
             .onAppear {
-                        todayViewModel.fetchTodayPills()
-                        todayViewModel.sortPillsByTimeOfDay()
+//                        todayViewModel.fetchTodayPills()
+//                        todayViewModel.sortPillsByTimeOfDay()
                     }
             .background(CustomColor.backGroundColor)
         }
         // #warning("check this")
-        .onReceive(todayViewModel.$todayPills) { _ in
-                        updateBadge()
-                    }
+//        .onReceive(todayViewModel.$todayPills) { _ in
+//                        updateBadge()
+//                    }
     }
     // and this
     func updateBadge() {

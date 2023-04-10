@@ -25,20 +25,20 @@ struct NewCourseView: View {
     @State var dose: String = ""
     
     let units = [
-        NSLocalizedString("g", comment: ""),
-        NSLocalizedString("mg", comment: ""),
-        NSLocalizedString("mcg", comment: ""),
-        NSLocalizedString("L", comment: ""),
-        NSLocalizedString("ml", comment: ""),
-        NSLocalizedString("oz", comment: ""),
-        NSLocalizedString("IU", comment: ""),
-        NSLocalizedString("tbsp", comment: ""),
-        NSLocalizedString("tsp", comment: ""),
-        NSLocalizedString("drop", comment: ""),
-        NSLocalizedString("sprays", comment: ""),
-        NSLocalizedString("pcs", comment: "")
+        DoseUnits.g,
+        DoseUnits.mg,
+        DoseUnits.mcg,
+        DoseUnits.L,
+        DoseUnits.ml,
+        DoseUnits.oz,
+        DoseUnits.IU,
+        DoseUnits.tbsp,
+        DoseUnits.tsp,
+        DoseUnits.drops,
+        DoseUnits.sprays,
+        DoseUnits.pcs,
     ]
-    @State var selectedUnit = "mg"
+    @State var selectedUnit = DoseUnits.mg
     
     
     @State var id = UUID()
@@ -52,8 +52,22 @@ struct NewCourseView: View {
     
     @State var selectedCourseDuration: Int = 14
     
-    let regimen = ["every day", "every other day", "every 3 days", "once a week"]
-    @State var selectedRegimen = "every day"
+//    let regimen = [
+//        NSLocalizedString("every day", comment: ""),
+//        NSLocalizedString("every other day", comment: ""),
+//        NSLocalizedString("every 3 days", comment: ""),
+//        NSLocalizedString("once a week", comment: ""),
+//        NSLocalizedString("every day", comment: "")
+//        ]
+//    @State var selectedRegimen = "every day"
+    
+    let regimen = [
+        RegimenOption.everyDay,
+        RegimenOption.everyOtherDay,
+        RegimenOption.everyThreeDays,
+        RegimenOption.onceAWeek
+    ]
+    @State var selectedRegimen = RegimenOption.everyDay
     
     @State var startDate: Date = .now
     
@@ -61,6 +75,8 @@ struct NewCourseView: View {
         !name.isEmpty && !dose.isEmpty && (morning || day || evening || night)
     }
     
+    
+
     var body: some View {
         NavigationStack {
             VStack{
@@ -70,7 +86,13 @@ struct NewCourseView: View {
                         TextField(text: $name) {
                             Text("Vitamin D")
                         }
+                        .onTapGesture {
+                            self.hideKeyboard()
+                        }
+                        
+                                    
                     }
+                   
                     Divider()
                     HStack(spacing: 5){
                         HStack(alignment: .center, spacing: 0){
@@ -137,12 +159,22 @@ struct NewCourseView: View {
                                         dose = filtered
                                     }
                                 }
-                            Picker("", selection: $selectedUnit) {
-                                ForEach(units, id: \.self) {
-                                    Text($0)
-                                        .foregroundColor(.black)
+                                .onTapGesture {
+                                    self.hideKeyboard()
+                                }
+                            
+                            Picker(selection: $selectedUnit, label: Text("")) {
+                                ForEach(units, id: \.self) { option in
+                                    Text(NSLocalizedString(option.rawValue, comment: ""))
                                 }
                             }
+                            
+//                            Picker("", selection: $selectedUnit) {
+//                                ForEach(units, id: \.self) {
+//                                    Text($0)
+//                                        .foregroundColor(.black)
+//                                }
+//                            }
                             .frame(width: 90, height: 20)
                             .pickerStyle(.menu)
                         }
@@ -181,9 +213,14 @@ struct NewCourseView: View {
                                 Text("\(number)")
                             }
                         }
-                        Picker("", selection: $selectedRegimen) {
-                            ForEach(regimen, id: \.self) {
-                                Text($0)
+//                        Picker("", selection: $selectedRegimen) {
+//                            ForEach(regimen, id: \.self) {
+//                                Text($0)
+//                            }
+//                        }
+                        Picker(selection: $selectedRegimen, label: Text("")) {
+                            ForEach(regimen, id: \.self) { option in
+                                Text(NSLocalizedString(option.rawValue, comment: ""))
                             }
                         }
                     }
@@ -201,7 +238,7 @@ struct NewCourseView: View {
                     Spacer()
                     Button("Create course") {
                         DispatchQueue.main.async {
-                            self.courseViewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
+                            self.courseViewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit.rawValue, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
                             self.mainViewModel.creationReload()
                             self.presentationMode.wrappedValue.dismiss() // dismiss the view
                         }

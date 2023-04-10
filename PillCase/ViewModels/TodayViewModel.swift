@@ -56,12 +56,16 @@ class TodayViewModel: ObservableObject {
     private let context: NSManagedObjectContext
 
      init() {
+         print("TodayViewModel init")
          self.context = CoreDataManager.shared.context
          fetchTodayPills()
          sortPillsByTimeOfDay()
      }
 
     func fetchTodayPills() {
+        
+        print("fetchTodayPills called")
+        
         morning.removeAll()
         day.removeAll()
         evening.removeAll()
@@ -77,6 +81,9 @@ class TodayViewModel: ObservableObject {
 
     // Sorting by time of day.
     func sortPillsByTimeOfDay() {
+        
+        print("sortPillsByTimeOfDay called")
+        
         for pill in todayPills {
                switch pill.timeOfDay {
                case "morning":
@@ -103,11 +110,16 @@ class TodayViewModel: ObservableObject {
     
     func reload() {
         
+        print("reload called")
+        
         fetchTodayPills()
         sortPillsByTimeOfDay()
     }
 
     public func delete(_ pillId: UUID) {
+        
+        print ("delete called")
+        
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %@", pillId.uuidString)
         do {

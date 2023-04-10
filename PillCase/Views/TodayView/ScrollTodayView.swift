@@ -21,7 +21,7 @@ struct ScrollTodayView: View {
                     Spacer()
                     // morning
                     if !viewModel.morning.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: "Morning", headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.morning, timeOfDay: NSLocalizedString("Morning", comment: ""), headersColor: CustomColor.morning, dateDay: dateDay, dateMonth: dateMonth, morningNumberOfPills: viewModel.morning.count)
                             .onChange(of: viewModel.morning, perform: { _ in
                                 
                                 print("On receive")
@@ -31,15 +31,15 @@ struct ScrollTodayView: View {
                     }
                     // day
                     if !viewModel.day.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.day, timeOfDay: "Day", headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: viewModel.day.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.day, timeOfDay: NSLocalizedString("Day", comment: ""), headersColor: CustomColor.day, dateDay: dateDay, dateMonth: dateMonth, dayNumberOfPills: viewModel.day.count)
                     }
                     //                // evening
                     if !viewModel.evening.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.evening, timeOfDay: "Evening", headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: viewModel.evening.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.evening, timeOfDay: NSLocalizedString("Evening", comment: ""), headersColor: CustomColor.evening, dateDay: dateDay, dateMonth: dateMonth, eveningNumberOfPills: viewModel.evening.count)
                     }
                     //                // night
                     if !viewModel.night.isEmpty {
-                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: "Night", headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
+                        TodayCardView(viewModel: viewModel, pillListOfSegment: viewModel.night, timeOfDay: NSLocalizedString("Night", comment: ""), headersColor: CustomColor.night, dateDay: dateDay, dateMonth: dateMonth, nightNumberOfPIlls: viewModel.night.count)
                     }
                     Spacer()
                 }
@@ -150,7 +150,7 @@ struct TodayCardView: View {
                                 .frame(alignment: .trailing)
                             
                             
-                            Text(pill.unit ?? "")
+                            Text(NSLocalizedString(pill.unit ?? "", comment: ""))
                                 .font(.system(size: 8, weight: .light, design: .default))
                                 .frame(alignment: .trailing)
                         }

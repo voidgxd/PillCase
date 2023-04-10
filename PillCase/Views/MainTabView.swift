@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    @Environment(\.scenePhase) var scenePhase
+    
     @EnvironmentObject var mainViewModel: MainViewModel
     
     let dateHolder = DateHolder()
@@ -41,13 +43,24 @@ struct MainTabView: View {
                         Text("Calendar")
                     }
             }
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    mainViewModel.updateData()
+                    print("Active")
+                } else if newPhase == .inactive {
+                    print("Inactive")
+                } else if newPhase == .background {
+                    print("Background")
+                }
+            }
             .onAppear {
-                            UIApplication.shared.applicationIconBadgeNumber = mainViewModel.todayViewModel.todayPills.count
-                mainViewModel.todayViewModel.fetchTodayPills()
+//                            UIApplication.shared.applicationIconBadgeNumber = mainViewModel.todayViewModel.todayPills.count
+                print("MainTabView onAppear")
                         }
             .tint(CustomColor.nightShadow)
         }
     }
+        
 }
     
     struct MainTabView_Previews: PreviewProvider {

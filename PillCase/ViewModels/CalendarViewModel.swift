@@ -33,6 +33,8 @@ class CalendarViewModel: ObservableObject {
     
     
     func getDayPill(date: Date) -> CalendarDay {
+        
+        print ("getDayPill called")
 
         var thisDayPills: [Pill] = []
         var morning: [Pill] = []
@@ -92,7 +94,7 @@ class CalendarViewModel: ObservableObject {
             nightPills: night.count,
             courses: courses
         )
-        debugPrint(calendarDay)
+//        debugPrint(calendarDay)
         return calendarDay
     }
 }

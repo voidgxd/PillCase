@@ -40,19 +40,19 @@ struct DetailDayView: View {
             ZStack{
                 ScrollView(showsIndicators: false){
                     if !morningArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Morning", headerColor: CustomColor.morning, pillListOfSegment: morningArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: NSLocalizedString("Morning", comment: ""), headerColor: CustomColor.morning, pillListOfSegment: morningArray)
                         Divider()
                     }
                     if !dayArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Day", headerColor: CustomColor.day, pillListOfSegment: dayArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: NSLocalizedString("Day", comment: ""), headerColor: CustomColor.day, pillListOfSegment: dayArray)
                         Divider()
                     }
                     if !eveningArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Evening", headerColor: CustomColor.evening, pillListOfSegment: eveningArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: NSLocalizedString("Evening", comment: ""), headerColor: CustomColor.evening, pillListOfSegment: eveningArray)
                         Divider()
                     }
                     if !nightArray.isEmpty {
-                        DetalTimeOfTheDayView(timeOfTheDay: "Night", headerColor: CustomColor.night, pillListOfSegment: nightArray)
+                        DetalTimeOfTheDayView(timeOfTheDay: NSLocalizedString("Night", comment: ""), headerColor: CustomColor.night, pillListOfSegment: nightArray)
                     }
                 }
             }
@@ -112,7 +112,7 @@ struct DetalTimeOfTheDayView: View {
                                     .frame(alignment: .trailing)
                                 
                                 
-                                Text(pill.unit ?? "")
+                                Text(NSLocalizedString(pill.unit ?? "", comment: ""))
                                     .font(.system(size: 16, weight: .light, design: .default))
                                     .frame(alignment: .trailing)
                             }

@@ -65,16 +65,16 @@ struct DateScrollerView: View {
             Spacer()
         }
     }
-    
-    func previousMonth()
-    {
-        dateHolder.date = CalendarHelper().minusMonth(dateHolder.date)
-    }
-    
-    func nextMonth()
-    {
-        dateHolder.date = CalendarHelper().plusMonth(dateHolder.date)
-    }
+    public func previousMonth()
+     {
+         dateHolder.date = CalendarHelper().minusMonth(dateHolder.date)
+     }
+     
+     public func nextMonth()
+     {
+         dateHolder.date = CalendarHelper().plusMonth(dateHolder.date)
+     }
+  
 }
 
 struct DateScrollerView_Previews: PreviewProvider {

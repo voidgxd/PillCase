@@ -1,33 +1,159 @@
-/* 
-  Localizable.strings
+/* No comment provided by engineer. */
+"%lld t." = "%lld р.";
+
+/* No comment provided by engineer. */
+"Add Course" = "Добавьте курс";
+
+/* No comment provided by engineer. */
+"Calendar" = "Календарь";
+
+/* No comment provided by engineer. */
+"Course duration and medication regimen" = "Длительность курса и режим приема";
+
+/* No comment provided by engineer. */
+"Course start date" = "Дата начала курса";
+
+/* No comment provided by engineer. */
+"Courses" = "Курсы";
+
+/* No comment provided by engineer. */
+"Create course" = "Создать курс";
+
+/* No comment provided by engineer. */
+"Day" = "День";
+
+/* No comment provided by engineer. */
+"Days left: " = "Дней осталось:";
+
+/* No comment provided by engineer. */
+"Days:" = "Дней:";
+
+/* No comment provided by engineer. */
+"Dose" = "Доза";
+
+/* (No Comment) */
+"drp" = "кап";
+
+/* No comment provided by engineer. */
+"Evening" = "Вечер";
+
+/* (No Comment) */
+"every 3 days" = "каждые 3 дня";
+
+/* (No Comment) */
+"every day" = "каждый день";
+
+/* (No Comment) */
+"every other day" = "через день";
+
+/* No comment provided by engineer. */
+"First day:" = "Первый день:";
+
+/* No comment provided by engineer. */
+"FOR FEEDBACK" = "ОБРАТНАЯ СВЯЗЬ";
+
+/* No comment provided by engineer. */
+"FRI" = "ПТ";
+
+/* Localizable.strings
   PillCase
 
-  Created by Максим Мосалёв on 07.04.2023.
-  
-*/
-"g" = "gs";
-"mg" = "mg";
-"mcg" = "mcg";
-"L" = "L";
-"ml" = "ml";
+  Created by Максим Мосалёв on 07.04.2023. */
+"g" = "г";
+
+/* No comment provided by engineer. */
+"IU" = "МЕ";
+
+/* (No Comment) */
+"L" = "Л";
+
+/* (No Comment) */
+"mcg" = "мкг";
+
+/* No comment provided by engineer. */
+"Medication time" = "Время приема";
+
+/* (No Comment) */
+"mg" = "мг";
+
+/* (No Comment) */
+"ml" = "мл";
+
+/* No comment provided by engineer. */
+"MON" = "ПН";
+
+/* No comment provided by engineer. */
+"Morning" = "Утро";
+
+/* No comment provided by engineer. */
+"New course" = "Новый курс";
+
+/* No comment provided by engineer. */
+"Night" = "Ночь";
+
+/* No comment provided by engineer. */
+"No medications" = "Нет приемов";
+
+/* (No Comment) */
+"onboardingPage1-description" = "Начните с добавление нового курса для отсеивания приема лекарства. Для этого нажмите кнопку + во вкладке Курсы.";
+
+/* (No Comment) */
+"onboardingPage1-title" = "Добро пожаловать в PillCase!";
+
+/* (No Comment) */
+"onboardingPage2-description" = "Вы можете настроить время приема, дозировку, длительность курса и др. Выберите изображение и цвет для удобного отсеивания курса.";
+
+/* (No Comment) */
+"onboardingPage2-title" = "Настраивайте ваши курсы";
+
+/* (No Comment) */
+"onboardingPage3-description" = "Удобное отслеживание курсов. Переключайте календарь в режим прогресса курсов или в отображение приема лекарств по времени суток.";
+
+/* (No Comment) */
+"onboardingPage3-title" = "Отслеживайте с помощью календаря";
+
+/* (No Comment) */
+"onboardingPage4-description" = "Отмечайте принятые лекарства с помощью касания с легким удержанием.";
+
+/* (No Comment) */
+"onboardingPage4-title" = "Принимите лекарство на Сегодня";
+
+/* (No Comment) */
+"once a week" = "раз в неделю";
+
+/* (No Comment) */
 "oz" = "oz";
-"tbsp" = "tbsp";
-"tsp" = "tsp";
-"drop" = "drop";
-"drops" = "drops";
-"sprays" = "sprays";
-"pcs" = "pcs";
 
-"every day" = "every day";
-"every other day" = "every other day";
-"every 3 days" = "every 3 days";
-"once a week" = "once a week";
+/* (No Comment) */
+"pcs" = "шт";
 
-"onboardingPage1-title" = "Welcome to PillCase";
-"onboardingPage1-description" = "Start by adding a new course of medication.To do this, use the + button in the Courses tab";
-"onboardingPage2-title" = "Set Up Your Course";
-"onboardingPage2-description" = "Customize your medication time, dosage, course duration, and more. Choose colors and icons for easy tracking.";
-"onboardingPage3-title" = "Track with a Сalendar";
-"onboardingPage3-description" = "Convenient tracking of your medications. Switch the calendar to track your courses progress or time of day.";
-"onboardingPage4-title" = "Take Your Medicine for Today";
-"onboardingPage4-description" = "Mark the taken medications by holding it.";
+/* No comment provided by engineer. */
+"SAT" = "СБ";
+
+/* (No Comment) */
+"spra" = "впрыск";
+
+/* No comment provided by engineer. */
+"SUN" = "ВС";
+
+/* (No Comment) */
+"tbsp" = "ст. л";
+
+/* No comment provided by engineer. */
+"THU" = "ЧТ";
+
+/* No comment provided by engineer. */
+"Today" = "Сегодня";
+
+/* (No Comment) */
+"tsp" = "ч. л";
+
+/* No comment provided by engineer. */
+"TUR" = "ВТ";
+
+/* No comment provided by engineer. */
+"Vitamin D" = "Витамин Д";
+
+/* No comment provided by engineer. */
+"WED" = "СР";
+

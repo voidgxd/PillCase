@@ -5,7 +5,7 @@
   Created by Максим Мосалёв on 07.04.2023.
   
 */
-"g" = "gs";
+"g" = "g";
 "mg" = "mg";
 "mcg" = "mcg";
 "L" = "L";
@@ -13,9 +13,8 @@
 "oz" = "oz";
 "tbsp" = "tbsp";
 "tsp" = "tsp";
-"drop" = "drop";
-"drops" = "drops";
-"sprays" = "sprays";
+"drp" = "drp";
+"spra" = "spra";
 "pcs" = "pcs";
 
 "every day" = "every day";
