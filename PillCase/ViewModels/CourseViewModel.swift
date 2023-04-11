@@ -63,6 +63,10 @@ class CourseViewModel: ObservableObject {
                     continue
                 }
                 
+                print(firstPill.date!)
+                print(lastPill.date!)
+                
+                print(daysFromNow(to: lastPill.date!))
                 // Calculate remaining number of days
                 
                 func calculateRemainingDays(lastPillDate: Date) -> Int {

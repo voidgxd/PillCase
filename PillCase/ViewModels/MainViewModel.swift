@@ -12,13 +12,14 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     
     
-    
     @Published var todayViewModel = TodayViewModel()
     @Published var courseViewModel = CourseViewModel()
     @Published var calendarViewModel = CalendarViewModel()
     
     @Published var pills: [Pill] = []
     @Published var todayPillsCount =  0
+    
+    
     
     func deletingReload() {
         todayViewModel.reload()
@@ -42,7 +43,26 @@ class MainViewModel: ObservableObject {
         getTodayPillsCount()
     }
      
-    
+//    func deleteExpiredPills(context: NSManagedObjectContext) {
+//
+//        print("deleteExpiredPills called")
+//
+//        let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
+//        let calendar = Calendar.current
+//        let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())!
+//        let predicate = NSPredicate(format: "date < %@", yesterday as NSDate)
+//        fetchRequest.predicate = predicate
+//
+//        let expiredPills = try? context.fetch(fetchRequest)
+//
+//        for pill in expiredPills ?? [] {
+//            context.delete(pill)
+//        }
+//
+//        try? context.save()
+////        mainViewModel.todayViewModel.fetchTodayPills()
+////        mainViewModel.deletingReload()
+//    }
     
 //    func checkOldPills() {
 //        let calendar = Calendar(identifier: .gregorian)

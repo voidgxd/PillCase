@@ -25,7 +25,7 @@ struct ListCoursesView: View {
         } else {
             List {
                 ForEach(Array(viewModel.courses.enumerated()), id: \.element.id) { index, course in
-                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: daysFromNow(to: course.endDate), pillType: Image(course.type), dose: stringToInt(course.dose) ?? 0, unitOfMeasurement: NSLocalizedString(course.unit, comment: ""), sumNumberOfPills: course.numberOfPills, intervalOfMedication:   NSLocalizedString(course.regimen, comment: ""), morning: course.morning, day: course.day, evening: course.evening, night: course.night)
+                    CourseCardView(color: colors[course.courseColor], name: course.courseName, duration: course.douration, daysLeft: daysBetweenDates(.now, course.endDate), pillType: Image(course.type), dose: stringToInt(course.dose) ?? 0, unitOfMeasurement: NSLocalizedString(course.unit, comment: ""), sumNumberOfPills: course.numberOfPills, intervalOfMedication:   NSLocalizedString(course.regimen, comment: ""), morning: course.morning, day: course.day, evening: course.evening, night: course.night)
                         .background(CustomColor.backGroundColor)
                         .listRowBackground(CustomColor.backGroundColor)
                         .listRowSeparator(.hidden)
@@ -111,7 +111,7 @@ struct CourseCardView: View {
                                         .foregroundColor(.white)
                                 }
                             Circle()
-                                .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration))
+                                .trim(from: 0, to: CGFloat(daysLeft)/CGFloat(duration+1))
                                 .stroke(
                                     color,
                                     lineWidth: 13)

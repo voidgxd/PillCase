@@ -12,7 +12,7 @@ import UIKit
 @main
 struct PillCaseApp: App {
 
-    
+    @Environment(\.scenePhase) var scenePhase
     let coreDataManager = CoreDataManager.shared
     let notificationManager = NotificationManager.shared
     let mainViewModel = MainViewModel()
@@ -26,8 +26,13 @@ struct PillCaseApp: App {
             MainTabView()
                 .environment(\.managedObjectContext, coreDataManager.context)
                 .environmentObject(mainViewModel)
+                .onChange(of: scenePhase) { newPhase in
+                    if newPhase == .active {
+                        deleteExpiredPills(context: coreDataManager.context)
+                        print("Active Main")
+                    }
+                }
                 .onAppear {
-                    deleteExpiredPills(context: coreDataManager.context)
                     notificationManager.requestAuthorization()
                             }
 
