@@ -40,10 +40,15 @@ public func daysFromNow(to date: Date) -> Int {
         return components.day ?? 0
 }
 
+
 public func daysBetweenDates(_ startDate: Date, _ endDate: Date) -> Int {
     let calendar = Calendar.current
     let startOfStartDate = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: startDate)!
     let startOfEndDate = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: endDate)!
     let components = calendar.dateComponents([.day], from: startOfStartDate, to: startOfEndDate)
-    return (components.day ?? 0) + 1
+    if let days = components.day {
+        return days + 1
+    } else {
+        return 0
+    }
 }

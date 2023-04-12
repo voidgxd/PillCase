@@ -43,7 +43,13 @@ class CalendarViewModel: ObservableObject {
         var night: [Pill] = []
 
         // Filter pills by date
-        thisDayPills = pills.filter { Calendar.current.isDate($0.date!, inSameDayAs: date) }
+        thisDayPills = pills.filter {
+            if let pillDate = $0.date {
+                return Calendar.current.isDate(pillDate, inSameDayAs: date)
+            } else {
+                return false
+            }
+        }
 
         // Sort pills by time of day
         for pill in thisDayPills {

@@ -95,13 +95,13 @@
 "No medications" = "Нет приемов";
 
 /* (No Comment) */
-"onboardingPage1-description" = "Начните с добавление нового курса для отсеивания приема лекарства. Для этого нажмите кнопку + во вкладке Курсы.";
+"onboardingPage1-description" = "Начните с добавление нового курса для отслеживания приема лекарства. Для этого нажмите кнопку + во вкладке Курсы. Удаление курса происходит по свайпу влево.";
 
 /* (No Comment) */
 "onboardingPage1-title" = "Добро пожаловать в PillCase!";
 
 /* (No Comment) */
-"onboardingPage2-description" = "Вы можете настроить время приема, дозировку, длительность курса и др. Выберите изображение и цвет для удобного отсеивания курса.";
+"onboardingPage2-description" = "Вы можете настроить время приема, дозировку, длительность курса и др. Выберите изображение и цвет для удобного отслеживания курса.";
 
 /* (No Comment) */
 "onboardingPage2-title" = "Настраивайте ваши курсы";
@@ -113,16 +113,16 @@
 "onboardingPage3-title" = "Отслеживайте с помощью календаря";
 
 /* (No Comment) */
-"onboardingPage4-description" = "Отмечайте принятые лекарства с помощью касания с легким удержанием.";
+"onboardingPage4-description" = "Отмечайте принятые лекарства легким удержанием пальца.";
 
 /* (No Comment) */
-"onboardingPage4-title" = "Принимите лекарство на Сегодня";
+"onboardingPage4-title" = "Примите лекарство на Сегодня";
 
 /* (No Comment) */
 "once a week" = "раз в неделю";
 
 /* (No Comment) */
-"oz" = "oz";
+"oz" = "унц";
 
 /* (No Comment) */
 "pcs" = "шт";
@@ -131,7 +131,7 @@
 "SAT" = "СБ";
 
 /* (No Comment) */
-"spra" = "впрыск";
+"spra" = "впрыс";
 
 /* No comment provided by engineer. */
 "SUN" = "ВС";
@@ -149,7 +149,7 @@
 "tsp" = "ч. л";
 
 /* No comment provided by engineer. */
-"TUR" = "ВТ";
+"TUE" = "ВТ";
 
 /* No comment provided by engineer. */
 "Vitamin D" = "Витамин Д";

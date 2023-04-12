@@ -40,9 +40,9 @@ struct OnboardingView: View {
                 .padding(10)
                 .background(CustomColor.morning)
                 .clipShape(Circle())
-                .padding(.trailing, 20)
-                .padding(.top, 50),
-            alignment: .topTrailing
+                .padding(.leading, 20)
+                .padding(.top, 20),
+            alignment: .topLeading
             
         )
     }
@@ -61,20 +61,28 @@ struct OnboardingPage: View {
     let description: String
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 5) {
             Image(imageName)
                 .resizable()
+                .minimumScaleFactor(0.5)
                 .scaledToFit()
                 .padding()
             
             Text(title)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
+                .padding(5)
             Text(description)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 20)
+                .minimumScaleFactor(0.5)
+                .lineLimit(3)
+                .padding(5)
+            Spacer()
         }
     }
 }

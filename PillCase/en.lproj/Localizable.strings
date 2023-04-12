@@ -22,11 +22,11 @@
 "every 3 days" = "every 3 days";
 "once a week" = "once a week";
 
-"onboardingPage1-title" = "Welcome to PillCase";
-"onboardingPage1-description" = "Start by adding a new course of medication.To do this, use the + button in the Courses tab";
-"onboardingPage2-title" = "Set Up Your Course";
-"onboardingPage2-description" = "Customize your medication time, dosage, course duration, and more. Choose colors and icons for easy tracking.";
-"onboardingPage3-title" = "Track with a Сalendar";
-"onboardingPage3-description" = "Convenient tracking of your medications. Switch the calendar to track your courses progress or time of day.";
-"onboardingPage4-title" = "Take Your Medicine for Today";
-"onboardingPage4-description" = "Mark the taken medications by holding it.";
+"onboardingPage1-title" = "Welcome to PillCase!";
+"onboardingPage1-description" = "Start by adding a new course of medication. To do this, click the + button in the Courses tab. You can delete a course by swiping left.";
+"onboardingPage2-title" = "Customize your Course";
+"onboardingPage2-description" = "Set up your medication time, dosage, course duration, and more. Choose colors and icons for easy tracking.";
+"onboardingPage3-title" = "Track your Medications";
+"onboardingPage3-description" = "Track your medications conveniently with the calendar. Switch between progress view or time of day view.";
+"onboardingPage4-title" = "Take your medications for Today";
+"onboardingPage4-description" = "Mark the medications you have taken by holding your finger on them.";

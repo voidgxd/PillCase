@@ -19,7 +19,7 @@ struct NewCourseView: View {
     
     @State var selectedColor: Color = CustomColor.thirdCourse
     
-    let pillsType = ["Pill1", "Pill2", "Pill3", "Pill4", "RoundPill1", "RoundPill2", "RoundPill3", "RoundPill4", "RoundPillHalf1", "RoundPillHalf2", "Syringe", "Powder"]
+    let pillsType = ["Pill1", "Pill2", "Pill3", "Pill4", "RoundPill1", "RoundPill2", "RoundPill3", "RoundPill4", "RoundPillHalf1", "RoundPillHalf2", "Syringe", "Powder", "Spray", "Drop"]
     @State var selectedPillType = "Pill4"
     
     @State var dose: String = ""
@@ -168,7 +168,6 @@ struct NewCourseView: View {
                                     Text(NSLocalizedString(option.rawValue, comment: ""))
                                 }
                             }
-                            
 //                            Picker("", selection: $selectedUnit) {
 //                                ForEach(units, id: \.self) {
 //                                    Text($0)
