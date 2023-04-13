@@ -28,7 +28,9 @@ struct SideMenuView: View {
                         HStack {
                             Image(systemName: "envelope.fill")
                                 .foregroundColor(CustomColor.navigationBarColor)
-                            Text("email@email.com")}
+                            Text("pillcaseapp@gmail.com")
+                                .font(.caption)
+                        }
                     }
                     .padding(10)
                     Spacer()

@@ -53,10 +53,6 @@ struct MainTabView: View {
                     print("Background")
                 }
             }
-            .onAppear {
-//                            UIApplication.shared.applicationIconBadgeNumber = mainViewModel.todayViewModel.todayPills.count
-                print("MainTabView onAppear")
-                        }
             .tint(CustomColor.nightShadow)
         }
     }

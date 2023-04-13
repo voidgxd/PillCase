@@ -69,8 +69,7 @@ extension PillCaseApp {
         }
         
         try? context.save()
-//        mainViewModel.todayViewModel.fetchTodayPills()
-//        mainViewModel.deletingReload()
+
     }
 }
 

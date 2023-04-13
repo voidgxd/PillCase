@@ -85,8 +85,7 @@ struct TodayView: View {
             }
                 GeometryReader { _ in
                     ZStack{
-                        
-                        
+        
                         HStack {
                             SideMenuView()
                                 .offset(x: isShowingSideMenu ? 0 : -UIScreen.main.bounds.width)
@@ -125,34 +124,19 @@ struct TodayView: View {
                         self.isShowingDetail = true
                     } label: {
                         
-                            Image(systemName: "pills.circle").foregroundColor(.white
-                            )
-                            .font(.system(size: 22, weight: .bold))
-                        }
+                        Image(systemName: "pills.circle").foregroundColor(.white
+                        )
+                        .font(.system(size: 22, weight: .bold))
+                    }
                     .sheet(isPresented: $isShowingDetail) {
                         DetailDayView(date: .now, viewModel: DetailDayViewModel(date: .now))
-                                    }
+                    }
                 }
             }
-            .onAppear {
-//                        todayViewModel.fetchTodayPills()
-//                        todayViewModel.sortPillsByTimeOfDay()
-                    }
             .background(CustomColor.backGroundColor)
         }
-        // #warning("check this")
-//        .onReceive(todayViewModel.$todayPills) { _ in
-//                        updateBadge()
-//                    }
     }
-    // and this
-    func updateBadge() {
-            UIApplication.shared.applicationIconBadgeNumber = todayViewModel.todayPills.count
-        }
 }
-
-
-
 
 struct Case_Previews: PreviewProvider {
     static var previews: some View {

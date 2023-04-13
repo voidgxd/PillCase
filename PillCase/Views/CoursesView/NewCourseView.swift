@@ -71,6 +71,8 @@ struct NewCourseView: View {
     
     @State var startDate: Date = .now
     
+    @State private var showingUniqeNameAlert = false
+    
     var isButtonActive: Bool {
         !name.isEmpty && !dose.isEmpty && (morning || day || evening || night)
     }
@@ -236,13 +238,20 @@ struct NewCourseView: View {
                 HStack{
                     Spacer()
                     Button("Create course") {
+                        if courseViewModel.isCourseNameUnique(name) {
                         DispatchQueue.main.async {
                             self.courseViewModel.createPillCourse(courseName: self.name, color: self.selectedColor, dose: self.dose, type: self.selectedPillType, unit: self.selectedUnit.rawValue, startDate: self.startDate, selectedCourseDuration: self.selectedCourseDuration, selectedRegimen: self.selectedRegimen, id: self.id, morning: self.morning, day: self.day, evening: self.evening, night: self.night)
                             self.mainViewModel.creationReload()
                             self.presentationMode.wrappedValue.dismiss() // dismiss the view
                         }
+                        } else {
+                            self.showingUniqeNameAlert = true
+                        }
                     }
                     .disabled(!isButtonActive)
+                    .alert(isPresented: $showingUniqeNameAlert) {
+                        Alert(title: Text("A course with the same name already exists"), message: Text("Please enter a different course name."), dismissButton: .default(Text("OK")))
+                    }
                     Spacer()
                 }
             }

@@ -28,7 +28,7 @@ class NotificationManager {
     
     func scheduleNotification(for pills: [Pill]) {
         
-        print("scheduleNotification called")
+        debugPrint("scheduleNotification called")
         
         removeAllScheduledNotifications()
         let content = UNMutableNotificationContent()
@@ -109,19 +109,19 @@ class NotificationManager {
             notificationCenter.removeAllPendingNotificationRequests()
         }
     
-    func printAllScheduledNotifications() {
-        notificationCenter.getPendingNotificationRequests { requests in
-            for request in requests {
-                print("Notification ID: \(request.identifier)")
-                print("Notification Title: \(request.content.title)")
-                print("Notification Body: \(request.content.body)")
-                if let trigger = request.trigger as? UNCalendarNotificationTrigger {
-                    let nextTriggerDate = trigger.nextTriggerDate()
-                    print("Notification Fire Date: \(nextTriggerDate)")
-                }
-                print("------------------------------")
-            }
-        }
-    }
+//    func printAllScheduledNotifications() {
+//        notificationCenter.getPendingNotificationRequests { requests in
+//            for request in requests {
+//                print("Notification ID: \(request.identifier)")
+//                print("Notification Title: \(request.content.title)")
+//                print("Notification Body: \(request.content.body)")
+//                if let trigger = request.trigger as? UNCalendarNotificationTrigger {
+//                    let nextTriggerDate = trigger.nextTriggerDate()
+//                    print("Notification Fire Date: \(nextTriggerDate)")
+//                }
+//                print("------------------------------")
+//            }
+//        }
+//    }
    
 }

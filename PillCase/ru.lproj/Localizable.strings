@@ -157,3 +157,8 @@
 /* No comment provided by engineer. */
 "WED" = "СР";
 
+/* No comment provided by engineer. */
+"A course with the same name already exists" = "Курс с таким названием уже существует";
+
+/* No comment provided by engineer. */
+"Please enter a different course name." = "Пожалуйста, введите другое название курса.";

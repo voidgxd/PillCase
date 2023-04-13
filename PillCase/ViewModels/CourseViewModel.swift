@@ -41,7 +41,7 @@ class CourseViewModel: ObservableObject {
     
     func createCourses(from pills: [Pill]){
         
-        print("createCourses called")
+        debugPrint("createCourses called")
         
         var coursesArray = [Course]()
         var courseDict = [String: [Pill]]()
@@ -142,7 +142,7 @@ class CourseViewModel: ObservableObject {
     
     func createPillCourse(courseName: String, color: Color, dose: String, type: String, unit: String, startDate: Date, selectedCourseDuration: Int, selectedRegimen: RegimenOption, id: UUID, morning: Bool, day: Bool, evening: Bool, night: Bool) {
         
-        print("createPillCourse called")
+        debugPrint("createPillCourse called")
         
         var colorInt = 0
         
@@ -181,8 +181,6 @@ class CourseViewModel: ObservableObject {
                     createPill(courseName: courseName, courseColor: colorInt, date: date, dose: dose, type: type, unit: unit, startDate: startDate, regimen: "once a week", duration: selectedCourseDuration, morning: morning, day: day, evening: evening, night: night)
                 }
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-            default:
-                break
             }
         }
         fetchData()
@@ -208,7 +206,7 @@ class CourseViewModel: ObservableObject {
         night: Bool
     ) {
         
-        print ("createPill called")
+        debugPrint ("createPill called")
         
         let timeOfDayOptions: [(String, Bool)] = [
             ("morning", morning),
@@ -244,7 +242,7 @@ class CourseViewModel: ObservableObject {
     
     func deleteCourse(forCourse courseName: String) {
         
-        print("deleteCouse called")
+        debugPrint("deleteCouse called")
         
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "courseName = %@", courseName)
@@ -259,5 +257,14 @@ class CourseViewModel: ObservableObject {
             print("Failed to delete pills: \(error)")
         }
         createCourses(from: pills)
+    }
+    
+    func isCourseNameUnique(_ courseName: String) -> Bool {
+        for course in courses {
+            if course.courseName == courseName {
+                return false
+            }
+        }
+        return true
     }
 }
