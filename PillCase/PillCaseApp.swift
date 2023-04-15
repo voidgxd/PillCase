@@ -16,8 +16,6 @@ struct PillCaseApp: App {
     let coreDataManager = CoreDataManager.shared
     let notificationManager = NotificationManager.shared
     let mainViewModel = MainViewModel()
-
-    
     
     
     var body: some Scene {
@@ -34,6 +32,7 @@ struct PillCaseApp: App {
                 }
                 .onAppear {
                     notificationManager.requestAuthorization()
+                    mainViewModel.calculateZoomScale()
                             }
 
         }

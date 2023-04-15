@@ -76,6 +76,7 @@ struct CalendarPillView: View {
             
             
             }
+            
             .background(CustomColor.backGroundColor)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(CustomColor.navigationBarColor, for: .navigationBar)
@@ -119,6 +120,7 @@ struct CalendarPillView: View {
                 }
             }
         }
+        
     }
     
     var dayOfWeekStack: some View {
@@ -160,6 +162,7 @@ struct CalendarPillView: View {
             }
         }
         .frame(maxHeight: .infinity)
+        
     }
     
     public func previousMonth()

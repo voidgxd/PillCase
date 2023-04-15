@@ -50,4 +50,14 @@ public func daysBetweenDates(_ startDate: Date, _ endDate: Date) -> Int {
     } else {
         return 0
     }
+    
+    
+   func calculateZoomScale() -> CGFloat{
+        print(UIScreen.main.scale)
+        print(UIScreen.main.nativeScale)
+        var result = UIScreen.main.nativeScale/UIScreen.main.scale
+        print(result)
+        return result
+    }
+    
 }

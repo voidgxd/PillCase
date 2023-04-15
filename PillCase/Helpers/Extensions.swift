@@ -46,6 +46,8 @@ extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    
+    
 }
 #endif
 
@@ -71,5 +73,53 @@ extension PillCaseApp {
         try? context.save()
 
     }
+
 }
 
+extension UIScreen {
+    static var isZoomed: Bool {
+        UIScreen.main.scale < UIScreen.main.nativeScale
+    }
+    
+    static func calculateZoomScale() -> CGFloat {
+        let scale = UIScreen.main.scale
+        let nativeScale = UIScreen.main.nativeScale
+        return scale / nativeScale
+    }
+
+}
+// For zoomed mode
+//extension CGFloat {
+//    func zoomed() {
+//        func scaled() -> CGFloat {
+//            if UIScreen.isZoomed {
+//                let scale = UIScreen.calculateZoomScale()
+//                return self * scale
+//            } else {
+//                return self
+//            }
+//        }
+//    }
+//}
+
+extension Int {
+    func scaled() -> Int {
+        if UIScreen.isZoomed {
+            let scale = UIScreen.calculateZoomScale()
+            return Int(Double(self) * scale)
+        } else {
+            return self
+        }
+    }
+}
+
+extension Double {
+    func scaled() -> Double {
+        if UIScreen.isZoomed {
+            let scale = UIScreen.calculateZoomScale()
+            return Double(Double(self) * scale)
+        } else {
+            return self
+        }
+    }
+}

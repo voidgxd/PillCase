@@ -44,7 +44,8 @@ struct ScrollTodayView: View {
                     Spacer()
                 }
             }
-            .frame(height: 180)
+            .frame(height: 180.scaled())
+            
             .background(CustomColor.backGroundColor)
             
             // all empty
@@ -80,22 +81,22 @@ struct TodayCardView: View {
     var body: some View {
         ZStack {
             ZStack{
-                RoundedRectangle(cornerRadius: 16)
-                    .frame(width: 120, height: 160)
+                RoundedRectangle(cornerRadius: 16.scaled())
+                    .frame(width: 120.scaled(), height: 160.scaled())
                     .shadow(color: .black.opacity(0.3), radius: 3, x: 4, y: 4)
                     .shadow(color: .white.opacity(0.99),  radius: 3, x: -4, y: -4)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 13, style: .continuous)
+                        RoundedRectangle(cornerRadius: 13.scaled(), style: .continuous)
                             .fill (
                                 .shadow(.inner(color: .white.opacity(0.10), radius: 20, x: 18, y: 8))
                             )
                             .foregroundColor(CustomColor.backGroundColor)
                     }
                 Rectangle()
-                    .frame(width: 120, height: 20)
+                    .frame(width: 120.scaled(), height: 20.scaled())
                     .cornerRadius(16, corners: [.topLeft, .topRight])
                     .foregroundColor(headersColor)
-                    .position(x: 60, y: 20)
+                    .position(x: 60.scaled(), y: 20.scaled())
             }
             
             VStack(alignment: .leading){
@@ -105,27 +106,28 @@ struct TodayCardView: View {
                     Text(timeOfDay)
                         .font(.system(size: 12, weight: .semibold, design: .default))
                         .foregroundColor(.white)
-                        .padding(.top, 4)
-                        .frame(height: 20, alignment: .center)
+                        .padding(.top, 4.scaled())
+                        .frame(height: 20.scaled(), alignment: .center)
                     HStack(spacing: 0) {
                         VStack(spacing: 0) {
                             Text(dateMonth)
-                                .font(.system(size: 8, weight: .semibold, design: .default))
+                                .font(.system(size: 8.scaled(), weight: .semibold, design: .default))
                                 .foregroundColor(.gray)
                                 .padding(0)
                             Text(String(dateDay))
                                 .font(.system(size: 36, weight: .medium, design: .default))
                         }
-                        .frame(width: 60)
+                        .frame(width: 60.scaled())
                         
                         PillsDayView(morningNumberOfPills: morningNumberOfPills, dayNumberofPills: dayNumberOfPills, eveningNumberOfPills: eveningNumberOfPills, nightNumberOfPills: nightNumberOfPIlls)
-                            .frame(width: 60)
+                            .frame(width: 60.scaled())
+                            .scaleEffect(UIScreen.isZoomed ? UIScreen.calculateZoomScale() : 1)
                     }
-                    .frame(height: 60)
+                    .frame(height: 60.scaled())
                     Spacer()
                 }
-                .padding(.top, 4)
-                .frame(height: 80)
+                .padding(.top, 4.scaled())
+                .frame(height: 80.scaled())
                 .layoutPriority(1)
                 
                 VStack(spacing: 0) {
@@ -135,11 +137,11 @@ struct TodayCardView: View {
                         HStack(spacing: 2) {
                             ZStack{
                                 Circle()
-                                    .frame(width: 16, height: 16)
+                                    .frame(width: 16.scaled(), height: 16.scaled())
                                     .foregroundColor(getColor(colorInt: Int(pill.courseColor)))
                                 Image(pill.type ?? "Pill1")
                                     .resizable()
-                                    .frame(width: 13, height: 13)
+                                    .frame(width: 13.scaled(), height: 13.scaled())
                             }
                             Text(pill.courseName ?? "")
                                 .font(.system(size: 10, weight: .semibold, design: .default))
@@ -157,16 +159,14 @@ struct TodayCardView: View {
                         .font(.system(size: 14, weight: .light))
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
-                        .padding([.leading, .trailing], 4)
+                        .padding([.leading, .trailing], 4.scaled())
                     }
-                    .padding(.top, 2)
+                    .padding(.top, 2.scaled())
                     Spacer()
                 }
-                .frame(maxWidth: 120, minHeight: 80, maxHeight: 80)
-                
+                .frame(maxWidth: 120.scaled(), minHeight: 80.scaled(), maxHeight: 80.scaled())
             }
-            .frame(width: 120, height: 160)
-            
+            .frame(width: 120.scaled(), height: 160.scaled())
         }
     }
 }

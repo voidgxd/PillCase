@@ -42,7 +42,9 @@ struct MainTabView: View {
                         
                         Text("Calendar")
                     }
+                    
             }
+            
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
                     mainViewModel.updateData()

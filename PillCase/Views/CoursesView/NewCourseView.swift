@@ -105,12 +105,13 @@ struct NewCourseView: View {
                                     Image($0)
                                         .resizable()
                                         .frame(width: 35, height: 35)
-                                        .scaleEffect(x: 5)
+                                        .scaleEffect(x: 2)
+                                        
                                 }
                             }
                             .pickerStyle(.wheel)
                             .labelsHidden()
-                            .scaleEffect(x: 0.2)
+                            .scaleEffect(x: 0.5)
                             .frame(width: 80, height: 90)
                             .clipped()
                             .compositingGroup()
@@ -123,13 +124,13 @@ struct NewCourseView: View {
                                     color
                                         .frame(width: 30, height: 30)
                                         .cornerRadius(20)
-                                        .scaleEffect(x: 5)
+                                        .scaleEffect(x: 2)
                                 }
                             }
                             .pickerStyle(.wheel)
                             .labelsHidden()
                             
-                            .scaleEffect(x: 0.2)
+                            .scaleEffect(x: 0.5)
                             .frame(width: 80, height: 90)
                             .clipped()
                             .compositingGroup()

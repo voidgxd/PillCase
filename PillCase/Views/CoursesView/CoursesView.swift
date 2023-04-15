@@ -20,6 +20,7 @@ struct CoursesView: View {
                 VStack(spacing: 0) {
                     VStack{
                         ListCoursesView(viewModel: mainViewModel.courseViewModel)
+                        
                     }
                     Spacer()
                     Divider()

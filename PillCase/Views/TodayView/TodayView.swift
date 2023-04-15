@@ -19,11 +19,15 @@ struct TodayView: View {
         NavigationStack {
             ZStack {
             VStack {
-                Divider()
-                    .padding(.top, 20)
-                ScrollTodayView(viewModel: todayViewModel, dateDay: todayViewModel.dateToInt(.now), dateMonth: todayViewModel.getMonthName(from: .now))
-                Divider()
-                Spacer()
+                VStack{
+                    Divider()
+                        .padding(.top, 20)
+                    ScrollTodayView(viewModel: todayViewModel, dateDay: todayViewModel.dateToInt(.now), dateMonth: todayViewModel.getMonthName(from: .now))
+                    
+                    Divider()
+                    Spacer()
+                }
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 35)
                     
@@ -72,12 +76,18 @@ struct TodayView: View {
                         }
                     }
                 }
+                .scaleEffect(UIScreen.isZoomed ? UIScreen.calculateZoomScale() : 1)
                 .fixedSize(horizontal: false, vertical: false)
                 
-                Spacer()
-                Spacer()
-                Divider()
+                if UIScreen.isZoomed {
+                    
+                } else {
+                    Spacer()
+                    Spacer()
+                    Divider()
+                }
             }
+                
             .onTapGesture {
                 withAnimation {
                     isShowingSideMenu = false

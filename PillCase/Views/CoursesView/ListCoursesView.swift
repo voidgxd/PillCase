@@ -29,6 +29,7 @@ struct ListCoursesView: View {
                         .background(CustomColor.backGroundColor)
                         .listRowBackground(CustomColor.backGroundColor)
                         .listRowSeparator(.hidden)
+                        .scaleEffect(UIScreen.isZoomed ? UIScreen.calculateZoomScale() : 1)
                 }
                 .onDelete { indexSet in
                     indexSet.forEach { index in
