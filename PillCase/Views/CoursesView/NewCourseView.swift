@@ -96,7 +96,7 @@ struct NewCourseView: View {
                     }
                    
                     Divider()
-                    HStack(spacing: 5){
+                    HStack(spacing: 5.scaled()){
                         HStack(alignment: .center, spacing: 0){
                             
                             Picker("", selection: $selectedPillType) {
@@ -104,7 +104,7 @@ struct NewCourseView: View {
                                     
                                     Image($0)
                                         .resizable()
-                                        .frame(width: 35, height: 35)
+                                        .frame(width: 35.scaled(), height: 35.scaled())
                                         .scaleEffect(x: 2)
                                         
                                 }
@@ -112,7 +112,7 @@ struct NewCourseView: View {
                             .pickerStyle(.wheel)
                             .labelsHidden()
                             .scaleEffect(x: 0.5)
-                            .frame(width: 80, height: 90)
+                            .frame(width: 80.scaled(), height: 90.scaled())
                             .clipped()
                             .compositingGroup()
                             .colorMultiply(.black)
@@ -122,8 +122,8 @@ struct NewCourseView: View {
                             Picker("", selection: $selectedColor) {
                                 ForEach(colors, id: \.self) { color in
                                     color
-                                        .frame(width: 30, height: 30)
-                                        .cornerRadius(20)
+                                        .frame(width: 30.scaled(), height: 30.scaled())
+                                        .cornerRadius(20.scaled())
                                         .scaleEffect(x: 2)
                                 }
                             }
@@ -131,7 +131,7 @@ struct NewCourseView: View {
                             .labelsHidden()
                             
                             .scaleEffect(x: 0.5)
-                            .frame(width: 80, height: 90)
+                            .frame(width: 80.scaled(), height: 90.scaled())
                             .clipped()
                             .compositingGroup()
                         }
@@ -140,16 +140,16 @@ struct NewCourseView: View {
                     Divider()
                     ZStack() {
                         Circle()
-                            .frame(width: 42)
+                            .frame(width: 42.scaled())
                             .foregroundColor(selectedColor)
                         Image(selectedPillType)
                             .resizable()
-                            .frame(width: 32, height: 32)
+                            .frame(width: 32.scaled(), height: 32.scaled())
                     }
                 }
-                .padding([.leading, .trailing], 20)
+                .padding([.leading, .trailing], 20.scaled())
             }
-            .frame(maxHeight: 105)
+            .frame(maxHeight: 105.scaled())
             Form() {
                 Section(header : Text("Dose")){
                     VStack{
@@ -171,12 +171,6 @@ struct NewCourseView: View {
                                     Text(NSLocalizedString(option.rawValue, comment: ""))
                                 }
                             }
-//                            Picker("", selection: $selectedUnit) {
-//                                ForEach(units, id: \.self) {
-//                                    Text($0)
-//                                        .foregroundColor(.black)
-//                                }
-//                            }
                             .frame(width: 90, height: 20)
                             .pickerStyle(.menu)
                         }
