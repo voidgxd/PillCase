@@ -48,11 +48,11 @@ struct MainTabView: View {
             .onChange(of: scenePhase) { newPhase in
                 if newPhase == .active {
                     mainViewModel.updateData()
-                    print("Active")
+                    debugPrint("Active")
                 } else if newPhase == .inactive {
-                    print("Inactive")
+                    debugPrint("Inactive")
                 } else if newPhase == .background {
-                    print("Background")
+                    debugPrint("Background")
                 }
             }
             .tint(CustomColor.nightShadow)
@@ -63,9 +63,7 @@ struct MainTabView: View {
     
     struct MainTabView_Previews: PreviewProvider {
         static var previews: some View {
-            MainTabView().environmentObject(MainViewModel())
-            
-            
+            MainTabView().environmentObject(MainViewModel()) 
         }
     }
 

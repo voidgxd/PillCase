@@ -15,34 +15,35 @@ struct DateScrollerView: View {
             Spacer()
             Button(action: previousMonth) {
                 ZStack{
-                    RoundedRectangle(cornerRadius: 23)
+                    RoundedRectangle(cornerRadius: 23.scaled())
                         
-                        .frame(width: 46, height: 46)
+                        .frame(width: 46.scaled(), height: 46.scaled())
                         .foregroundColor(CustomColor.backGroundColor)
-                        .shadow(color: .black.opacity(0.2), radius: 3, x:4, y: 4)
-                        .shadow(color: .white.opacity(0.8),  radius: 2, x: -3, y: -3)
+                        .shadow(color: .black.opacity(0.2), radius: 3.scaled(), x:4.scaled(), y: 4.scaled())
+                        .shadow(color: .white.opacity(0.8),  radius: 2.scaled(), x: -3.scaled(), y: -3.scaled())
                     Image(systemName: "arrow.left")
-                        .imageScale(.large)
-                        .font(Font.title.weight(.bold))
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 36.scaled(), height: 36.scaled())
                         .foregroundColor(CustomColor.navigationBarColor)
                 }
             }
             ZStack {
-                RoundedRectangle(cornerRadius: 16)
+                RoundedRectangle(cornerRadius: 16.scaled())
                 
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(CustomColor.backGroundColor)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        RoundedRectangle(cornerRadius: 16.scaled(), style: .continuous)
                             .fill (
-                                .shadow(.inner(color:.black.opacity(0.45),radius: 2, x: 2, y: 2))
-                                .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -4, y: -4))
+                                .shadow(.inner(color:.black.opacity(0.45),radius: 2.scaled(), x: 2.scaled(), y: 2.scaled()))
+                                .shadow(.inner(color: .white.opacity(0.60), radius: 2.scaled(), x: -4.scaled(), y: -4.scaled()))
                             )
                             .foregroundColor(CustomColor.backGroundColor)
-                            .clipShape(RoundedRectangle(cornerRadius: 16)) 
+                            .clipShape(RoundedRectangle(cornerRadius: 16.scaled()))
                     }
                 Text(CalendarHelper().monthYearString(dateHolder.date))
-                    .font(.system(size: 28, weight: .ultraLight, design: .monospaced))
+                    .font(.system(size: 28.scaled(), weight: .ultraLight, design: .monospaced))
                     .foregroundColor(.gray)
                     .animation(.none)
                     .frame(maxWidth: .infinity)
@@ -50,15 +51,16 @@ struct DateScrollerView: View {
             
             Button(action: nextMonth) {
                 ZStack{
-                    RoundedRectangle(cornerRadius: 23)
+                    RoundedRectangle(cornerRadius: 23.scaled())
                         
-                        .frame(width: 46, height: 46)
+                        .frame(width: 46.scaled(), height: 46.scaled())
                         .foregroundColor(CustomColor.backGroundColor)
-                        .shadow(color: .black.opacity(0.2), radius: 3, x:4, y: 4)
-                        .shadow(color: .white.opacity(0.8),  radius: 2, x: -3, y: -3)
+                        .shadow(color: .black.opacity(0.2), radius: 3.scaled(), x:4.scaled(), y: 4.scaled())
+                        .shadow(color: .white.opacity(0.8),  radius: 2.scaled(), x: -3.scaled(), y: -3.scaled())
                     Image(systemName: "arrow.right")
-                        .imageScale(.large)
-                        .font(Font.title.weight(.bold))
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 36.scaled(), height: 36.scaled())
                         .foregroundColor(CustomColor.navigationBarColor)
                 }
             }

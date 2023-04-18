@@ -25,4 +25,3 @@ struct Course: Identifiable {
     let numberOfPills: Int
     let douration: Int
 }
-

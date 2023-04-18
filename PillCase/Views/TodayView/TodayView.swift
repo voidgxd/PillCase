@@ -25,9 +25,9 @@ struct TodayView: View {
                     ScrollTodayView(viewModel: todayViewModel, dateDay: todayViewModel.dateToInt(.now), dateMonth: todayViewModel.getMonthName(from: .now))
                     
                     Divider()
-                    Spacer()
+                    
                 }
-                
+                Spacer()
                 ZStack {
                     RoundedRectangle(cornerRadius: 35)
                     
@@ -83,7 +83,7 @@ struct TodayView: View {
                     
                 } else {
                     Spacer()
-                    Spacer()
+                    
                     Divider()
                 }
             }

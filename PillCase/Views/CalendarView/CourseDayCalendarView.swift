@@ -45,6 +45,6 @@ struct CourseDayCalendarView: View {
 
 struct CourseDayCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDayCalendarView(calendarDay: CalendarDay(date: .now, morningPills: 2, dayPills: 2, eveningPills: 2, nightPills: 2, courses: [CalendarDay.CalendarCourse(courseName: "Ebala", coursePillType: "Pill1", courseColor: CustomColor.thirdCourse)]))
+        CourseDayCalendarView(calendarDay: CalendarDay(date: .now, morningPills: 2, dayPills: 2, eveningPills: 2, nightPills: 2, courses: [CalendarDay.CalendarCourse(courseName: "eee", coursePillType: "Pill1", courseColor: CustomColor.thirdCourse)]))
     }
 }

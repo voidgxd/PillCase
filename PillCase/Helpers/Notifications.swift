@@ -32,7 +32,7 @@ class NotificationManager {
         
         removeAllScheduledNotifications()
         let content = UNMutableNotificationContent()
-        content.title = "Take your medicine:"
+        content.title = NSLocalizedString("notification-title", comment: "")
         content.sound = .default
         
         let calendar = Calendar.current

@@ -30,3 +30,5 @@
 "onboardingPage3-description" = "Track your medications conveniently with the calendar. Switch between progress view or time of day view.";
 "onboardingPage4-title" = "Take your medications for Today";
 "onboardingPage4-description" = "Mark the medications you have taken by holding your finger on them.";
+
+"notification-title" = "Take your medicine:";

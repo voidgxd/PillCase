@@ -23,7 +23,11 @@ struct CoursesView: View {
                         
                     }
                     Spacer()
-                    Divider()
+                    if UIScreen.isZoomed {
+                        
+                    } else {
+                        Divider()
+                    }
                 }
                 .onTapGesture {
                     withAnimation {

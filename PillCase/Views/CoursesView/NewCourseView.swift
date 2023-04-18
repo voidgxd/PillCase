@@ -52,15 +52,6 @@ struct NewCourseView: View {
     
     @State var selectedCourseDuration: Int = 14
     
-//    let regimen = [
-//        NSLocalizedString("every day", comment: ""),
-//        NSLocalizedString("every other day", comment: ""),
-//        NSLocalizedString("every 3 days", comment: ""),
-//        NSLocalizedString("once a week", comment: ""),
-//        NSLocalizedString("every day", comment: "")
-//        ]
-//    @State var selectedRegimen = "every day"
-    
     let regimen = [
         RegimenOption.everyDay,
         RegimenOption.everyOtherDay,
@@ -209,11 +200,6 @@ struct NewCourseView: View {
                                 Text("\(number)")
                             }
                         }
-//                        Picker("", selection: $selectedRegimen) {
-//                            ForEach(regimen, id: \.self) {
-//                                Text($0)
-//                            }
-//                        }
                         Picker(selection: $selectedRegimen, label: Text("")) {
                             ForEach(regimen, id: \.self) { option in
                                 Text(NSLocalizedString(option.rawValue, comment: ""))

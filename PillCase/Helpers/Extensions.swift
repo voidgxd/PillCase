@@ -56,7 +56,7 @@ extension PillCaseApp {
 //
     func deleteExpiredPills(context: NSManagedObjectContext) {
         
-        print("deleteExpiredPills called")
+        debugPrint("deleteExpiredPills called")
         
         let fetchRequest: NSFetchRequest<Pill> = Pill.fetchRequest()
         let calendar = Calendar.current
@@ -76,6 +76,25 @@ extension PillCaseApp {
 
 }
 
+// MARK: Extension для внутренних теней текста
+extension Text {
+    func innerShadow<V: View>(_ background: V, radius: CGFloat = 5, offsetX: CGFloat = 5, offsetY: CGFloat = 5, opacity: Double = 0.7) -> some View {
+        self
+            .foregroundColor(.clear)
+            .overlay (background.mask(self))
+            .overlay(
+                ZStack {
+                    self.foregroundColor(Color (white: 1 - opacity))
+                    self.foregroundColor(.white).blur(radius: radius).offset(x: offsetX, y: offsetY)
+                }
+                    .mask(self)
+                    .blendMode (.multiply)
+            )
+    }
+}
+
+// MARK: For zoomed mode
+
 extension UIScreen {
     static var isZoomed: Bool {
         UIScreen.main.scale < UIScreen.main.nativeScale
@@ -86,21 +105,8 @@ extension UIScreen {
         let nativeScale = UIScreen.main.nativeScale
         return scale / nativeScale
     }
-
+    
 }
-// For zoomed mode
-//extension CGFloat {
-//    func zoomed() {
-//        func scaled() -> CGFloat {
-//            if UIScreen.isZoomed {
-//                let scale = UIScreen.calculateZoomScale()
-//                return self * scale
-//            } else {
-//                return self
-//            }
-//        }
-//    }
-//}
 
 extension Int {
     func scaled() -> Int {
@@ -121,5 +127,25 @@ extension Double {
         } else {
             return self
         }
+    }
+}
+
+// MARK: Extension для закругленния отдельных углов
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
 }

@@ -27,12 +27,11 @@ struct PillCaseApp: App {
                 .onChange(of: scenePhase) { newPhase in
                     if newPhase == .active {
                         deleteExpiredPills(context: coreDataManager.context)
-                        print("Active Main")
+                        debugPrint("Active Main")
                     }
                 }
                 .onAppear {
                     notificationManager.requestAuthorization()
-                    mainViewModel.calculateZoomScale()
                             }
 
         }

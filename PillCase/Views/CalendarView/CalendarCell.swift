@@ -42,18 +42,18 @@ struct CalendarCell: View {
             VStack(alignment: .center, spacing: 0){
                 ZStack(alignment: .bottom){
                     
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 16.scaled())
                     
-                        .frame(maxWidth: .infinity, maxHeight: 72)
+                        .frame(maxWidth: .infinity, maxHeight: 72.scaled())
                         .foregroundColor(CustomColor.backGroundColor)
                         .overlay {
-                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            RoundedRectangle(cornerRadius: 16.scaled(), style: .continuous)
                                 .fill (
                                     .shadow(.inner(color:.black.opacity(0.45),radius: 2, x: 2, y: 2))
                                     .shadow(.inner(color: .white.opacity(0.60), radius: 2, x: -6, y: -6))
                                 )
                                 .foregroundColor(CustomColor.backGroundColor)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .clipShape(RoundedRectangle(cornerRadius: 16.scaled()))
                             
                         }
                     VStack(spacing: 0) {
@@ -61,12 +61,14 @@ struct CalendarCell: View {
                             
                             Text(monthStruct().day())
                                 .foregroundColor(textColor(type: monthStruct().monthType))
-                                .font(.system(size: 18, weight: .light, design: .rounded))
+                                .font(.system(size: UIScreen.isZoomed ? 12 : 18, weight: .light, design: .rounded))
                                                         }
                         if calendarViewModel.isShowingCourses {
                          CourseDayCalendarView(calendarDay: calendarDay)
+                                .scaleEffect(UIScreen.isZoomed ? UIScreen.calculateZoomScale() : 1)
                         } else {
                             PillsDayView(morningNumberOfPills: calendarDay.morningPills, dayNumberofPills: calendarDay.dayPills, eveningNumberOfPills: calendarDay.eveningPills, nightNumberOfPills: calendarDay.nightPills)
+                                .scaleEffect(UIScreen.isZoomed ? UIScreen.calculateZoomScale() : 1)
                             }
                     }
                 }

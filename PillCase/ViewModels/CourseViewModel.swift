@@ -257,6 +257,7 @@ class CourseViewModel: ObservableObject {
             print("Failed to delete pills: \(error)")
         }
         createCourses(from: pills)
+        
     }
     
     func isCourseNameUnique(_ courseName: String) -> Bool {

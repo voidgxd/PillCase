@@ -42,19 +42,4 @@ class MainViewModel: ObservableObject {
         todayViewModel.reload()
         getTodayPillsCount()
     }
-     
-    //MARK: Zoom
-    var isZoomed: Bool {
-        UIScreen.main.scale < UIScreen.main.nativeScale
-        
-    }
-    
-    func calculateZoomScale() -> CGFloat{
-         print(UIScreen.main.scale)
-         print(UIScreen.main.nativeScale)
-         var result = UIScreen.main.scale/UIScreen.main.nativeScale
-         print(result)
-         return result
-     }
-    
 }

@@ -17,35 +17,42 @@ struct CalendarPillView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-            VStack(spacing: 1) {
+            VStack(spacing: 1.scaled()) {
                 DateScrollerView()
                     .environmentObject(dateHolder)
                     .padding()
-                    .frame(height: 84)
-                
+                    .frame(height: UIScreen.isZoomed ? 50 : 84)
+                    
                 dayOfWeekStack
+                
                 ZStack {
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 16.scaled())
                     
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .foregroundColor(CustomColor.backGroundColor)
                         .overlay {
-                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            RoundedRectangle(cornerRadius: 16.scaled(), style: .continuous)
                                 .fill (
                                     .shadow(.inner(color:.black.opacity(0.45),radius: 1, x: 1, y: 1))
                                     .shadow(.inner(color: .white.opacity(0.60), radius: 1, x: -1, y: -1))
                                 )
                                 .foregroundColor(CustomColor.backGroundColor)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .clipShape(RoundedRectangle(cornerRadius: 16.scaled()))
                             
                         }
                     
                     calendarGrid
-                        .padding(.horizontal, 4)
-                        .padding(.vertical, 4)
+                    
+                        .padding(.horizontal, 4.scaled())
+                        .padding(.vertical, 4.scaled())
                 }
-                .padding(.horizontal, 1)
-                Divider()
+                
+                .padding(.horizontal, 1.scaled())
+                if UIScreen.isZoomed {
+                    
+                } else {
+                    Divider()
+                }
             }
             .onTapGesture {
                 withAnimation {
@@ -124,7 +131,7 @@ struct CalendarPillView: View {
     }
     
     var dayOfWeekStack: some View {
-        HStack(spacing: 1) {
+        HStack(spacing: 1.scaled()) {
             Text("MON").dayOfWeek()
             Text("TUE").dayOfWeek()
             Text("WED").dayOfWeek()
@@ -135,12 +142,12 @@ struct CalendarPillView: View {
             Text("SUN").dayOfWeek()
                 .foregroundColor(.red)
         }
-        .font(.system(size: 18, weight: .thin, design: .rounded))
+        .font(.system(size: 18.scaled(), weight: .thin, design: .rounded))
         
     }
     
     var calendarGrid: some View {
-        VStack(spacing: 1) {
+        VStack(spacing: 1.scaled()) {
             
             let daysInMonth = CalendarHelper().daysInMonth(dateHolder.date)
             let firstDayOfMonth = CalendarHelper().firstOfMonth(dateHolder.date)
@@ -150,7 +157,7 @@ struct CalendarPillView: View {
             
             ForEach(0..<6) {
                 row in
-                    HStack(spacing: 1) {
+                HStack(spacing: 1.scaled()) {
                         ForEach(1..<8) {
                             column in
                             let count = column + (row * 7)
@@ -186,7 +193,7 @@ struct ContentView_Previews: PreviewProvider {
 extension Text {
     func dayOfWeek() -> some View {
         self.frame(maxWidth: .infinity)
-            .padding(.top, 1)
+            .padding(.top, 1.scaled())
             .lineLimit(1)
     }
 }

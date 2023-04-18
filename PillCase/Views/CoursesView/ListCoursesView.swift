@@ -37,6 +37,7 @@ struct ListCoursesView: View {
                         viewModel.deleteCourse(forCourse: courseToDelete)
                         mainViewModel.todayViewModel.reload()
                         mainViewModel.calendarViewModel.fetchData()
+                        mainViewModel.getTodayPillsCount()
                     }
                 }
             }

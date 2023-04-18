@@ -79,44 +79,6 @@ struct EmptyContainerView: View {
     }
 }
 
-// MARK: Extension для закругленния отдельных углов
-
-struct RoundedCorner: Shape {
-    
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
-
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-}
-
-// MARK: Extension для внутренних теней текста
-
-extension Text {
-    func innerShadow<V: View>(_ background: V, radius: CGFloat = 5, offsetX: CGFloat = 5, offsetY: CGFloat = 5, opacity: Double = 0.7) -> some View {
-        self
-            .foregroundColor(.clear)
-            .overlay (background.mask(self))
-            .overlay(
-                ZStack {
-                    self.foregroundColor(Color (white: 1 - opacity))
-                    self.foregroundColor(.white).blur(radius: radius).offset(x: offsetX, y: offsetY)
-                }
-                    .mask(self)
-                    .blendMode (.multiply)
-            )
-    }
-}
-
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
         SegmentView(color: CustomColor.night, secondColor: CustomColor.nightSecond, shadowColor: CustomColor.night, degrees: 0, letter: "M", isEmpty: false)

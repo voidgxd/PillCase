@@ -29,7 +29,7 @@
 		AB6ED2AA2968C39E00910504 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6ED2A92968C39E00910504 /* TodayView.swift */; };
 		AB89FBC1297893180049AC4B /* MedicationTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC0297893180049AC4B /* MedicationTimeView.swift */; };
 		AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89FBC229789F230049AC4B /* MainTabView.swift */; };
-		AB8B67FE29E093E7007D106B /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8B67FD29E093E7007D106B /* Units.swift */; };
+		AB8B67FE29E093E7007D106B /* Units+Regimen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8B67FD29E093E7007D106B /* Units+Regimen.swift */; };
 		AB8B680A29E0B999007D106B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB8B680829E0B999007D106B /* Localizable.strings */; };
 		AB8E636B29A68E3500BC4F83 /* DetailDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */; };
 		AB8E636D29A68F5A00BC4F83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E636C29A68F5A00BC4F83 /* Extensions.swift */; };
@@ -74,7 +74,7 @@
 		AB6ED2A92968C39E00910504 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
 		AB89FBC0297893180049AC4B /* MedicationTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationTimeView.swift; sourceTree = "<group>"; };
 		AB89FBC229789F230049AC4B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		AB8B67FD29E093E7007D106B /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		AB8B67FD29E093E7007D106B /* Units+Regimen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Units+Regimen.swift"; sourceTree = "<group>"; };
 		AB8B680929E0B999007D106B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB8B680B29E0B99E007D106B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB8E636A29A68E3500BC4F83 /* DetailDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +141,7 @@
 				AB9E4D9829941C60007906FD /* PillModel.xcdatamodeld */,
 				AB314F3129AE777A00DB808D /* CourseModel.swift */,
 				AB4EFF1629C4AEC00092F560 /* CalendarDayModel.swift */,
+				ABF987BE29B65D3C004362F2 /* MonthStruct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,12 +210,14 @@
 		AB8B67FC29E083CC007D106B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				ABF987BA29B65CEF004362F2 /* DateHolder.swift */,
 				ABDB563B29954A9000D5D220 /* CoreDataManager.swift */,
+				ABF987B629B65C95004362F2 /* CalendarHelper.swift */,
 				ABFA9DCA29CCCB680069F136 /* Notifications.swift */,
 				AB9D4BE929CA30F40098AA8A /* Helper.swift */,
 				AB8E636C29A68F5A00BC4F83 /* Extensions.swift */,
 				ABBCCC15296CA32A0054127B /* CustomColors.swift */,
-				AB8B67FD29E093E7007D106B /* Units.swift */,
+				AB8B67FD29E093E7007D106B /* Units+Regimen.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,9 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				ABF987B429B65C68004362F2 /* CalendarCell.swift */,
-				ABF987B629B65C95004362F2 /* CalendarHelper.swift */,
-				ABF987BA29B65CEF004362F2 /* DateHolder.swift */,
-				ABF987BE29B65D3C004362F2 /* MonthStruct.swift */,
 				ABF987C229B65F71004362F2 /* CalendarPillView.swift */,
 				ABF987BC29B65D13004362F2 /* DateScrollerView.swift */,
 				AB4EFF1429C4A2E70092F560 /* CourseDayCalendarView.swift */,
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFA9DCB29CCCB680069F136 /* Notifications.swift in Sources */,
-				AB8B67FE29E093E7007D106B /* Units.swift in Sources */,
+				AB8B67FE29E093E7007D106B /* Units+Regimen.swift in Sources */,
 				AB6259F029D7346B00E4B2C9 /* OnboardingView.swift in Sources */,
 				AB89FBC329789F230049AC4B /* MainTabView.swift in Sources */,
 				AB4EFF1329C49D7A0092F560 /* CalendarViewModel.swift in Sources */,
