@@ -1,5 +1,5 @@
 # [PillCase](https://apps.apple.com/app/id6447700106)
-![PillCase](https://logos-download.com/wp-content/uploads/2016/06/Download_on_the_App_Store_logo.png)(https://apps.apple.com/app/id6447700106)
+[![PillCase](https://logos-download.com/wp-content/uploads/2016/06/Download_on_the_App_Store_logo.png)](https://apps.apple.com/app/id6447700106)
 ## SwiftUI, UIKit, Combine, MVVM, CoreData
 
 ### Разработал приложение виртуальной таблетницы с этапа идеи до реализации приложения в AppStore.
